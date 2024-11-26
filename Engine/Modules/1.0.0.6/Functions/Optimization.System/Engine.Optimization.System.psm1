@@ -492,7 +492,7 @@ Function Optimization_System_UI
 		BorderStyle    = 0
 		autoSizeMode   = 0
 		autoScroll     = $true
-		Padding        = "12,0,8,0"
+		Padding        = "12,12,8,0"
 		Dock           = 3
 		Location       = '0,0'
 	}
@@ -1414,6 +1414,12 @@ Function Optimization_System_UI
 		autoScroll     = $true
 		Padding        = "12,0,8,0"
 	}
+
+	$UI_Add_End_Wrap = New-Object system.Windows.Forms.Label -Property @{
+		Height         = 20
+		Width          = 410
+	}
+
 	$GUIScheduledTasks = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
@@ -1562,7 +1568,7 @@ Function Optimization_System_UI
 		Height         = 22
 		Width          = 460
 		Text           = "$($lang.Related)"
-		Location       = '530,5'
+		Location       = '530,15'
 		Checked        = $True
 		add_Click      = {
 			if ($UI_Main_Is_Other.Checked) {
@@ -1579,7 +1585,7 @@ Function Optimization_System_UI
 		autoSizeMode   = 0
 		autoScroll     = $true
 		Padding        = "18,0,8,0"
-		Location       = '530,30'
+		Location       = '530,45'
 	}
 	$UI_Main_Other_RDS = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
@@ -1604,7 +1610,7 @@ Function Optimization_System_UI
 		Height         = 22
 		Width          = 460
 		Text           = $lang.Cleanup
-		Location       = '530,160'
+		Location       = '530,175'
 		Checked        = $True
 		add_Click      = {
 			if ($UI_Main_Is_Clear.Checked) {
@@ -1615,13 +1621,13 @@ Function Optimization_System_UI
 		}
 	}
 	$UI_Main_Clear     = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
-		Height         = 110
+		Height         = 190
 		Width          = 460
 		BorderStyle    = 0
 		autoSizeMode   = 0
 		autoScroll     = $true
 		Padding        = "18,0,8,0"
-		Location       = '530,185'
+		Location       = '530,200'
 	}
 	$UI_Main_Clear_Send_To = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
@@ -1654,61 +1660,61 @@ Function Optimization_System_UI
 		Height         = 22
 		Width          = 460
 		Text           = $lang.AdvOption
-		Location       = '530,320'
+		Location       = '530,410'
 	}
 	$UI_Main_Adv       = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
-		Height         = 110
+		Height         = 140
 		Width          = 460
 		BorderStyle    = 0
 		autoSizeMode   = 0
 		autoScroll     = $true
 		Padding        = "16,0,8,0"
-		Location       = '530,342'
+		Location       = '530,440'
 	}
 	$UI_Main_Sync_To_All_User = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 35
 		Width          = 410
 		Text           = "$($lang.SyncAllUser)"
 		Checked        = $true
 	}
 	$UI_Main_Sync_To_TaskBar = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 35
 		Width          = 410
 		Text           = "$($lang.Reset) $($lang.TaskBar)"
 	}
 	$UI_Main_Reset_Desktop_Icon = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 35
 		Width          = 410
 		Text           = $lang.ResetDesk
 	}
 
 	$UI_Main_Error     = New-Object System.Windows.Forms.Label -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 458
 		Text           = ""
-		Location       = '530,530'
+		Location       = '530,600'
 	}
 	$UI_Main_Restore   = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "530,555"
+		Location       = "530,635"
 		Height         = 36
-		Width          = 458
+		Width          = 148
 		add_Click      = $UI_Main_Restore_Click
 		Text           = $lang.Restore
 	}
 	$UI_Main_OK        = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "530,595"
+		Location       = "684,635"
 		Height         = 36
-		Width          = 458
+		Width          = 148
 		Text           = $lang.OK
 		add_Click      = $UI_Main_OK_Click
 	}
 	$UI_Main_Canel     = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "530,635"
+		Location       = "839,635"
 		Height         = 36
-		Width          = 458
+		Width          = 148
 		Text           = $lang.Cancel
 		add_Click      = {
 			Write-Host "   $($lang.UserCancel)" -ForegroundColor Red
@@ -1750,7 +1756,8 @@ Function Optimization_System_UI
 		$GUIXboxGame,
 		$GUIXboxGamePanel,
 		$GUIPrivate,
-		$GUIPrivatePanel
+		$GUIPrivatePanel,
+		$UI_Add_End_Wrap
 	))
 
 	<#

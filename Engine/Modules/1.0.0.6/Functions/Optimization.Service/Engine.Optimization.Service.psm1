@@ -51,7 +51,7 @@ Function Optimization_Service_UI
 		FormBorderStyle = "Fixed3D"
 	}
 	$UI_Main_Menu      = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
-		Height         = 510
+		Height         = 575
 		Width          = 490
 		BorderStyle    = 0
 		autoSizeMode   = 0
@@ -61,7 +61,7 @@ Function Optimization_Service_UI
 	}
 	$GUIServerStatus   = New-Object System.Windows.Forms.CheckBox -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "11,520"
+		Location       = "11,590"
 		Height         = 36
 		Width          = 480
 		Text           = $lang.Status
@@ -69,9 +69,9 @@ Function Optimization_Service_UI
 	}
 	$GUIServerReset    = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "8,555"
+		Location       = "8,635"
 		Height         = 36
-		Width          = 515
+		Width          = 168
 		Text           = $lang.Enabled
 		add_Click      = {
 			$UI_Main.Hide()
@@ -94,9 +94,9 @@ Function Optimization_Service_UI
 	}
 	$UI_Main_OK        = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "8,595"
+		Location       = "181,635"
 		Height         = 36
-		Width          = 515
+		Width          = 168
 		Text           = $lang.Disable
 		add_Click      = {
 			$UI_Main.Hide()
@@ -119,9 +119,9 @@ Function Optimization_Service_UI
 	}
 	$UI_Main_Canel     = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "8,635"
+		Location       = "355,635"
 		Height         = 36
-		Width          = 515
+		Width          = 168
 		Text           = $lang.Cancel
 		add_Click      = {
 			Write-Host "   $($lang.UserCancel)" -ForegroundColor Red
