@@ -29,7 +29,7 @@
   	- PowerShell 5.1 或更高
 
   . 连接
-  	- https://github.com/ilikeyi/powershell.install.software
+  	- https://github.com/ilikeyi/Instl
 
   .用法
    -Config "D:\instl.json"     | 指定配置文件
@@ -69,7 +69,7 @@ $AuthorURL = "https://fengyi.tel"
 			Region = "en-US"
 			Link   = @(
 				"https://fengyi.tel/download/solutions/update/Instl/en-US/latest.json",
-				"https://github.com/ilikeyi/powershell.install.software/raw/main/Update/en-US/latest.json"
+				"https://github.com/ilikeyi/Instl/raw/main/update/en-US/latest.json"
 			)
 		}
 	)
@@ -81,35 +81,35 @@ $Update_Server = @(
 		Region = "en-US"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/en-US/latest.json",
-			"https://github.com/ilikeyi/powershell.install.software/raw/main/Update/en-US/latest.json"
+			"https://github.com/ilikeyi/Instl/raw/main/update/en-US/latest.json"
 		)
 	}
 	@{
 		Region = "zh-CN"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/zh-CN/latest.json"
-			"https://github.com/ilikeyi/powershell.install.software/raw/main/Update/zh-CN/latest.json"
+			"https://github.com/ilikeyi/Instl/raw/main/update/zh-CN/latest.json"
 		)
 	}
 	@{
 		Region = "zh-TW"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/zh-TW/latest.json"
-			"https://github.com/ilikeyi/powershell.install.software/raw/main/Update/zh-TW/latest.json"
+			"https://github.com/ilikeyi/Instl/raw/main/update/zh-TW/latest.json"
 		)
 	}
 	@{
 		Region = "ja-JP"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/ja-JP/latest.json"
-			"https://github.com/ilikeyi/powershell.install.software/raw/main/Update/ja-JP/latest.json"
+			"https://github.com/ilikeyi/Instl/raw/main/update/ja-JP/latest.json"
 		)
 	}
 	@{
 		Region = "ko-KR"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/ko-KR/latest.json"
-			"https://github.com/ilikeyi/powershell.install.software/raw/main/Update/ko-KR/latest.json"
+			"https://github.com/ilikeyi/Instl/raw/main/update/ko-KR/latest.json"
 		)
 	}
 )
