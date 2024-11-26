@@ -1,0 +1,16 @@
+{
+	"author": {
+		"name": "Yi",
+		"url":  "https://fengyi.tel"
+	},
+	"version": {
+		"buildstring": "1.0.0.6.bs_release.230429-1208",
+		"version":     "1.0.0.6",
+		"minau":       "1.0.0.0"
+	},
+	"changelog": {
+		"title": "Yi's Solutions - new autoupdate system",
+		"log":   "   - Latest *Update"
+	},
+	"url": "https://github.com/ilikeyi/YiSuite/raw/main/update/latest.zip"
+}
