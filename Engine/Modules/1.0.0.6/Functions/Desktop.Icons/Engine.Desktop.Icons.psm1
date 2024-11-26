@@ -16,7 +16,7 @@ Function Desktop
 		AutoScaleMode  = 2
 		Height         = 720
 		Width          = 550
-		Text           = $($lang.DeskIcon)
+		Text           = $lang.DeskIcon
 		MaximizeBox    = $False
 		StartPosition  = "CenterScreen"
 		MinimizeBox    = $false
@@ -36,39 +36,39 @@ Function Desktop
 	$GUIDesktopThisPC  = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 490
-		Text           = "$($lang.ThisPC)"
+		Text           = $lang.ThisPC
 		Checked        = $true
 	}
 	$GUIDesktopRecycleBin = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 490
-		Text           = "$($lang.RecycleBin)"
+		Text           = $lang.RecycleBin
 	}
 	$GUIDesktopUser    = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 490
-		Text           = "$($lang.User)"
+		Text           = $lang.User
 		Checked        = $true
 	}
 	$GUIDesktopControlPanel = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 490
-		Text           = "$($lang.ControlPanel)"
+		Text           = $lang.ControlPanel
 	}
 	$GUIDesktopNetwork = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 490
-		Text           = "$($lang.Network)"
+		Text           = $lang.Network
 	}
 	$GUIDesktopIE      = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 490
-		Text           = "$($lang.IE)"
+		Text           = $lang.IE
 	}
 	$GUIDesktopGodMode = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 490
-		Text           = "$($lang.GodMode)"
+		Text           = $lang.GodMode
 	}
 
 	<#

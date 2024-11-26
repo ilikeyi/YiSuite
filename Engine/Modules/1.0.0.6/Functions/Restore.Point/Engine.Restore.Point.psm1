@@ -21,7 +21,7 @@ Function Restore_Point_Create_UI
 		AutoScaleMode  = 2
 		Height         = 720
 		Width          = 550
-		Text           = $($lang.RestorePoint)
+		Text           = $lang.RestorePoint
 		MaximizeBox    = $False
 		StartPosition  = "CenterScreen"
 		MinimizeBox    = $false
@@ -31,7 +31,7 @@ Function Restore_Point_Create_UI
 	$UI_Main_Menu      = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
 		Width          = 508
-		Text           = "$($lang.RestorePointCreate)"
+		Text           = $lang.RestorePointCreate
 		Location       = "12,10"
 		Checked        = $true
 	}
