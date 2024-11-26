@@ -1015,10 +1015,12 @@ Function Install_Process
 				$OutAny = $_.fullname
 				break
 			}
+
 			Get-ChildItem -Path $OutTo -Filter "*$($filename)*" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
 				$OutAny = $_.fullname
 				break
 			}
+
 			Get-ChildItem -Path $OutTo -Filter "*$($packer)*" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
 				$OutAny = $_.fullname
 				break
@@ -1032,10 +1034,12 @@ Function Install_Process
 				$OutAny = $_.fullname
 				break
 			}
+
 			Get-ChildItem -Path $OutTo -Filter "*$($filename)*" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
 				$OutAny = $_.fullname
 				break
 			}
+
 			Get-ChildItem -Path $OutTo -Filter "*$($packer)*" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
 				$OutAny = $_.fullname
 				break
@@ -1727,7 +1731,7 @@ Function Update_Process
 		Write-Host "     $($lang.UpdateServerTestFailed)" -ForegroundColor Red
 		Write-Host "   $('-' * 80)"
 
-		$output = "$(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue)\Backup\$($Global:IsLang)\latest.json"
+		$output = Join-Path -Path $(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue) -ChildPath "Backup\$($Global:IsLang)\latest.json" -ErrorAction SilentlyContinue
 		Write-host "`n   $($lang.ConfigNot)" -ForegroundColor Yellow
 		Write-host "   $('-' * 80)"
 
@@ -2498,7 +2502,7 @@ if ($Language) {
 <#
 	.初始化默认配置文件
 #>
-$Script:Init_Config = "$(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue)\$($Global:IsLang)\latest.json"
+$Script:Init_Config = Join-Path -Path $(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue) -ChildPath "$($Global:IsLang)\latest.json" -ErrorAction SilentlyContinue
 
 Get_Architecture
 Setting_Init_Disk_Free
