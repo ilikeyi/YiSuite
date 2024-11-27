@@ -812,7 +812,7 @@ Function Test_Available_Disk
 
 		$RandomGuid = [guid]::NewGuid()
 		$test_tmp_filename = "writetest-$($RandomGuid)"
-		$test_filename = Join-Path -Path $Path -ChildPath $test_tmp_filename -ErrorAction SilentlyContinue
+		$test_filename = Join-Path -Path $Path -ChildPath $test_tmp_filename
 
 		[io.file]::OpenWrite($test_filename).close()
 
@@ -984,33 +984,33 @@ Function Install_Process
 		{
 			Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue | ForEach-Object {
 				$TempRootPath = $_.Root
-				$tempoutputfoldoer = Join-Path -Path $TempRootPath -ChildPath $structure -ErrorAction SilentlyContinue
+				$tempoutputfoldoer = Join-Path -Path $TempRootPath -ChildPath $structure
 
 				Get-ChildItem -Path $tempoutputfoldoer -Filter "*$($filename)*$((Get-Culture).Name)*" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
-					$OutTo = Join-Path -Path $TempRootPath -ChildPath $structure -ErrorAction SilentlyContinue
+					$OutTo = Join-Path -Path $TempRootPath -ChildPath $structure
 					$OutAny = $_.fullname
 					break
 				}
 
 				Get-ChildItem -Path $tempoutputfoldoer -Filter "*$($filename)*" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
-					$OutTo = Join-Path -Path $TempRootPath -ChildPath $structure -ErrorAction SilentlyContinue
+					$OutTo = Join-Path -Path $TempRootPath -ChildPath $structure
 					$OutAny = $_.fullname
 					break
 				}
 
 				Get-ChildItem -Path $tempoutputfoldoer -Filter "*$($packer)*" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
-					$OutTo = Join-Path -Path $TempRootPath -ChildPath $structure -ErrorAction SilentlyContinue
+					$OutTo = Join-Path -Path $TempRootPath -ChildPath $structure
 					$OutAny = $_.fullname
 					break
 				}
-				$OutTo = Join-Path -Path $Global:FreeDiskTo -ChildPath $structure -ErrorAction SilentlyContinue
-				$OutAny = Join-Path -Path $Global:FreeDiskTo -ChildPath "$($structure)\$($SaveToName)" -ErrorAction SilentlyContinue
+				$OutTo = Join-Path -Path $Global:FreeDiskTo -ChildPath $structure
+				$OutAny = Join-Path -Path $Global:FreeDiskTo -ChildPath "$($structure)\$($SaveToName)"
 			}
 		}
 		PSScriptRoot
 		{
-			$OutTo = Join-Path -Path $(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue) -ChildPath $structure -ErrorAction SilentlyContinue
-			$OutAny = Join-Path -Path $(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue) -ChildPath "$($structure)\$($SaveToName)" -ErrorAction SilentlyContinue
+			$OutTo = Join-Path -Path $(Convert-Path -Path $PSScriptRoot) -ChildPath $structure
+			$OutAny = Join-Path -Path $(Convert-Path -Path $PSScriptRoot) -ChildPath "$($structure)\$($SaveToName)"
 			Get-ChildItem -Path $OutTo -Filter "*$($filename)*$((Get-Culture).Name)*" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
 				$OutAny = $_.fullname
 				break
@@ -1028,8 +1028,8 @@ Function Install_Process
 		}
 		default
 		{
-			$OutTo = Join-Path -Path $todisk -ChildPath $structure -ErrorAction SilentlyContinue
-			$OutAny = Join-Path -Path $todisk -ChildPath "$($structure)\$($SaveToName)" -ErrorAction SilentlyContinue
+			$OutTo = Join-Path -Path $todisk -ChildPath $structure
+			$OutAny = Join-Path -Path $todisk -ChildPath "$($structure)\$($SaveToName)"
 			Get-ChildItem -Path $OutTo -Filter "*$($filename)*$((Get-Culture).Name)*" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
 				$OutAny = $_.fullname
 				break
@@ -1731,7 +1731,7 @@ Function Update_Process
 		Write-Host "     $($lang.UpdateServerTestFailed)" -ForegroundColor Red
 		Write-Host "   $('-' * 80)"
 
-		$output = Join-Path -Path $(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue) -ChildPath "Backup\$($Global:IsLang)\latest.json" -ErrorAction SilentlyContinue
+		$output = Join-Path -Path $(Convert-Path -Path $PSScriptRoot) -ChildPath "Backup\$($Global:IsLang)\latest.json"
 		Write-host "`n   $($lang.ConfigNot)" -ForegroundColor Yellow
 		Write-host "   $('-' * 80)"
 
@@ -2502,7 +2502,7 @@ if ($Language) {
 <#
 	.初始化默认配置文件
 #>
-$Script:Init_Config = Join-Path -Path $(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue) -ChildPath "$($Global:IsLang)\latest.json" -ErrorAction SilentlyContinue
+$Script:Init_Config = Join-Path -Path $(Convert-Path -Path $PSScriptRoot) -ChildPath "$($Global:IsLang)\latest.json"
 
 Get_Architecture
 Setting_Init_Disk_Free

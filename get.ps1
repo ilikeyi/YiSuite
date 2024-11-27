@@ -444,7 +444,7 @@ Function Test_Available_Disk
 
 		$RandomGuid = [guid]::NewGuid()
 		$test_tmp_filename = "writetest-$($RandomGuid)"
-		$test_filename = Join-Path -Path $Path -ChildPath $test_tmp_filename -ErrorAction SilentlyContinue
+		$test_filename = Join-Path -Path $Path -ChildPath $test_tmp_filename
 
 		[io.file]::OpenWrite($test_filename).close()
 
@@ -632,7 +632,7 @@ Function Installation_interface_UI
 
 			if ($FolderBrowser.ShowDialog() -eq "OK") {
 				if (Test_Available_Disk -Path $FolderBrowser.SelectedPath) {
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $FolderBrowser.SelectedPath -ChildPath $Default_directory_name -ErrorAction SilentlyContinue
+					$UI_Main_Save_To_Path.Text = Join-Path -Path $FolderBrowser.SelectedPath -ChildPath $Default_directory_name
 					Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value $UI_Main_Save_To_Path.Text -String
 				} else {
 					$UI_Main_Error.Text = $lang.FailedCreateFolder
@@ -722,7 +722,7 @@ Function Installation_interface_UI
 		$UI_Main_Save_To_Path.Text = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Author)\Suite\Get" -Name "InstlTo" -ErrorAction SilentlyContinue
 	} else {
 		$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDownload)
-		$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name -ErrorAction SilentlyContinue
+		$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
 	}
 
 	$UI_Main_Save_To_Restore = New-Object system.Windows.Forms.LinkLabel -Property @{
@@ -736,7 +736,7 @@ Function Installation_interface_UI
 		add_Click      = {
 			$UI_Main_Error.Text = ""
 
-			$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name -ErrorAction SilentlyContinue
+			$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
 			Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value $UI_Main_Save_To_Path.Text -String
 			$UI_Main_Error.Text = "$($lang.Restore), $($lang.Done)"
 		}
@@ -934,23 +934,23 @@ Function Installation_interface_UI
 			switch ($To) {
 				"AutoSelectDisk" {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDisk)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name -ErrorAction SilentlyContinue
+					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
 				}
 				"Desktop" {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDesktop)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name -ErrorAction SilentlyContinue
+					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
 				}
 				"Download" {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDownload)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name -ErrorAction SilentlyContinue
+					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
 				}
 				"Documents" {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDocuments)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name -ErrorAction SilentlyContinue
+					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
 				}
 				default {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDownload)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name -ErrorAction SilentlyContinue
+					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
 				}
 			}
 		}
@@ -1069,11 +1069,11 @@ Function Download_Process
 	Write-host "`n   $($lang.UpdateQueryingUpdate)"
 
 	$RandomGuid = [guid]::NewGuid()
-	$Temp_Main_Path = Join-Path -Path $env:TEMP -ChildPath $RandomGuid -ErrorAction SilentlyContinue
+	$Temp_Main_Path = Join-Path -Path $env:TEMP -ChildPath $RandomGuid
 	New-Item -Path $Temp_Main_Path -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 
 	$NewFileName = [IO.Path]::GetFileName($item)
-	$NewFilePath = Join-Path -Path $Temp_Main_Path -ChildPath $NewFileName -ErrorAction SilentlyContinue
+	$NewFilePath = Join-Path -Path $Temp_Main_Path -ChildPath $NewFileName
 
 	$error.Clear()
 	$time = Measure-Command { Invoke-WebRequest -Uri $PreServerVersion -OutFile $NewFilePath -TimeoutSec 15 -ErrorAction stop }
@@ -1103,7 +1103,7 @@ Function Download_Process
 				switch ($UI_Main_To.SelectedItem.Path) {
 					"Main" {
 						Write-host "   $($lang.Ok_Go_To_Main)" -ForegroundColor Yellow
-						$Solutions_PS = Join-Path -Path $UI_Main_Save_To_Path.Text -ChildPath "Engine.ps1" -ErrorAction SilentlyContinue
+						$Solutions_PS = Join-Path -Path $UI_Main_Save_To_Path.Text -ChildPath "Engine.ps1"
 						if (Test-Path -Path $Solutions_PS -PathType leaf) {
 							write-host "   $($lang.Done)" -ForegroundColor Green
 							Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($Solutions_PS)""" -NoNewWindow
@@ -1113,7 +1113,7 @@ Function Download_Process
 					}
 					"Upgrade" {
 						Write-host "   $($lang.OK_Go_To_Upgrade_package)" -ForegroundColor Yellow
-						$Solutions_PS = Join-Path -Path $UI_Main_Save_To_Path.Text -ChildPath "_Create.Upgrade.Package.ps1" -ErrorAction SilentlyContinue
+						$Solutions_PS = Join-Path -Path $UI_Main_Save_To_Path.Text -ChildPath "_Create.Upgrade.Package.ps1"
 						if (Test-Path -Path $Solutions_PS -PathType leaf) {
 							write-host "   $($lang.Done)" -ForegroundColor Green
 							Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($Solutions_PS)""" -NoNewWindow

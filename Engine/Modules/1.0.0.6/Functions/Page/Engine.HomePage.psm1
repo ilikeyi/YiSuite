@@ -36,7 +36,7 @@ Function Instl_Custom_Software_Config
 {
 	$DynamicInstl = "$($PSScriptRoot)\..\..\Instl\Instl.ps1"
 	if (Test-Path $DynamicInstl -PathType Leaf) {
-		$NewConfig = Join-Path -Path $(Convert-Path -Path "$($PSScriptRoot)\..\.." -ErrorAction SilentlyContinue) -ChildPath "langpacks\$($Global:IsLang)\App.json" -ErrorAction SilentlyContinue
+		$NewConfig = Join-Path -Path $(Convert-Path -Path "$($PSScriptRoot)\..\..") -ChildPath "langpacks\$($Global:IsLang)\App.json"
 
 		if (Test-Path $NewConfig -PathType Leaf) {
 			Start-Process powershell -ArgumentList "-File $($DynamicInstl) -Config ""$($NewConfig)"" -Lang ""$($Global:IsLang)""" -NoNewWindow -Wait

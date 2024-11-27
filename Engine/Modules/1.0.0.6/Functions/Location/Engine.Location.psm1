@@ -172,27 +172,27 @@
 					}
 
 					if ($GUILocationItemDesktop.Checked) {
-						$GUILocationItemDesktopShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Desktop" -ErrorAction SilentlyContinue
+						$GUILocationItemDesktopShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Desktop"
 					}
 
 					if ($GUILocationItemDocuments.Checked) {
-						$GUILocationItemDocumentsShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Documents" -ErrorAction SilentlyContinue
+						$GUILocationItemDocumentsShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Documents"
 					}
 
 					if ($GUILocationItemDownloads.Checked) {
-						$GUILocationItemDownloadsShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Downloads" -ErrorAction SilentlyContinue
+						$GUILocationItemDownloadsShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Downloads"
 					}
 
 					if ($GUILocationItemMusic.Checked) {
-						$GUILocationItemMusicShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Music" -ErrorAction SilentlyContinue
+						$GUILocationItemMusicShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Music"
 					}
 
 					if ($GUILocationItemPictures.Checked) {
-						$GUILocationItemPicturesShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Pictures" -ErrorAction SilentlyContinue
+						$GUILocationItemPicturesShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Pictures"
 					}
 
 					if ($GUILocationItemVideos.Checked) {
-						$GUILocationItemVideosShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Videos" -ErrorAction SilentlyContinue
+						$GUILocationItemVideosShow.Text = Join-Path -Path $FlagsNewLabelSpecify -ChildPath "Videos"
 					}
 				}
 			}
@@ -379,12 +379,12 @@
 		ActiveLinkColor = "RED"
 		LinkBehavior   = "NeverUnderline"
 		add_Click      = {
-			$GUILocationItemDesktopShow.Text = Join-Path -Path $env:USERPROFILE -ChildPath "Desktop" -ErrorAction SilentlyContinue
-			$GUILocationItemDocumentsShow.Text = Join-Path -Path $env:USERPROFILE -ChildPath "Documents" -ErrorAction SilentlyContinue
-			$GUILocationItemDownloadsShow.Text = Join-Path -Path $env:USERPROFILE -ChildPath "Downloads" -ErrorAction SilentlyContinue
-			$GUILocationItemMusicShow.Text = Join-Path -Path $env:USERPROFILE -ChildPath "Music" -ErrorAction SilentlyContinue
-			$GUILocationItemPicturesShow.Text = Join-Path -Path $env:USERPROFILE -ChildPath "Pictures" -ErrorAction SilentlyContinue
-			$GUILocationItemVideosShow.Text = Join-Path -Path $env:USERPROFILE -ChildPath "Videos" -ErrorAction SilentlyContinue
+			$GUILocationItemDesktopShow.Text   = Join-Path -Path $env:USERPROFILE -ChildPath "Desktop"
+			$GUILocationItemDocumentsShow.Text = Join-Path -Path $env:USERPROFILE -ChildPath "Documents"
+			$GUILocationItemDownloadsShow.Text = Join-Path -Path $env:USERPROFILE -ChildPath "Downloads"
+			$GUILocationItemMusicShow.Text     = Join-Path -Path $env:USERPROFILE -ChildPath "Music"
+			$GUILocationItemPicturesShow.Text  = Join-Path -Path $env:USERPROFILE -ChildPath "Pictures"
+			$GUILocationItemVideosShow.Text    = Join-Path -Path $env:USERPROFILE -ChildPath "Videos"
 		}
 	}
 

@@ -1049,7 +1049,7 @@ Function FirstExperience_Deploy
 				"a1f51cf8-32c8-431c-8b2e-f7f8ad208863"    # 7Zip
 			)
 
-			$NewConfig = Join-Path -Path $(Convert-Path -Path "$($PSScriptRoot)\..\..\.." -ErrorAction SilentlyContinue) -ChildPath "langpacks\$($Global:IsLang)\App.json" -ErrorAction SilentlyContinue
+			$NewConfig = Join-Path -Path $(Convert-Path -Path "$($PSScriptRoot)\..\..\..") -ChildPath "langpacks\$($Global:IsLang)\App.json"
 
 			if (Test-Path $NewConfig -PathType Leaf) {
 				Start-Process powershell -ArgumentList "-File $($DynamicInstl) -Config ""$($NewConfig)"" -App ""$($init_Install_App)""" -NoNewWindow -Wait
@@ -1120,7 +1120,7 @@ Function FirstExperience_Deploy
 	)
 	ForEach ($item in $SearchBatFile) {
 		Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue | ForEach-Object {
-			$TempFilePath = Join-Path -Path $_.Root -ChildPath $item -ErrorAction SilentlyContinue
+			$TempFilePath = Join-Path -Path $_.Root -ChildPath $item
 
 			Write-Host "   $($TempFilePath)"
 			if (Test-Path $TempFilePath -PathType Leaf) {
@@ -1142,7 +1142,7 @@ Function FirstExperience_Deploy
 	)
 	ForEach ($item in $SearchPSFile) {
 		Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue | ForEach-Object {
-			$TempFilePath = Join-Path -Path $_.Root -ChildPath $item -ErrorAction SilentlyContinue
+			$TempFilePath = Join-Path -Path $_.Root -ChildPath $item
 
 			Write-Host "   $($TempFilePath)"
 			if (Test-Path $TempFilePath -PathType Leaf) {

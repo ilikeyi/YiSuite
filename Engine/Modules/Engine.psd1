@@ -14,11 +14,14 @@
 
 	PrivateData = @{
 		PSData = @{
-			Tags = @("Yi.Suite")
+			Tags         = @("Yi.Suite")
 			LicenseUri   = 'https://opensource.org/license/mit'
-			ProjectUri   = 'https://github.com/ilikeyi/YiSuite'
+			ProjectUri   = @(
+				'https://github.com/ilikeyi/YiSuite'
+			)
 #			IconUri      = ''
 #			ReleaseNotes = ''
+			Buildstring    = 'bs_release.2024.12.08'
 			MinimumVersion = '1.0.0.0'
 			UpdateServer = @(
 				"https://fengyi.tel/download/solutions/update/Yi.Suite/latest.json"

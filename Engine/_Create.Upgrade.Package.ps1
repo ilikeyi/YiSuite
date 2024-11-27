@@ -443,7 +443,7 @@ Function Update_Create_Process
 	ForEach ($item in $BuildTypeUp) {
 		Push-Location $PSScriptRoot
 		Update_Create_Process_Add -Type $item
-		Update_Create_Version -SaveTo $TempFolderUpdate -CurrentVersion (Get-Module -Name Engine).Version.ToString() -LowVer $((Get-Module -Name Engine).PrivateData.PSData.MinimumVersion)
+		Update_Create_Version -SaveTo $TempFolderUpdate -buildstring $((Get-Module -Name Engine).PrivateData.PSData.Buildstring) -CurrentVersion (Get-Module -Name Engine).Version.ToString() -LowVer $((Get-Module -Name Engine).PrivateData.PSData.MinimumVersion)
 	}
 }
 
@@ -587,6 +587,7 @@ Function Update_Create_Version
 	param
 	(
 		[string]$SaveTo,
+		[string]$Buildstring,
 		[string]$CurrentVersion,
 		[string]$LowVer
 	)
@@ -598,7 +599,7 @@ Function Update_Create_Version
 		"url":  "$((Get-Module -Name Engine).HelpInfoURI)"
 	},
 	"version": {
-		"buildstring": "$($CurrentVersion).bs_release.2024.12.08",
+		"buildstring": "$($Buildstring)",
 		"version":     "$($CurrentVersion)",
 		"minau":       "$($LowVer)"
 	},
