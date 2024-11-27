@@ -179,12 +179,7 @@ Function Update_Create_UI
 		[switch]$Queue
 	)
 
-	Clear-Host
-	$Host.UI.RawUI.WindowTitle = "$((Get-Module -Name Engine).Author)'s Solutions | $($lang.UpdateCreate)"
-	Write-Host "`n   Author: $((Get-Module -Name Engine).Author) ( $((Get-Module -Name Engine).HelpInfoURI) )
-
-   From: $((Get-Module -Name Engine).Author)'s Solutions
-   buildstring: $((Get-Module -Name Engine).Version.ToString()).bs_release.2024.12.08`n"
+	Logo -Title $lang.UpdateCreate
 
 	Write-Host "   $($lang.UpdateCreate)" -ForegroundColor Yellow
 	Write-host "   $('-' * 80)"

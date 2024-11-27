@@ -7,12 +7,17 @@ Function Logo
 	(
 		$Title
 	)
+
 	Clear-Host
 	$Host.UI.RawUI.WindowTitle = "$((Get-Module -Name Engine).Author)'s Solutions | $($Title)"
-	Write-Host "`n   Author: $((Get-Module -Name Engine).Author) ( $((Get-Module -Name Engine).HelpInfoURI) )
 
-   From: $((Get-Module -Name Engine).Author)'s Solutions
-   buildstring: $((Get-Module -Name Engine).Version.ToString()).bs_release.2024.12.08`n"
+	Write-Host "`n   $((Get-Module -Name Engine).Author)'s Solutions, " -NoNewline
+	Write-host "v$((Get-Module -Name Engine).Version.ToString())" -ForegroundColor Green
+
+	Write-host "   $($lang.Learn): " -NoNewline
+	Write-host $((Get-Module -Name Engine).PrivateData.PSData.ProjectUri) -ForegroundColor Green
+
+	Write-host
 }
 
 <#

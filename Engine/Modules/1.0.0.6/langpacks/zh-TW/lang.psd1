@@ -1,5 +1,6 @@
 ﻿ConvertFrom-StringData -StringData @'
 	Mainname                  = 部署引擎：Yi's 套件
+	Learn                     = 學習
 	MainHisName               = 附贈解決方案
 	Location                  = 打開所在位置
 	About                     = 關於
@@ -13,7 +14,7 @@
 	Enabled                   = 啟用
 	Setting                   = 設置
 	Restore                   = 恢復
-	Clean                     = 清理
+	CLearn                    = 清理
 	Operable                  = 可操作
 	Inoperable                = 不可操作
 	Optimize                  = 優化

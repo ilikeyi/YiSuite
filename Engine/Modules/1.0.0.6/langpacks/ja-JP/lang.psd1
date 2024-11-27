@@ -1,5 +1,6 @@
 ﻿ConvertFrom-StringData -StringData @'
 	Mainname                  = デプロイメント エンジン: Yi のスイート
+	Learn                     = 勉強
 	MainHisName               = ボーナスソリューション
 	Location                  = オープンロケーション
 	About                     = 約
@@ -13,7 +14,7 @@
 	Enabled                   = 有効
 	Setting                   = 設定
 	Restore                   = 復元
-	Clean                     = きれい
+	CLearn                    = きれい
 	Operable                  = 操作可能
 	Inoperable                = 操作不能
 	Optimize                  = 最適化

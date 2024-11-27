@@ -1,5 +1,6 @@
 ﻿ConvertFrom-StringData -StringData @'
 	Mainname                  = Bereitstellungs-Engine: Yi's Suite
+	Learn                     = Studie
 	MainHisName               = Bonuslösung
 	Location                  = Offener Standort
 	About                     = Über
@@ -13,7 +14,7 @@
 	Enabled                   = aktivieren
 	Setting                   = Einstellung
 	Restore                   = Wiederherstellen
-	Clean                     = sauber
+	CLearn                    = sauber
 	Operable                  = Betriebsfähig
 	Inoperable                = funktionsunfähig
 	Optimize                  = Optimierung

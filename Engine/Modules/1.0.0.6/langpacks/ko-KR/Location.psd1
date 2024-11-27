@@ -10,7 +10,7 @@
 	LocationFolderSame        = 작동 불가능, 새 ​​경로는 이전 경로와 동일합니다.
 	LocationDone              = 변경 완료 후
 	LocationDoneSync          = 이전 파일을 새 위치로 복사
-	LocationDoneClean         = 오래된 파일 삭제
+	LocationDoneCLearn        = 오래된 파일 삭제
 	LocationDoneCleanTips     = 이 단계는 위험합니다. 변경 프로세스 동안 알 수 없는 문제를 방지하기 위해 변경하기 전에 중요한 데이터를 백업하십시오.
 	LocationComputer          = 컴퓨터 이름
 	LocationUserName          = 현재 사용자 계정 이름

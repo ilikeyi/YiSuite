@@ -1,5 +1,6 @@
 ﻿ConvertFrom-StringData -StringData @'
 	Mainname                  = Deployment Engine: Yi's Suite
+	Learn                     = Learn
 	MainHisName               = Bundled Solutions
 	Location                  = Open location
 	About                     = About
@@ -13,7 +14,7 @@
 	Enabled                   = Enabled
 	Setting                   = Set up
 	Restore                   = Restore
-	Clean                     = Clean up
+	CLearn                    = Clean up
 	Operable                  = Operable
 	Inoperable                = Inoperable
 	Optimize                  = Optimization

@@ -1,5 +1,6 @@
 ﻿ConvertFrom-StringData -StringData @'
 	Mainname                  = 배포 엔진: Yi 의 제품군
+	Learn                     = 공부하다
 	MainHisName               = 보너스 솔루션
 	Location                  = 오픈 위치
 	About                     = 에 대한
@@ -13,7 +14,7 @@
 	Enabled                   = 할 수있게하다
 	Setting                   = 설정
 	Restore                   = 다시 덮다
-	Clean                     = 청소
+	CLearn                    = 청소
 	Operable                  = 실시 가능한
 	Inoperable                = 작동불능
 	Optimize                  = 최적화

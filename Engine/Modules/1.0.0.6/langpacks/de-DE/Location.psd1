@@ -10,7 +10,7 @@
 	LocationFolderSame        = Inoperable, der neue Pfad ist derselbe wie der alte Pfad.
 	LocationDone              = Nachdem die Änderung abgeschlossen ist
 	LocationDoneSync          = Alte Dateien an einen neuen Ort kopieren
-	LocationDoneClean         = Alte Dateien löschen
+	LocationDoneCLearn        = Alte Dateien löschen
 	LocationDoneCleanTips     = Dieser Schritt ist riskant.Sichere wichtige Daten, bevor du Änderungen vornimmst, um unbekannte Probleme während des Änderungsprozesses zu vermeiden.
 	LocationComputer          = Computername
 	LocationUserName          = Name des aktuellen Benutzerkontos

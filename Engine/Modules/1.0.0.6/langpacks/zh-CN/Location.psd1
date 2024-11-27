@@ -10,7 +10,7 @@
 	LocationFolderSame        = 不可操作，新路径与旧路径相同。
 	LocationDone              = 更改完成后
 	LocationDoneSync          = 复制旧文件到新的位置
-	LocationDoneClean         = 删除旧文件
+	LocationDoneCLearn        = 删除旧文件
 	LocationDoneCleanTips     = 此步骤有风险，更改前备份重要数据，以免更改过程中出现未知问题。
 	LocationComputer          = 计算机名称
 	LocationUserName          = 当前用户帐号名称
