@@ -14,7 +14,7 @@
 	DiskSearch                = 搜索计划：
 	DiskSearchFind            = 搜索到，正在运行中：{0}
 	DeployCleanup             = 清理 Deploy 目录
-	DeployTask                = 部署任务：
+	DeployTask                = 部署任务
 	Reboot                    = 重新启动计算机
 	NetworkLocationWizard     = 网络位置向导
 	LangMul                   = 多语言

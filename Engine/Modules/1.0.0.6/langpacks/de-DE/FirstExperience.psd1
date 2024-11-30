@@ -14,7 +14,7 @@
 	DiskSearch                = Vollständiger Festplattensuchplan: \
 	DiskSearchFind            = Gefunden, läuft: {0}
 	DeployCleanup             = Deploy Verzeichnis aufräumen
-	DeployTask                = Bereitstellungsaufgaben: \
+	DeployTask                = Bereitstellungsaufgaben
 	Reboot                    = Starten Sie den Computer neu
 	NetworkLocationWizard     = Netzwerkstandort Assistent
 	LangMul                   = Mehrsprachig

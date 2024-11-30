@@ -14,7 +14,7 @@
 	DiskSearch                = 검색 계획:
 	DiskSearchFind            = 검색, 실행 중: {0}
 	DeployCleanup             = Deploy 디렉토리 정리
-	DeployTask                = 배포 작업: \
+	DeployTask                = 배포 작업
 	Reboot                    = 컴퓨터를 다시 시작합니다.
 	NetworkLocationWizard     = 네트워크 위치 마법사
 	LangMul                   = 다국어

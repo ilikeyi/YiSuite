@@ -14,7 +14,7 @@
 	DiskSearch                = Search plan:
 	DiskSearchFind            = Searched, running: {0}
 	DeployCleanup             = Clean up the Deploy directory
-	DeployTask                = Deployment tasks: \
+	DeployTask                = Deployment tasks
 	Reboot                    = Restart the computer
 	NetworkLocationWizard     = Network Location Wizard
 	LangMul                   = Multilingual

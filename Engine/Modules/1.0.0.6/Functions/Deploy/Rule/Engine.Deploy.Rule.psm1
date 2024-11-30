@@ -21,13 +21,16 @@ Function Deploy_Guide
 
 	ForEach ($item in $DeploySearchGuide) {
 		ForEach ($itemn in $SearchDiskPath) {
-			if (Test-Path -Path "$($itemn)\$($item)" -PathType leaf) {
-				write-host "   $($lang.DeployTask)$($itemn)\$($item)"
+			$NewFilePathFull = Join-Path -Path $itemn -ChildPath $item
+
+			if (Test-Path -Path $NewFilePathFull -PathType leaf) {
+				write-host "   $($lang.DeployTask): " -ForegroundColor Yellow
+				Write-host $NewFilePathFull -ForegroundColor Green
 
 				if ($Global:MarkRebootComputer) {
-					Start-Process powershell -ArgumentList "-file $($itemn)\$($item)" -Wait -WindowStyle Minimized
+					Start-Process powershell -ArgumentList "-file $($NewFilePathFull)" -Wait -WindowStyle Minimized
 				} else {
-					Start-Process powershell -ArgumentList "-file $($itemn)\$($item)" -WindowStyle Minimized
+					Start-Process powershell -ArgumentList "-file $($NewFilePathFull)" -WindowStyle Minimized
 				}
 				break
 			}
