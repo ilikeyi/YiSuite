@@ -84,7 +84,7 @@ $UpdateSaveTo = Join-Path -Path ([Environment]::GetFolderPath("Desktop")) -Child
 	.Archive temporary directory
 	.压缩包临时目录
 #>
-$TempFolderUpdate = Join-Path -Path ([Environment]::GetFolderPath("Desktop")) -ChildPath "Temp.YiSuite.Upgrade.Package"
+$TempFolderUpdate = Join-Path -Path ([Environment]::GetFolderPath("MyDocuments")) -ChildPath "Temp.YiSuite.Upgrade.Package"
 
 <#
 	.Exclude files or directories from the compressed package

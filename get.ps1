@@ -719,7 +719,7 @@ Function Test_Available_Disk
 
 		$RandomGuid = [guid]::NewGuid()
 		$test_tmp_filename = "writetest-$($RandomGuid)"
-		$test_filename = Join-Path -Path $Path -ChildPath $test_tmp_filename
+		$test_filename = Join-Path -Path $Path -ChildPath $test_tmp_filename -ErrorAction SilentlyContinue
 
 		[io.file]::OpenWrite($test_filename).close()
 
@@ -1275,8 +1275,8 @@ Function Installation_interface_UI
 					$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
 				}
 				default {
-					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDownload)
-					$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
+					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.SelectFolder)
+					$UI_Main_Save_To_Path.Text = $To
 				}
 			}
 		}
