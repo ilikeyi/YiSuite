@@ -811,41 +811,45 @@ Function Installation_interface_UI
 	Function Install_Init_Disk_To
 	{
 		switch ($UI_Main_Install_To.SelectedItem.Path) {
-			"AutoSelectDisk" {
-				Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value "AutoSelectDisk" -String
-
-				$drives = Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue | Where-Object { -not ((Join_MainFolder -Path $env:SystemDrive) -eq $_.Root) } | Select-Object -ExpandProperty 'Root'
-				$FlagsSearchNewDisk = $False
-				ForEach ($item in $drives) {
-					if (Test_Available_Disk -Path $item) {
-						$FlagsSearchNewDisk = $True
-
-						if (Verify_Available_Size -Disk $item -Size "1") {
-							return $item
-						}
-					}
-				}
-
-				if (-not ($FlagsSearchNewDisk)) {
-					return Join_MainFolder -Path $env:SystemDrive
-				}
-			}
+			"AutoSelectDisk" {}
 			"Desktop" {
 				Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value "Desktop" -String
-				return [Environment]::GetFolderPath("Desktop")
+				return Join-Path -Path $([Environment]::GetFolderPath("Desktop")) -ChildPath $Default_directory_name
 			}
 			"Download" {
 				Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value "Download" -String
-				return (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path
+				return Join-Path -Path $((New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path) -ChildPath $Default_directory_name
 			}
 			"Documents" {
 				Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value "Documents" -String
-				return [Environment]::GetFolderPath("MyDocuments")
+				return Join-Path -Path $([Environment]::GetFolderPath("MyDocuments")) -ChildPath $Default_directory_name
 			}
 			default {
-				Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value "Download" -String
-				return (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path
+				if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Yi\Suite\Get" -Name "Instl_To_Custom" -ErrorAction SilentlyContinue) {
+					$GetNewInstallTo = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Suite\Get" -Name "Instl_To_Custom"
+					Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value $GetNewInstallTo -String
+					return $GetNewInstallTo
+				} else {
+					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDisk)
+				}
 			}
+		}
+
+		Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value "AutoSelectDisk" -String
+		$drives = Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue | Where-Object { -not ((Join_MainFolder -Path $env:SystemDrive) -eq $_.Root) } | Select-Object -ExpandProperty 'Root'
+		$FlagsSearchNewDisk = $False
+		ForEach ($item in $drives) {
+			if (Test_Available_Disk -Path $item) {
+				$FlagsSearchNewDisk = $True
+
+				if (Verify_Available_Size -Disk $item -Size "1") {
+					return Join-Path -Path $item -ChildPath $Default_directory_name
+				}
+			}
+		}
+
+		if (-not ($FlagsSearchNewDisk)) {
+			return Join-Path -Path $env:SystemDrive -ChildPath $Default_directory_name
 		}
 	}
 
@@ -930,6 +934,9 @@ Function Installation_interface_UI
 			if ($FolderBrowser.ShowDialog() -eq "OK") {
 				if (Test_Available_Disk -Path $FolderBrowser.SelectedPath) {
 					$UI_Main_Save_To_Path.Text = Join-Path -Path $FolderBrowser.SelectedPath -ChildPath $Default_directory_name
+					Save_Dynamic -regkey "Suite\Get" -name "Instl_To_Custom" -value $UI_Main_Save_To_Path.Text -String
+					Save_Dynamic -regkey "Suite\Get" -name "InstlTo" -value $UI_Main_Save_To_Path.Text -String
+					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.SelectFolder)
 				} else {
 					$UI_Main_Error.Text = $lang.FailedCreateFolder
 				}
@@ -1012,6 +1019,7 @@ Function Installation_interface_UI
 		[pscustomobject]@{ Path = "Desktop";        Lang = $lang.RestoreToDesktop; }
 		[pscustomobject]@{ Path = "Download";       Lang = $lang.RestoreToDownload; }
 		[pscustomobject]@{ Path = "Documents";      Lang = $lang.RestoreToDocuments; }
+		[pscustomobject]@{ Path = "";               Lang = $lang.SelectFolder; }
 	)
 
 	$UI_Main_Install_To.BindingContext = New-Object System.Windows.Forms.BindingContext
@@ -1035,13 +1043,13 @@ Function Installation_interface_UI
 				$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDocuments)
 			}
 			default {
-				$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDownload)
+				$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.SelectFolder)
 			}
 		}
 	} else {
 		$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDownload)
 	}
-	$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
+	$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
 
 	$UI_Main_Save_To_Restore = New-Object system.Windows.Forms.LinkLabel -Property @{
 		Height         = 30
@@ -1054,7 +1062,7 @@ Function Installation_interface_UI
 		add_Click      = {
 			$UI_Main_Error.Text = ""
 
-			$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
+			$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
 			$UI_Main_Error.Text = "$($lang.Restore), $($lang.Done)"
 		}
 	}
@@ -1252,23 +1260,23 @@ Function Installation_interface_UI
 			switch ($To) {
 				"AutoSelectDisk" {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDisk)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
+					$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
 				}
 				"Desktop" {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDesktop)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
+					$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
 				}
 				"Download" {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDownload)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
+					$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
 				}
 				"Documents" {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDocuments)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
+					$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
 				}
 				default {
 					$UI_Main_Install_To.SelectedIndex = $UI_Main_Install_To.FindString($lang.RestoreToDownload)
-					$UI_Main_Save_To_Path.Text = Join-Path -Path $(Install_Init_Disk_To) -ChildPath $Default_directory_name
+					$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
 				}
 			}
 		}
@@ -1408,8 +1416,6 @@ Function Download_Process
 	Write-host "   $('-' * 80)"
 	if (Test-Path -Path $NewFilePath -PathType leaf) {
 		if (TestArchive -Path $NewFilePath) {
-			Save_Dynamic -regkey "Suite\Get" -name "InstlToHistory" -value $UI_Main_Save_To_Path.Text -String
-
 			Archive -filename $NewFilePath -to $UI_Main_Save_To_Path.Text
 			remove-item -path $Temp_Main_Path -force -Recurse -ErrorAction silentlycontinue | Out-Null
 
@@ -1424,13 +1430,13 @@ Function Download_Process
 						Write-host $lang.Ok_Go_To_Main -ForegroundColor Green
 						Write-Host "   $('-' * 80)"
 
-						$Solutions_PS = Join-Path -Path $UI_Main_Save_To_Path.Text -ChildPath "Engine.ps1"
-						if (Test-Path -Path $Solutions_PS -PathType leaf) {
+						$test_new_PS_File = Join-Path -Path $UI_Main_Save_To_Path.Text -ChildPath "Engine.ps1"
+						if (Test-Path -Path $test_new_PS_File -PathType leaf) {
 							Write-Host "   $($lang.Filename): " -NoNewline -ForegroundColor Yellow
-							Write-Host $Solutions_PS -ForegroundColor Green
+							Write-Host $test_new_PS_File -ForegroundColor Green
 
 							Write-Host "   $($lang.Running)".PadRight(28) -NoNewline
-							Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($Solutions_PS)"""
+							Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($test_new_PS_File)"""
 							Write-host $lang.Done -ForegroundColor Green
 
 							Write-Host "`n   $('-' * 80)"
@@ -1443,13 +1449,13 @@ Function Download_Process
 						Write-host $lang.OK_Go_To_Upgrade_package -ForegroundColor Green
 						Write-Host "   $('-' * 80)"
 
-						$Solutions_PS = Join-Path -Path $UI_Main_Save_To_Path.Text -ChildPath "_Create.Upgrade.Package.ps1"
-						if (Test-Path -Path $Solutions_PS -PathType leaf) {
+						$test_new_PS_File = Join-Path -Path $UI_Main_Save_To_Path.Text -ChildPath "_Create.Upgrade.Package.ps1"
+						if (Test-Path -Path $test_new_PS_File -PathType leaf) {
 							Write-Host "   $($lang.Filename): " -NoNewline -ForegroundColor Yellow
-							Write-Host $Solutions_PS -ForegroundColor Green
+							Write-Host $test_new_PS_File -ForegroundColor Green
 
 							Write-Host "   $($lang.Running)".PadRight(28) -NoNewline
-							Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($Solutions_PS)"""
+							Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($test_new_PS_File)"""
 							Write-host $lang.Done -ForegroundColor Green
 
 							Write-Host "`n   $('-' * 80)"
