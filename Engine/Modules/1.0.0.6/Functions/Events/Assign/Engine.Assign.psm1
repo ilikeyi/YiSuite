@@ -192,13 +192,13 @@ Function Image_Assign_Event_Master
 		Height         = 720
 		Width          = 828
 		Text           = $lang.AssignTask
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
 		MinimizeBox    = $False
 		ControlBox     = $False
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 	$UI_AssignTips     = New-Object System.Windows.Forms.Label -Property @{
 		Height         = 25

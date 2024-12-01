@@ -1084,10 +1084,8 @@ Function Install_Process
 	{
 		zip
 		{
-			Switch ($act)
-			{
-				Install
-				{
+			Switch ($act) {
+				Install {
 					Get-ChildItem -Path $OutTo -Filter "*$($filename)*$((Get-Culture).Name)*.exe" -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
 						Write-Host "    - $($lang.LocallyExist): " -NoNewline -ForegroundColor Yellow
 						Write-host $_.fullname -ForegroundColor Green
@@ -1165,8 +1163,7 @@ Function Install_Process
 						break
 					}
 				}
-				NoInst
-				{
+				NoInst {
 					if (Test-Path $OutAny) {
 						Write-Host "    - $($lang.ItInstalled)`n"
 					} else {
@@ -1188,8 +1185,7 @@ Function Install_Process
 						}
 					}
 				}
-				To
-				{
+				To {
 					$newoutputfoldoer = "$($OutTo)\$($packer)"
 					if (Test-Path $newoutputfoldoer -PathType Container) {
 						Write-Host "    - $($lang.ItInstalled)`n"
@@ -1218,8 +1214,7 @@ Function Install_Process
 						Write-Host "      - $($lang.ErrorDown)`n" -ForegroundColor Red
 					}
 				}
-				Unzip
-				{
+				Unzip {
 					if (Test-Path $OutAny) {
 						Write-Host "    - $($lang.ExistingPacker)"
 					} else {
@@ -1250,8 +1245,7 @@ Function Install_Process
 				}
 			}
 		}
-		default
-		{
+		default {
 			if (Test-Path $OutAny -PathType Leaf) {
 				Open_Apps -filename $OutAny -param $param -mode $mode
 			} else {
@@ -1421,11 +1415,9 @@ Function Open_Apps
 	)
 
 	if (Test-Path $filename -PathType Leaf) {
-		Switch ($mode)
-		{
+		Switch ($mode) {
 			Fast {
-				if ([string]::IsNullOrEmpty($param))
-				{
+				if ([string]::IsNullOrEmpty($param)) {
 					Write-Host "    - $($lang.QucikRun)" -ForegroundColor Yellow
 					Write-host "      $($filename)`n" -ForegroundColor Green
 
@@ -1441,8 +1433,7 @@ Function Open_Apps
 				}
 			}
 			Wait {
-				if ([string]::IsNullOrEmpty($param))
-				{
+				if ([string]::IsNullOrEmpty($param)) {
 					Write-Host "    - $($lang.WaitDone)" -ForegroundColor Yellow
 					Write-host "      $($filename)`n" -ForegroundColor Green
 					Start-Process -FilePath $filename -Wait
@@ -1535,13 +1526,13 @@ Function Update_Setting_UI
 		Height         = 720
 		Width          = 550
 		Text           = $lang.UpdateList
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
 		MinimizeBox    = $False
 		ControlBox     = $False
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 	$GUIUpdateAuto     = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
@@ -1614,13 +1605,13 @@ Function Update_Setting_UI
 		UseVisualStyleBackColor = $True
 		Height         = 36
 		Width          = 255
+		Text           = $lang.Cancel
 		Location       = "268,635"
 		add_Click      = {
 			$UI_Main.Hide()
 			$Script:ServerList = @()
 			$UI_Main.Close()
 		}
-		Text           = $lang.Cancel
 	}
 	$UI_Main.controls.AddRange((
 		$GUIUpdateAuto,
@@ -1684,10 +1675,10 @@ Function Refresh_Server_List
 		if ($Global:IsLang -eq "en-US") {
 			ForEach ($itemLink in $item.Link) {
 				$Script:ServerListSelect += $itemLink
-	        }
+			}
 
 			break
-	    }
+		}
 	}
 }
 
@@ -1832,12 +1823,12 @@ Function Install_UI
 		Height         = 720
 		Width          = 825
 		Text           = $lang.Instl
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		MaximizeBox    = $False
 		StartPosition  = "CenterScreen"
 		MinimizeBox    = $false
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 	$UI_Main_Menu      = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
 		Height         = 625
@@ -2133,8 +2124,8 @@ Function Install_UI
 			$Script:Install_App = @()
 			$Custom_Config = Get-Content -Path $Script:Init_Config | ConvertFrom-JSON
 			foreach ($item in $Custom_Config) {
-			    if ($item.App.app.Count -gt 0) {
-			        foreach ($itemApp in $item.App.app) {
+				if ($item.App.app.Count -gt 0) {
+					foreach ($itemApp in $item.App.app) {
 						if (($Match_Wait_App -Contains $itemApp.Name) -or
 							($Match_Wait_App -Contains $itemApp.GUID))
 						{
@@ -2326,9 +2317,9 @@ Function Install_UI
 				}
 				$Select_App.controls.AddRange($Temp_Main_Save_Expand_Name)
 
-			    if ($item.app.Count -gt 0) {
+				if ($item.app.Count -gt 0) {
 					if ($item.app.Count -gt 0) {
-			        	foreach ($itemApp in $item.app) {
+						foreach ($itemApp in $item.app) {
 							$CheckBox    = New-Object System.Windows.Forms.Checkbox -Property @{
 								Height   = 30
 								Width    = 470
@@ -2471,8 +2462,8 @@ Function Refresh_Match
 
 	$Custom_Config = Get-Content -Path $Script:Init_Config | ConvertFrom-JSON
 	foreach ($item in $Custom_Config) {
-	    if ($item.App.App.Count -gt 0) {
-	        foreach ($itemApp in $item.App.app) {
+		if ($item.App.App.Count -gt 0) {
+			foreach ($itemApp in $item.App.app) {
 				if (($MatchApp -Contains $itemApp.Name) -or
 					($MatchApp -Contains $itemApp.GUID))
 				{

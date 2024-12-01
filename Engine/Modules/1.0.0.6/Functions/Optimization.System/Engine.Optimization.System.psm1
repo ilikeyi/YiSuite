@@ -480,12 +480,12 @@ Function Optimization_System_UI
 		Height         = 720
 		Width          = 1015
 		Text           = "$($lang.Optimize) $($lang.System)"
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		MaximizeBox    = $False
 		StartPosition  = "CenterScreen"
 		MinimizeBox    = $false
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 	$UI_Main_Menu      = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
 		Height         = 56
@@ -504,7 +504,7 @@ Function Optimization_System_UI
 	$UI_Main_Optimiz_Other_Is = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
 		Width          = 410
-		Text           = "$($lang.Optimize)"
+		Text           = $lang.Optimize
 		Checked        = $True
 		Margin         = "2,6,0,0"
 		add_click      = {
@@ -745,7 +745,7 @@ Function Optimization_System_UI
 	$GUIContextMenu    = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
 		Width          = 410
-		Text           = "$($lang.ContextMenu)"
+		Text           = $lang.ContextMenu
 		Checked        = $True
 		Margin         = "2,22,0,0"
 		add_click      = {
@@ -788,7 +788,7 @@ Function Optimization_System_UI
 	$GUIMultipleIncrease = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
-		Text           = "$($lang.MultipleIncrease)"
+		Text           = $lang.MultipleIncrease
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
@@ -799,7 +799,7 @@ Function Optimization_System_UI
 	$GUINetwork        = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
 		Width          = 410
-		Text           = "$($lang.NetworkOptimization)"
+		Text           = $lang.NetworkOptimization
 		Checked        = $True
 		Margin         = "2,22,0,0"
 		add_click      = {
@@ -883,7 +883,7 @@ Function Optimization_System_UI
 	$GUIExplorer       = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
 		Width          = 410
-		Text           = "$($lang.Explorer)"
+		Text           = $lang.Explorer
 		Checked        = $True
 		Margin         = "2,22,0,0"
 		add_click      = {
@@ -970,7 +970,7 @@ Function Optimization_System_UI
 	$GUINavShowAll     = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
-		Text           = "$($lang.NavShowAll)"
+		Text           = $lang.NavShowAll
 		ForeColor      = "#008000"
 	}
 	$GUIAutoplay       = New-Object System.Windows.Forms.CheckBox -Property @{
@@ -1167,14 +1167,14 @@ Function Optimization_System_UI
 	$GUIPersonaliseDarkApps = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 380
-		Text           = "$($lang.DarkApps)"
+		Text           = $lang.DarkApps
 		ForeColor      = "#008000"
 		Padding        = "16,0,8,0"
 	}
 	$GUIPersonaliseDarkSystem = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 380
-		Text           = "$($lang.DarkSystem)"
+		Text           = $lang.DarkSystem
 		ForeColor      = "#008000"
 		Padding        = "16,0,8,0"
 	}
@@ -1340,7 +1340,7 @@ Function Optimization_System_UI
 	$GUIXboxGame       = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
 		Width          = 410
-		Text           = "$($lang.Gaming)"
+		Text           = $lang.Gaming
 		Checked        = $True
 		Margin         = "2,22,0,0"
 		add_click      = {
@@ -1395,7 +1395,7 @@ Function Optimization_System_UI
 	$GUIPrivate        = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
 		Width          = 410
-		Text           = "$($lang.FixPrivacy)"
+		Text           = $lang.FixPrivacy
 		Checked        = $True
 		Margin         = "2,22,0,0"
 		add_click      = {
@@ -1568,7 +1568,7 @@ Function Optimization_System_UI
 	$UI_Main_Is_Other  = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
 		Width          = 460
-		Text           = "$($lang.Related)"
+		Text           = $lang.Related
 		Location       = '530,15'
 		Checked        = $True
 		add_Click      = {
@@ -1675,7 +1675,7 @@ Function Optimization_System_UI
 	$UI_Main_Sync_To_All_User = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
-		Text           = "$($lang.SyncAllUser)"
+		Text           = $lang.SyncAllUser
 		Checked        = $true
 	}
 	$UI_Main_Sync_To_TaskBar = New-Object System.Windows.Forms.CheckBox -Property @{
@@ -4099,12 +4099,12 @@ Function Privacy_Share_Unpaired_Devices
 		Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" "Value" "Deny" -ErrorAction SilentlyContinue | Out-Null
 		Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled" "InitialAppValue" "Unspecified" -ErrorAction SilentlyContinue | Out-Null
 		ForEach ($key in (Get-ChildItem "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global")) {
-		    if ($key.PSChildName -EQ "LooselyCoupled") {
-		        continue
-		    }
-		    Set-ItemProperty -Path ("HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + $key.PSChildName) "Type" "InterfaceClass" -ErrorAction SilentlyContinue | Out-Null
-		    Set-ItemProperty -Path ("HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + $key.PSChildName) "Value" "Deny" -ErrorAction SilentlyContinue | Out-Null
-		    Set-ItemProperty -Path ("HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + $key.PSChildName) "InitialAppValue" "Unspecified" -ErrorAction SilentlyContinue | Out-Null
+			if ($key.PSChildName -EQ "LooselyCoupled") {
+				continue
+			}
+			Set-ItemProperty -Path ("HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + $key.PSChildName) "Type" "InterfaceClass" -ErrorAction SilentlyContinue | Out-Null
+			Set-ItemProperty -Path ("HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + $key.PSChildName) "Value" "Deny" -ErrorAction SilentlyContinue | Out-Null
+			Set-ItemProperty -Path ("HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\" + $key.PSChildName) "InitialAppValue" "Unspecified" -ErrorAction SilentlyContinue | Out-Null
 		}
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
@@ -5540,7 +5540,7 @@ Function Cleanup_Disk
 	)
 
 	ForEach ($item in $Locations) {
-	    Set-ItemProperty -Path $($Base+$item) -Name $SageSet -Type DWORD -Value 2 -ErrorAction SilentlyContinue | Out-Null
+		Set-ItemProperty -Path $($Base+$item) -Name $SageSet -Type DWORD -Value 2 -ErrorAction SilentlyContinue | Out-Null
 	}
 
 	<#

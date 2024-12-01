@@ -212,12 +212,12 @@
 		Height         = 720
 		Width          = 1015
 		Text           = $lang.LocationUserFolder
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		MaximizeBox    = $False
 		StartPosition  = "CenterScreen"
 		MinimizeBox    = $false
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 
 	<#

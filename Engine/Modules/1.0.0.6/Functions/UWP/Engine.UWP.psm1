@@ -212,7 +212,7 @@ Function UWP_Uninstall
 							Text   = "MicrosoftTeams"
 							Tag    = "MicrosoftTeams"
 						}
-		   
+
 						if (($AppsUncheck + $AppsExcluded) -Contains $_.Name) {
 							$CheckBox.Checked = $True
 						}
@@ -262,12 +262,12 @@ Function UWP_Uninstall
 		Height         = 720
 		Width          = 1015
 		Text           = "$($lang.Delete) $($lang.UninstallUWP)"
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		MaximizeBox    = $False
 		StartPosition  = "CenterScreen"
 		MinimizeBox    = $false
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 	$UI_Main_Is_Apps   = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22

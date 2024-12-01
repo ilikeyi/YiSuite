@@ -19,8 +19,8 @@ Function Shortcut_Process
 		Set the mark after being satisfied: $True
 
 		.获取部署条件：
-		  1、清理整个解决方案；
-		  2、运行后清理主引擎。
+		  1. 清理整个解决方案；
+		  2. 运行后清理主引擎。
 		满足后设置标记为：$True
 	#>
 	$FlagsClearSolutionsRule = $Flase

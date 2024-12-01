@@ -43,13 +43,13 @@ Function FirstExperience_Setting_UI
 		Height         = 720
 		Width          = 550
 		Text           = $lang.FirstDeployment
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
 		MinimizeBox    = $False
 		ControlBox     = $False
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 	$GUIFEPanel        = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
 		Height         = 520
@@ -1097,7 +1097,14 @@ Function FirstExperience_Deploy
 	#>
 	Get-ChildItem -Path "$($PSScriptRoot)\..\..\..\..\..\Deploy\ps1" -Filter "*.ps1" -ErrorAction SilentlyContinue | ForEach-Object {
 		write-host	"   $($lang.DiskSearchFind -f $_.Fullname)`n" -ForegroundColor Green
-		Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($_.Fullname)""" -Wait -WindowStyle Minimized
+		$arguments = @(
+			"-ExecutionPolicy",
+			"ByPass",
+			"-file",
+			"""$($_.Fullname)"""
+		)
+
+		Start-Process "powershell" -ArgumentList $arguments -Wait -WindowStyle Minimized
 	}
 
 	<#
@@ -1139,7 +1146,15 @@ Function FirstExperience_Deploy
 			Write-Host "   $($TempFilePath)"
 			if (Test-Path $TempFilePath -PathType Leaf) {
 				write-host	"   $($lang.DiskSearchFind -f $TempFilePath)`n" -ForegroundColor Gray
-				Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($TempFilePath)""" -Wait -WindowStyle Minimized
+
+				$arguments = @(
+					"-ExecutionPolicy",
+					"ByPass",
+					"-file",
+					"""$($TempFilePath)"""
+				)
+
+				Start-Process "powershell" -ArgumentList $arguments -Wait -WindowStyle Minimized
 			}
 		}
 	}

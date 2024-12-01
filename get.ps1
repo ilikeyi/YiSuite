@@ -12,7 +12,7 @@
 	 PS C:\> .\_get.ps1 -Reset            | Reset script usage history
 
 	 PS C:\> .\_get.ps1 -Cus              | Any website connection, example: 
-	                                        "https://fengyi.tel/latest.zip", "https://Github.com/latest.zip"
+											"https://fengyi.tel/latest.zip", "https://Github.com/latest.zip"
 
 	 PS C:\> .\_get.ps1 -To               | Install to
 											"AutoSelectDisk" = Automatically search available disks
@@ -29,7 +29,7 @@
 
 	.Learn
 	 Interactive installation
-	    https://github.com/ilikeyi/YiSuite/blob/main/_Learn/Get/Get.pdf
+		https://github.com/ilikeyi/YiSuite/blob/main/_Learn/Get/Get.pdf
 
 	.LINK
 	 https://github.com/ilikeyi/YiSuite
@@ -853,13 +853,13 @@ Function Installation_interface_UI
 		Height         = 720
 		Width          = 550
 		Text           = $lang.Get
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
 		MinimizeBox    = $False
 		ControlBox     = $False
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 
 	$UI_Main_Menu      = New-Object System.Windows.Forms.FlowLayoutPanel -Property @{
@@ -1422,8 +1422,15 @@ Function Download_Process
 							Write-Host "   $($lang.Filename): " -NoNewline -ForegroundColor Yellow
 							Write-Host $test_new_PS_File -ForegroundColor Green
 
-							Write-Host "   $($lang.Running)".PadRight(28) -NoNewline
-							Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($test_new_PS_File)"""
+							Write-Host "   $($lang.Running)".PadRight(22) -NoNewline -ForegroundColor Yellow
+							$arguments = @(
+								"-ExecutionPolicy",
+								"ByPass",
+								"-file",
+								"""$($test_new_PS_File)"""
+							)
+
+							Start-Process "powershell" -ArgumentList $arguments
 							Write-host $lang.Done -ForegroundColor Green
 
 							Write-Host "`n   $('-' * 80)"
@@ -1441,8 +1448,15 @@ Function Download_Process
 							Write-Host "   $($lang.Filename): " -NoNewline -ForegroundColor Yellow
 							Write-Host $test_new_PS_File -ForegroundColor Green
 
-							Write-Host "   $($lang.Running)".PadRight(28) -NoNewline
-							Start-Process "powershell" -ArgumentList "-ExecutionPolicy ByPass -file ""$($test_new_PS_File)"""
+							Write-Host "   $($lang.Running)".PadRight(22) -NoNewline -ForegroundColor Yellow
+							$arguments = @(
+								"-ExecutionPolicy",
+								"ByPass",
+								"-file",
+								"""$($test_new_PS_File)"""
+							)
+
+							Start-Process "powershell" -ArgumentList $arguments
 							Write-host $lang.Done -ForegroundColor Green
 
 							Write-Host "`n   $('-' * 80)"

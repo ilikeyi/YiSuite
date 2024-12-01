@@ -188,13 +188,13 @@ Function Update_Create_UI
 		Height         = 720
 		Width          = 550
 		Text           = $lang.UpdateCreate
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
 		MinimizeBox    = $False
 		ControlBox     = $False
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 	$GUIUpdateVersion  = New-Object system.Windows.Forms.Label -Property @{
 		Location       = "12,15"
@@ -446,7 +446,7 @@ Function Update_Create_Process_Add
 				$arguments = @(
 					"a",
 					"-tzip",
-					"$($TempFolderUpdate)\$($UpdateName).zip",
+					"""$($TempFolderUpdate)\$($UpdateName).zip""",
 					"$($ArchiveExcludeUp)",
 					"*.*",
 					"-mcu=on",
@@ -463,7 +463,7 @@ Function Update_Create_Process_Add
 
 				$arguments = @(
 					"a",
-					"$($TempFolderUpdate)\$($UpdateName).tar",
+					"""$($TempFolderUpdate)\$($UpdateName).tar""",
 					"$($ArchiveExcludeUp)",
 					"*.*",
 					"-r";
@@ -478,8 +478,8 @@ Function Update_Create_Process_Add
 				if (Test-Path -Path "$($TempFolderUpdate)\$($UpdateName).tar" -PathType Leaf) {
 					$arguments = @(
 						"a",
-						"$($TempFolderUpdate)\$($UpdateName).tar.xz",
-						"$($TempFolderUpdate)\$($UpdateName).tar",
+						"""$($TempFolderUpdate)\$($UpdateName).tar.xz""",
+						"""$($TempFolderUpdate)\$($UpdateName).tar""",
 						"-mf=bcj",
 						"-mx9";
 					)
@@ -497,8 +497,8 @@ Function Update_Create_Process_Add
 					$arguments = @(
 						"a",
 						"-tgzip",
-						"$($TempFolderUpdate)\$($UpdateName).tar.gz",
-						"$($TempFolderUpdate)\$($UpdateName).tar",
+						"""$($TempFolderUpdate)\$($UpdateName).tar.gz""",
+						"""$($TempFolderUpdate)\$($UpdateName).tar""",
 						"-mx9";
 					)
 					Start-Process -FilePath $Verify_Install_Path -ArgumentList $Arguments -Wait -WindowStyle Minimized
@@ -525,9 +525,31 @@ Function Update_Create_ASC
 
 			Write-Host "   * $($lang.Uping) $($UpdateName).asc"
 			if (([string]::IsNullOrEmpty($Script:secure_password))) {
-				Start-Process -FilePath $Verify_Install_Path -argument "--local-user ""$Script:SignGpgKeyID"" --output ""$($_.FullName).asc"" --detach-sign ""$($_.FullName)""" -Wait -WindowStyle Minimized
+				$arguments = @(
+					"--local-user",
+					$Script:SignGpgKeyID,
+					"--output",
+					"""$($_.FullName).asc""",
+					"--detach-sign",
+					"""$($_.FullName)"""
+				)
+
+				Start-Process -FilePath $Verify_Install_Path -argument $arguments -Wait -WindowStyle Minimized
 			} else {
-				Start-Process -FilePath $Verify_Install_Path -argument "--pinentry-mode loopback --passphrase ""$Script:secure_password"" --local-user ""$Script:SignGpgKeyID"" --output ""$($_.FullName).asc"" --detach-sign ""$($_.FullName)""" -Wait -WindowStyle Minimized
+				$arguments = @(
+					"--pinentry-mode",
+					"loopback",
+					"--passphrase",
+					$Script:secure_password,
+					"--local-user",
+					$Script:SignGpgKeyID,
+					"--output",
+					"""$($_.FullName).asc""",
+					"--detach-sign",
+					"""$($_.FullName)"""
+				)
+
+				Start-Process -FilePath $Verify_Install_Path -argument $arguments -Wait -WindowStyle Minimized
 			}
 
 			if (Test-Path "$($_.FullName).asc" -PathType Leaf) {
@@ -537,7 +559,7 @@ Function Update_Create_ASC
 			}
 		}
 	} else {
-		Write-Host "     $($lang.ASCStatus)" -ForegroundColor Red
+		Write-Host "    $($lang.ASCStatus)" -ForegroundColor Red
 	}
 }
 

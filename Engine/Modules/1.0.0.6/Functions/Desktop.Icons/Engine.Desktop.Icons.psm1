@@ -17,12 +17,12 @@ Function Desktop
 		Height         = 720
 		Width          = 550
 		Text           = $lang.DeskIcon
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		MaximizeBox    = $False
 		StartPosition  = "CenterScreen"
 		MinimizeBox    = $false
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 	$GUIDesktopPanel   = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
 		Height         = 425

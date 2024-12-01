@@ -57,13 +57,13 @@ Function Update_Setting_UI
 		Height         = 720
 		Width          = 550
 		Text           = $lang.ChkUpdate
+		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
 		MinimizeBox    = $False
 		ControlBox     = $False
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 	}
 	$UI_Main_Auto_Select = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
