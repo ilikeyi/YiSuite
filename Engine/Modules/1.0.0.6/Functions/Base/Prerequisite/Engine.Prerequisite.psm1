@@ -7,7 +7,7 @@ Function Prerequisite
 	Clear-Host
 	$Host.UI.RawUI.WindowTitle = "$((Get-Module -Name Engine).Author)'s Solutions | $($lang.Prerequisites)"
 	Write-Host "`n   $($lang.Prerequisites)" -ForegroundColor Yellow
-	Write-host "   $('-' * ($lang.Prerequisites).Length)"
+	Write-host "   $('-' * 80)"
 
 	Write-Host "   $($lang.Check_PSVersion): " -NoNewline
 	if ($PSVersionTable.PSVersion.major -ge "5") {
@@ -16,7 +16,7 @@ Function Prerequisite
 		Write-Host $lang.Failed -ForegroundColor Red
 
 		Write-host "`n   $($lang.How_solve): " -ForegroundColor Yellow
-		Write-host "   $('-' * ($lang.How_solve).Length)"
+		Write-host "   $('-' * 80)"
 		Write-host "     1. $($lang.UpdatePSVersion)`n"
 		pause
 		exit
@@ -30,7 +30,7 @@ Function Prerequisite
 		Write-Host $lang.Failed -ForegroundColor Red
 
 		Write-host "`n   $($lang.How_solve): " -ForegroundColor Yellow
-		Write-host "   $('-' * ($lang.How_solve).Length)"
+		Write-host "   $('-' * 80)"
 		Write-host "    $($lang.UpdateOSVersion)`n"
 		pause
 		exit
@@ -55,7 +55,7 @@ Function Prerequisite
 				Write-Host $lang.Check_Did_not_pass -ForegroundColor Red
 	
 				Write-host "`n   $($lang.How_solve): " -ForegroundColor Yellow
-				Write-host "   $('-' * ($lang.How_solve).Length)"
+				Write-host "   $('-' * 80)"
 				Write-host "    $($lang.HigherTermail)`n"
 				pause
 				exit
@@ -65,7 +65,7 @@ Function Prerequisite
 		Write-Host $lang.Failed -ForegroundColor Red
 
 		Write-host "`n   $($lang.How_solve): " -ForegroundColor Yellow
-		Write-host "   $('-' * ($lang.How_solve).Length)"
+		Write-host "   $('-' * 80)"
 		Write-host "     $($lang.HigherTermailAdmin)`n"
 		pause
 		exit
