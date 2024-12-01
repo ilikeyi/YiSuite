@@ -4,7 +4,7 @@
 	Prerequisites                   = Prerequisites
 	Check_PSVersion                 = Checking PS version 5.1 and above
 	Check_OSVersion                 = Checking Windows version > 10.0.16299.0
-	Check_Higher_elevated          = Checking Must be elevated to higher authority
+	Check_Higher_elevated           = Checking Must be elevated to higher authority
 	Check_execution_strategy        = Check execution strategy
 
 	Check_Pass                      = Pass

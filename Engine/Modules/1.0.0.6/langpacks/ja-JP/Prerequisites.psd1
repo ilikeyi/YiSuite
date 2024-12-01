@@ -4,7 +4,7 @@
 	Prerequisites                   = 前提条件
 	Check_PSVersion                 = PS バージョン 5.1 以降を確認してください
 	Check_OSVersion                 = Windows バージョン > 10.0.16299.0 を確認してください
-	Check_Higher_elevated          = チェックはより高い特権に昇格する必要があります
+	Check_Higher_elevated           = チェックはより高い特権に昇格する必要があります
 	Check_execution_strategy        = 実行戦略を確認する
 
 	Check_Pass                      = 合格

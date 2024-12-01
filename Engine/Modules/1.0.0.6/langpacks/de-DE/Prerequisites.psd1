@@ -4,7 +4,7 @@
 	Prerequisites                   = Voraussetzungen
 	Check_PSVersion                 = Überprüfen Sie PS-Version 5.1 und höher
 	Check_OSVersion                 = Überprüfen Sie die Windows-Version > 10.0.16299.0
-	Check_Higher_elevated          = Die Prüfung muss auf höhere Berechtigungen erhöht werden
+	Check_Higher_elevated           = Die Prüfung muss auf höhere Berechtigungen erhöht werden
 	Check_execution_strategy        = Ausführungsstrategie prüfen
 
 	Check_Pass                      = passieren

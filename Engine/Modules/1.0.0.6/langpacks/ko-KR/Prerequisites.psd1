@@ -4,7 +4,7 @@
 	Prerequisites                   = 전제 조건
 	Check_PSVersion                 = PS 버전 5.1 이상을 확인하세요
 	Check_OSVersion                 = Windows 버전 > 10.0.16299.0 확인
-	Check_Higher_elevated          = 수표를 더 높은 권한으로 올려야 합니다
+	Check_Higher_elevated           = 수표를 더 높은 권한으로 올려야 합니다
 	Check_execution_strategy        = 실행 전략 확인
 
 	Check_Pass                      = 통과하다

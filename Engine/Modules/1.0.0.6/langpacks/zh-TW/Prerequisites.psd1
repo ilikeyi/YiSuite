@@ -4,7 +4,7 @@
 	Prerequisites                   = 先決條件
 	Check_PSVersion                 = 檢查 PS 版本 5.1 以上
 	Check_OSVersion                 = 檢查 Windows 版本 > 10.0.16299.0
-	Check_Higher_elevated          = 檢查必須提升至更高權限
+	Check_Higher_elevated           = 檢查必須提升至更高權限
 	Check_execution_strategy        = 檢查執行策略
 
 	Check_Pass                      = 透過
