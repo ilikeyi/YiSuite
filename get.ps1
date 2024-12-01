@@ -97,7 +97,6 @@ $AvailableLanguages = @(
 			FailedCreateFolder       = "Failed to create directory"
 			Failed                   = "Failed"
 			IsOldFile                = "Please delete the old file and try again"
-			Restore                  = "Restore to default save path"
 			RestoreTo                = "When restoring the saved path, automatically select"
 			RestoreToDisk            = "Automatically select available disk"
 			RestoreToDesktop         = "Desktop"
@@ -159,7 +158,6 @@ $AvailableLanguages = @(
 			FailedCreateFolder       = "ディレクトリの作成に失敗しました"
 			Failed                   = "失敗"
 			IsOldFile                = "古いファイルを削除して再試行してください"
-			Restore                  = "デフォルトの保存パスを復元する"
 			RestoreTo                = "保存パスを復元するときに自動的に選択されます"
 			RestoreToDisk            = "利用可能なディスクを自動的に選択する"
 			RestoreToDesktop         = "デスクトップ"
@@ -221,7 +219,6 @@ $AvailableLanguages = @(
 			FailedCreateFolder       = "디렉터리를 생성하지 못했습니다."
 			Failed                   = "실패했습니다"
 			IsOldFile                = "오래된 파일을 삭제하고 다시 시도해주세요"
-			Restore                  = "기본 저장 경로 복원"
 			RestoreTo                = "저장 경로 복원 시 자동 선택"
 			RestoreToDisk            = "사용 가능한 디스크 자동 선택"
 			RestoreToDesktop         = "데스크탑"
@@ -283,7 +280,6 @@ $AvailableLanguages = @(
 			FailedCreateFolder       = "创建目录失败"
 			Failed                   = "失败"
 			IsOldFile                = "请删除旧文件后重试"
-			Restore                  = "恢复默认保存路径"
 			RestoreTo                = "恢复保存路径时自动选择"
 			RestoreToDisk            = "自动选择可用磁盘"
 			RestoreToDesktop         = "桌面"
@@ -345,7 +341,6 @@ $AvailableLanguages = @(
 			FailedCreateFolder       = "建立目錄失敗"
 			Failed                   = "失敗"
 			IsOldFile                = "請刪除舊檔案後重試"
-			Restore                  = "恢復預設儲存路徑"
 			RestoreTo                = "恢復儲存路徑時自動選擇"
 			RestoreToDisk            = "自動選擇可用磁碟"
 			RestoreToDesktop         = "桌面"
@@ -917,7 +912,7 @@ Function Installation_interface_UI
 	}
 
 	$UI_Main_Save_To_SelectFolder = New-Object system.Windows.Forms.LinkLabel -Property @{
-		Height         = 40
+		Height         = 35
 		Width          = 480
 		Padding        = "23,0,5,0"
 		Text           = $lang.SelectFolder
@@ -946,67 +941,25 @@ Function Installation_interface_UI
 		}
 	}
 
-	$UI_Main_Save_To_OpenFolder = New-Object system.Windows.Forms.LinkLabel -Property @{
-		Height         = 40
+	$UI_Main_Install_To_Restore = New-Object system.Windows.Forms.LinkLabel -Property @{
+		Height         = 35
 		Width          = 480
-		Padding        = "23,0,0,0"
-		Text           = $lang.OpenFolder
-		LinkColor      = "GREEN"
-		ActiveLinkColor = "RED"
-		LinkBehavior   = "NeverUnderline"
-		add_Click      = {
-			$UI_Main_Error.Text = ""
-
-			if ([string]::IsNullOrEmpty($UI_Main_Save_To_Path.Text)) {
-				$UI_Main_Error.Text = "$($lang.OpenFolder), $($lang.Inoperable)"
-			} else {
-				if (Test-Path -Path $UI_Main_Save_To_Path.Text -PathType Container) {
-					Start-Process $UI_Main_Save_To_Path.Text
-
-					$UI_Main_Error.Text = "$($lang.OpenFolder), $($lang.Done)"
-				} else {
-					$UI_Main_Error.Text = "$($lang.OpenFolder), $($lang.Inoperable)"
-				}
-			}
-		}
-	}
-
-	$UI_Main_Save_To_Paste = New-Object system.Windows.Forms.LinkLabel -Property @{
-		Height         = 40
-		Width          = 480
-		Padding        = "23,0,0,0"
-		Text           = $lang.Paste
-		LinkColor      = "GREEN"
-		ActiveLinkColor = "RED"
-		LinkBehavior   = "NeverUnderline"
-		add_Click      = {
-			$UI_Main_Error.Text = ""
-
-			if ([string]::IsNullOrEmpty($UI_Main_Save_To_Path.Text)) {
-				$UI_Main_Error.Text = "$($lang.Paste), $($lang.Inoperable)"
-			} else {
-				Set-Clipboard -Value $UI_Main_Save_To_Path.Text
-
-				$UI_Main_Error.Text = "$($lang.Paste), $($lang.Done)"
-			}
-		}
-	}
-
-	$UI_Main_Save_To_Wrap  = New-Object system.Windows.Forms.Label -Property @{
-		Height         = 20
-		Width          = 480
-	}
-
-	$UI_Main_Install_To_Name = New-Object System.Windows.Forms.Label -Property @{
-		Height         = 30
-		Width          = 480
-		Padding        = "22,0,0,0"
+		Padding        = "36,0,0,0"
 		Text           = $lang.RestoreTo
+		LinkColor      = "GREEN"
+		ActiveLinkColor = "RED"
+		LinkBehavior   = "NeverUnderline"
+		add_Click      = {
+			$UI_Main_Error.Text = ""
+
+			$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
+			$UI_Main_Error.Text = "$($lang.RestoreTo), $($lang.Done)"
+		}
 	}
 	$UI_Main_Install_To = New-Object system.Windows.Forms.ComboBox -Property @{
 		Height         = 30
-		Width          = 420
-		margin         = "40,0,0,20"
+		Width          = 410
+		margin         = "56,0,0,20"
 		Text           = ""
 		DropDownStyle  = "DropDownList"
 		add_Click      = {
@@ -1051,23 +1004,58 @@ Function Installation_interface_UI
 	}
 	$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
 
-	$UI_Main_Save_To_Restore = New-Object system.Windows.Forms.LinkLabel -Property @{
-		Height         = 30
+	$UI_Main_InstlTo_Wrap = New-Object system.Windows.Forms.Label -Property @{
+		Height         = 15
 		Width          = 480
-		Padding        = "36,0,0,0"
-		Text           = $lang.Restore
+	}
+
+	$UI_Main_Save_To_OpenFolder = New-Object system.Windows.Forms.LinkLabel -Property @{
+		Height         = 35
+		Width          = 480
+		Padding        = "23,0,0,0"
+		Text           = $lang.OpenFolder
 		LinkColor      = "GREEN"
 		ActiveLinkColor = "RED"
 		LinkBehavior   = "NeverUnderline"
 		add_Click      = {
 			$UI_Main_Error.Text = ""
 
-			$UI_Main_Save_To_Path.Text = Install_Init_Disk_To
-			$UI_Main_Error.Text = "$($lang.Restore), $($lang.Done)"
+			if ([string]::IsNullOrEmpty($UI_Main_Save_To_Path.Text)) {
+				$UI_Main_Error.Text = "$($lang.OpenFolder), $($lang.Inoperable)"
+			} else {
+				if (Test-Path -Path $UI_Main_Save_To_Path.Text -PathType Container) {
+					Start-Process $UI_Main_Save_To_Path.Text
+
+					$UI_Main_Error.Text = "$($lang.OpenFolder), $($lang.Done)"
+				} else {
+					$UI_Main_Error.Text = "$($lang.OpenFolder), $($lang.Inoperable)"
+				}
+			}
 		}
 	}
 
-	$UI_Main_InstlTo_Wrap = New-Object system.Windows.Forms.Label -Property @{
+	$UI_Main_Save_To_Paste = New-Object system.Windows.Forms.LinkLabel -Property @{
+		Height         = 35
+		Width          = 480
+		Padding        = "23,0,0,0"
+		Text           = $lang.Paste
+		LinkColor      = "GREEN"
+		ActiveLinkColor = "RED"
+		LinkBehavior   = "NeverUnderline"
+		add_Click      = {
+			$UI_Main_Error.Text = ""
+
+			if ([string]::IsNullOrEmpty($UI_Main_Save_To_Path.Text)) {
+				$UI_Main_Error.Text = "$($lang.Paste), $($lang.Inoperable)"
+			} else {
+				Set-Clipboard -Value $UI_Main_Save_To_Path.Text
+
+				$UI_Main_Error.Text = "$($lang.Paste), $($lang.Done)"
+			}
+		}
+	}
+
+	$UI_Main_Save_To_Wrap = New-Object system.Windows.Forms.Label -Property @{
 		Height         = 20
 		Width          = 480
 	}
@@ -1106,7 +1094,7 @@ Function Installation_interface_UI
 	$UI_Main_To.ValueMember = "Path"
 	$UI_Main_To.DisplayMember = "Lang"
 
-	$UI_Main_End_Wrap  = New-Object system.Windows.Forms.Label -Property @{
+	$UI_Main_End_Wrap = New-Object system.Windows.Forms.Label -Property @{
 		Height         = 20
 		Width          = 480
 	}
@@ -1157,17 +1145,16 @@ Function Installation_interface_UI
 		$UI_Main_Save_To,
 		$UI_Main_Save_To_Path,
 		$UI_Main_Save_To_SelectFolder,
+			$UI_Main_Install_To_Restore,
+			$UI_Main_Install_To,
+			$UI_Main_InstlTo_Wrap,
+
 		$UI_Main_Save_To_OpenFolder,
 		$UI_Main_Save_To_Paste,
 		$UI_Main_Save_To_Wrap,
 		$UI_Main_Adv_Name,
-		$UI_Main_Install_To_Name,
-		$UI_Main_Install_To,
-		$UI_Main_Save_To_Restore,
-		$UI_Main_InstlTo_Wrap,
 		$UI_Main_To_Name,
-		$UI_Main_To,
-		$UI_Main_End_Wrap
+		$UI_Main_To
 	))
 
 	ForEach ($item in $Update_Server) {
