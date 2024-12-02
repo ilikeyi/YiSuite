@@ -1734,7 +1734,7 @@ Function Language
 {
 	param
 	(
-		[string]$Force,
+		[string]$NewLang,
 		[switch]$Reset,
 		[switch]$Auto
 	)
@@ -1780,8 +1780,8 @@ Function Language
 		.Mandatory use of the specified language
 		.强制使用指定语言
 	#>
-	if (-not ([string]::IsNullOrEmpty($Force))) {
-		Language_Change -lang $Force
+	if (-not ([string]::IsNullOrEmpty($NewLang))) {
+		Language_Change -lang $NewLang
 		Modules_Import -Import
 		return
 	}

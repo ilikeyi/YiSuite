@@ -185,6 +185,5 @@ Function Uninstall
 	})
 	$UI_Main_Menu.ContextMenuStrip = $UI_Main_Menu_Right
 
-	$UI_Main.FormBorderStyle = "Fixed3D"
 	$UI_Main.ShowDialog() | Out-Null
 }

@@ -41,9 +41,9 @@ Import-Module -Name $PSScriptRoot\Modules\Engine.psd1 -PassThru -Force | Out-Nul
 <#
 	.设置语言，用法
 	.Set language pack, usage:
-	 Language                | Language selected by the user       | 选择语言，交互
-	 Language -Auto          | Automatic matching                  | 自动选择，不提示
-	 Language -Force "zh-CN" | Mandatory use of specified language | 强制选择语言
+	 Language                  | Language selected by the user       | 选择语言，交互
+	 Language -Auto            | Automatic matching                  | 自动选择，不提示
+	 Language -NewLang "zh-CN" | Mandatory use of specified language | 强制选择语言
 #>
 Language -Auto
 
