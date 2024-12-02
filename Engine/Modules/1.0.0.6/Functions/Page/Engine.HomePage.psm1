@@ -11,11 +11,16 @@ Function Logo
 	Clear-Host
 	$Host.UI.RawUI.WindowTitle = "$((Get-Module -Name Engine).Author)'s Solutions | $($Title)"
 
-	Write-Host "`n   $((Get-Module -Name Engine).Author)'s Solutions, " -NoNewline
-	Write-host "v$((Get-Module -Name Engine).Version.ToString())" -ForegroundColor Green
+	Write-host
 
-	Write-host "   $($lang.Learn): " -NoNewline
-	Write-host $((Get-Module -Name Engine).PrivateData.PSData.ProjectUri) -ForegroundColor Green
+	Write-host "   " -NoNewline
+	Write-Host " $((Get-Module -Name Engine).Author)'s Solutions " -NoNewline -BackgroundColor White -ForegroundColor Black
+	
+	Write-host " v$((Get-Module -Name Engine).Version.ToString()) " -BackgroundColor DarkGreen -ForegroundColor White
+
+	Write-host "   " -NoNewline
+	Write-host " $($lang.Learn) " -NoNewline -BackgroundColor White -ForegroundColor Black
+	Write-host " $((Get-Module -Name Engine).PrivateData.PSData.ProjectUri) " -BackgroundColor DarkBlue -ForegroundColor White
 
 	Write-host
 }
