@@ -3106,7 +3106,8 @@ Function Installation_interface_UI
 		$UI_Main_Save_To_Wrap,
 		$UI_Main_Adv_Name,
 		$UI_Main_To_Name,
-		$UI_Main_To
+		$UI_Main_To,
+		$UI_Main_End_Wrap
 	))
 
 	ForEach ($item in $Update_Server) {
