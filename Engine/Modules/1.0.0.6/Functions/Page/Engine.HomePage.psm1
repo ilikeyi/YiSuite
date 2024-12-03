@@ -39,12 +39,11 @@ Function ToMainpage
 {
 	param
 	(
-		[int]$wait
+		[int]$Wait
 	)
 
-	Write-Host $($lang.ToMsg -f $wait) -ForegroundColor Red
-	Start-Sleep -s $wait
-	Mainpage
+	Write-Host "   $($lang.ToMsg -f $wait)" -ForegroundColor Red
+	start-process "timeout.exe" -argumentlist "/t $($wait) /nobreak" -wait -nonewwindow
 }
 
 Function Instl_Custom_Software_Config
@@ -115,7 +114,7 @@ Function Mainpage
 	{
 		"update" {
 			Update
-			Modules_Refresh -Function "ToMainpage -wait 2"
+			Modules_Refresh -Function "ToMainpage -wait 2", "Mainpage"
 		}
 		"update *" {
 			Write-Host "`n   $($lang.Short_Cmd)" -ForegroundColor Yellow
@@ -130,11 +129,11 @@ Function Mainpage
 				}
 			}
 
-			Modules_Refresh -Function "ToMainpage -wait 2"
+			Modules_Refresh -Function "ToMainpage -wait 2", "Mainpage"
 		}
 		"1" {
 			Update
-			Modules_Refresh -Function "ToMainpage -wait 2"
+			Modules_Refresh -Function "ToMainpage -wait 2", "Mainpage"
 		}
 		"2" {
 			FirstExperience
@@ -213,7 +212,7 @@ Function Mainpage
 			Mainpage
 		}
 		"r" {
-			Modules_Refresh -Function "ToMainpage -wait 2"
+			Modules_Refresh -Function "ToMainpage -wait 2", "Mainpage"
 		}
 		"h" {
 			Engine_Help
