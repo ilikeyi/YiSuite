@@ -13,10 +13,8 @@ Function Logo
 	$Host.UI.RawUI.WindowTitle = "$($Global:Author)'s Solutions | $($Title)"
 
 	Write-host
-
 	Write-host "   " -NoNewline
 	Write-Host " $($Global:Author)'s Solutions " -NoNewline -BackgroundColor White -ForegroundColor Black
-	
 	Write-host " v$((Get-Module -Name Engine).Version.ToString()) " -NoNewline -BackgroundColor DarkGreen -ForegroundColor White
 
 	if ($ShowUpdate) {
@@ -43,7 +41,6 @@ Function ToMainpage
 	(
 		[int]$wait
 	)
-
 
 	Write-Host $($lang.ToMsg -f $wait) -ForegroundColor Red
 	Start-Sleep -s $wait
@@ -109,11 +106,11 @@ Function Mainpage
 	{
 		"1" {
 			Update
-			Modules_Refresh -Function "Language -Auto", "ToMainpage -wait 2"
+			Modules_Refresh -Function "ToMainpage -wait 2"
 		}
 		"update" {
 			Update
-			Modules_Refresh -Function "Language -Auto", "ToMainpage -wait 2"
+			Modules_Refresh -Function "ToMainpage -wait 2"
 		}
 		"2" {
 			FirstExperience
@@ -168,7 +165,7 @@ Function Mainpage
 			Mainpage
 		}
 		"r" {
-			Modules_Refresh -Function "Language -Auto", "ToMainpage -wait 2"
+			Modules_Refresh -Function "ToMainpage -wait 2"
 		}
 		"q" {
 			return
