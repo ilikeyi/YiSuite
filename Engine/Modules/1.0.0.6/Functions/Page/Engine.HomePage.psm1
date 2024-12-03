@@ -85,30 +85,54 @@ Function Mainpage
 	Write-Host "   $($lang.Mainname)" -ForegroundColor Yellow
 	Write-host "   $('-' * 80)"
 
-	write-host "      1   $($lang.ChkUpdate)
-      2   $($lang.FirstDeployment)
-      3   $($lang.Delete) $($lang.Mainname)" -ForegroundColor Green
+	write-host "      1   $($lang.ChkUpdate)" -ForegroundColor Green
+	write-host "      2   $($lang.FirstDeployment)" -ForegroundColor Green
+	write-host "      3   $($lang.Delete) $($lang.Mainname)" -ForegroundColor Green
 
-	write-host  "`n      4   $($lang.RestorePoint)
-      5   $($lang.LocationUserFolder)
-      6   $($lang.DeskIcon)
-      7   $($lang.Optimize) $($lang.System)
-      8   $($lang.Optimize) $($lang.Service)
-      9   $($lang.Delete) $($lang.UninstallUWP)
-     10   $($lang.Instl) $($lang.Necessary)
-     11   $($lang.Instl) $($lang.MostUsedSoftware)`n"
+	write-host "`n      4   $($lang.RestorePoint)" -ForegroundColor Green
+	write-host "      5   $($lang.LocationUserFolder)" -ForegroundColor Green
+	write-host "      6   $($lang.DeskIcon)" -ForegroundColor Green
+	write-host "      7   $($lang.Optimize) $($lang.System)" -ForegroundColor Green
+	write-host "      8   $($lang.Optimize) $($lang.Service)" -ForegroundColor Green
+	write-host "      9   $($lang.Delete) $($lang.UninstallUWP)" -ForegroundColor Green
+	write-host "     10   $($lang.Instl) $($lang.Necessary)" -ForegroundColor Green
+	write-host "     11   $($lang.Instl) $($lang.MostUsedSoftware)"
 
-	Write-Host "      C   $($lang.OnDemandPlanTask)" -ForegroundColor Green
-	Write-host "      L   $($lang.SwitchLanguage)"
-	Write-host "      R   $($lang.RefreshModules)`n"
+	Write-Host "`n      C   $($lang.OnDemandPlanTask)" -ForegroundColor Green
 
-	switch (Read-Host "   $($lang.PleaseChoose)")
+	Write-Host "`n      L   " -NoNewline -ForegroundColor Yellow
+	Write-host $lang.SwitchLanguage
+
+	Write-Host "      R   " -NoNewline -ForegroundColor Yellow
+	Write-host $lang.RefreshModules
+
+	Write-host
+	Write-host "   " -NoNewline
+	Write-host " H " -NoNewline -BackgroundColor DarkMagenta -ForegroundColor White
+	Write-host " $($lang.Help) " -NoNewline -BackgroundColor White -ForegroundColor Black
+	Write-host " " -NoNewline
+	switch -Wildcard (Read-Host $lang.PleaseChooseMain)
 	{
-		"1" {
+		"update" {
 			Update
 			Modules_Refresh -Function "ToMainpage -wait 2"
 		}
-		"update" {
+		"update *" {
+			Write-Host "`n   $($lang.Short_Cmd)" -ForegroundColor Yellow
+
+			$NewType = $PSItem.ToLower().replace('update','').replace(' ', '')
+			switch ($NewType) {
+				"-auto" {
+					Update -Auto
+				}
+				default {
+					Update
+				}
+			}
+
+			Modules_Refresh -Function "ToMainpage -wait 2"
+		}
+		"1" {
 			Update
 			Modules_Refresh -Function "ToMainpage -wait 2"
 		}
@@ -166,6 +190,12 @@ Function Mainpage
 		}
 		"r" {
 			Modules_Refresh -Function "ToMainpage -wait 2"
+		}
+		"h" {
+			Engine_Help
+			Get_Next
+			ToMainpage -wait 2
+			Mainpage
 		}
 		"q" {
 			return

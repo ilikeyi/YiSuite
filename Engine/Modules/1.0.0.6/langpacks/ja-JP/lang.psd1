@@ -43,6 +43,7 @@
 	SettingTo                 = に設定 {0}
 	SwitchLanguage            = 言語の切り替え
 	PleaseChoose              = 選択してください
+	PleaseChooseMain          = ショートカット コマンドまたは選択
 	FailedCreateFolder        = ディレクトリの作成に失敗しました：
 	ToMsg                     = \n   {0} 秒後に自動的にメインメニューに戻ります。
 	ToQuit                    = \n   {0} 秒でメインメニューを終了します。
@@ -69,4 +70,7 @@
 	ISO9660TipsErrorSpace     = 含めることはできません：先頭と末尾のスペース
 	ISO9660TipsErrorOther     = 含めることはできません：\\ / : * ? & @ ! "" < > |
 	ISOLengthError            = ラベルの長さは {0} 文字を超えることはできません
+	Help                      = ヘルプ
+	WorkDone                  = 完了し, メインインターフェイスに戻って任意のキーを押します...
+	Short_Cmd                 = ショートカットコマンド
 '@

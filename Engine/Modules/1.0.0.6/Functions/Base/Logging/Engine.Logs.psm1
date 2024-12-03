@@ -55,7 +55,7 @@ Function Logs_Write
 		[switch]
 		$Main
 	)
-	
+
 	#Write-Verbose "$Title $Message"
 	If ($OutputToScreen -or ([System.Management.Automation.ActionPreference]::SilentlyContinue -ne $VerbosePreference))
 	{

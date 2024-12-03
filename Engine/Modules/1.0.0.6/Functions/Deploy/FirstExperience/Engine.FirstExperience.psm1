@@ -1267,7 +1267,7 @@ Function Cleanup_On_Demand_Language
 		[switch]$Enabled,
 		[switch]$Disable
 	)
-	
+
 	Write-Host "   $($lang.CleanupUnusedLP)"
 	if ($Enabled) {
 		Write-Host "   $($lang.Enabled)".PadRight(22) -NoNewline
@@ -1300,7 +1300,7 @@ Function Cleanup_Unsed_Language
 		[switch]$Enabled,
 		[switch]$Disable
 	)
-	
+
 	Write-Host "   $($lang.CleanupOndemandLP)"
 	if ($Enabled) {
 		Write-Host "   $($lang.Enabled)".PadRight(22) -NoNewline
@@ -1333,7 +1333,7 @@ Function Network_Location_Wizard
 		[switch]$Enabled,
 		[switch]$Disable
 	)
-	
+
 	Write-Host "   $($lang.NetworkLocationWizard)"
 	if ($Enabled) {
 		Write-Host "   $($lang.Enabled)".PadRight(22) -NoNewline

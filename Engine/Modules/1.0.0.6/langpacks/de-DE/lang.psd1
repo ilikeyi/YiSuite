@@ -43,6 +43,7 @@
 	SettingTo                 = auf {0} gesetzt
 	SwitchLanguage            = prache wechseln
 	PleaseChoose              = Bitte wählen
+	PleaseChooseMain          = Verknüpfung oder Auswahl
 	FailedCreateFolder        = Fehler beim Erstellen des Verzeichnisses: \
 	ToMsg                     = \n   Nach {0} Sekunden automatisch zum Hauptmenü zurückkehren.
 	ToQuit                    = \n   Beendet das Hauptmenü in {0} Sekunden.
@@ -69,4 +70,7 @@
 	ISO9660TipsErrorSpace     = Darf nicht enthalten: führende und nachgestellte Leerzeichen
 	ISO9660TipsErrorOther     = Darf nicht enthalten: \\ / : * ? & @ ! "" < > |
 	ISOLengthError            = Die Etikettenlänge darf nicht mehr als {0} Zeichen betragen
+	Help                      = Helfen
+	WorkDone                  = Wenn Sie fertig sind, drücken Sie eine beliebige Taste, um zur Hauptoberfläche zurückzukehren ...
+	Short_Cmd                 = Verknüpfungen
 '@

@@ -19,7 +19,7 @@ Function Update
 		[switch]$Force,
 		[switch]$IsProcess
 	)
-	
+
 	$Script:ServerList = @()
 	if ($IsProcess) {
 		$Script:IsProcess = $True

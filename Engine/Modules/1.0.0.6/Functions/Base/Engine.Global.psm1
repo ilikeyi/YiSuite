@@ -202,6 +202,16 @@ Function Join_MainFolder
 	}
 }
 
+<#
+	.Pause prompt
+	.暂停提示
+#>
+Function Get_Next
+{
+	Write-Host "`n   $($lang.WorkDone)`n"
+	pause
+}
+
 Function Get_Zip
 {
 	param

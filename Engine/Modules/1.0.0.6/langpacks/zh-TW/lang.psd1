@@ -43,6 +43,7 @@
 	SettingTo                 = 設置為 {0}
 	SwitchLanguage            = 切換語言
 	PleaseChoose              = 請選擇
+	PleaseChooseMain          = 快速指令或選擇
 	FailedCreateFolder        = 創建目錄失敗：
 	ToMsg                     = \n   {0} 秒後自動返回到主菜單。
 	ToQuit                    = \n   {0} 秒後退出主菜單。
@@ -69,4 +70,7 @@
 	ISO9660TipsErrorSpace     = 不能包含：前後空格
 	ISO9660TipsErrorOther     = 不能包含：\\ / : * ? & @ ! "" < > |
 	ISOLengthError            = 卷標長度不能大於 {0} 字符
+	Help                      = 幫助
+	WorkDone                  = 完成，按任意鍵返回主界面...
+	Short_Cmd                 = 快捷指令
 '@

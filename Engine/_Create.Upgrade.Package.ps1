@@ -120,28 +120,6 @@ Enum Archive
 	gz
 }
 
-Function Get_Zip
-{
-	param
-	(
-		$Run
-	)
-
-	$Local_Zip_Path = @(
-		"${env:ProgramFiles}\7-Zip\$($Run)"
-		"${env:ProgramFiles(x86)}\7-Zip\$($Run)"
-		"$(Get_Arch_Path -Path "$($PSScriptRoot)\AIO\7zPacker")\$($Run)"
-	)
-
-	ForEach ($item in $Local_Zip_Path) {
-		if (Test-Path -Path $item -PathType leaf) {
-			return $item
-		}
-	}
-
-	return $False
-}
-
 Function Get_ASC
 {
 	param

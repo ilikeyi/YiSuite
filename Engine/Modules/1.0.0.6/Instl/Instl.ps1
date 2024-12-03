@@ -1915,7 +1915,7 @@ Function Install_UI
 		autoSizeMode   = 1
 		Padding        = "8,0,8,0"
 		Location       = '0,0'
-		Visible        = 0
+		Visible        = $False
 	}
 	<#
 		.搜索 ISO 来源，显示菜单

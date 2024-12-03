@@ -43,6 +43,7 @@
 	SettingTo                 = 으로 설정 {0}
 	SwitchLanguage            = 언어 전환
 	PleaseChoose              = 선택해주세요
+	PleaseChooseMain          = 바로가기 또는 옵션
 	FailedCreateFolder        = 디렉토리 생성 실패: \
 	ToMsg                     = \n   {0} 초 후에 자동으로 메인 메뉴로 돌아갑니다.
 	ToQuit                    = \n   {0} 초 후에 주 메뉴를 종료합니다.
@@ -69,4 +70,7 @@
 	ISO9660TipsErrorSpace     = 포함할 수 없음: 선행 및 후행 공백
 	ISO9660TipsErrorOther     = 다음을 포함할 수 없음: \\ / : * ? & @ ! "" < > |
 	ISOLengthError            = 레이블 길이는 {0} 자를 초과할 수 없습니다.
+	Help                      = 돕다
+	WorkDone                  = 완료, 기본 인터페이스로 돌아가려면 아무 키나 누르십시오...
+	Short_Cmd                 = 바로 가기 명령
 '@

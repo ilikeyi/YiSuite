@@ -43,6 +43,7 @@
 	SettingTo                 = Set to {0}
 	SwitchLanguage            = Switch language
 	PleaseChoose              = Please select
+	PleaseChooseMain          = shortcuts or options
 	FailedCreateFolder        = Failed to create directory: \
 	ToMsg                     = \n   Automatically return to the main menu after {0} seconds.
 	ToQuit                    = \n   Exit the main menu in {0} seconds.
@@ -69,4 +70,7 @@
 	ISO9660TipsErrorSpace     = Cannot contain: leading and trailing spaces
 	ISO9660TipsErrorOther     = Cannot contain: \\ / : * ? & @ ! "" < > |
 	ISOLengthError            = The label length cannot be greater than {0} characters
+	Help                      = Help
+	WorkDone                  = Finish, press any key to return to the main interface...
+	Short_Cmd                 = Shortcut command
 '@
