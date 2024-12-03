@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-TW
+	# Chinese (Traditional, Taiwan)
+
 	FirstDeployment           = 首次體驗部署
 	FirstDeploymentPopup      = 彈出主界面
 	FirstExpFinishOnDemand    = 允許首次預體驗，按計劃

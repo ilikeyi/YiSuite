@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ko-KR
+	# Korean (Korea)
+
 	LocationInitial           = 초기 위치 복원
 	LocationCurrent           = 현재 위치 복원
 	LocationUserFolder        = 사용자 폴더 위치 변경

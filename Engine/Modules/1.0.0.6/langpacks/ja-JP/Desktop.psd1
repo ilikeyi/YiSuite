@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ja-JP
+	# Japanese (Japan)
+
 	DesktopAllUsers           = すべてのユーザーのデスクトップに追加
 	DesktopCurrentUsers       = 現在のユーザーのデスクトップにのみ追加されます
 	ThisPC                    = コンピューター

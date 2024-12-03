@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# de-DE
+	# German (Germany)
+
 	FirstDeployment           = Erste Erfahrungen mit Bereitstellung
 	FirstDeploymentPopup      = Öffnen Sie die Hauptschnittstelle
 	FirstExpFinishOnDemand    = Erlaube die erste Vorerfahrung, wie geplant

@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# en-US
+	# English (United States)
+
 	LocationInitial           = Restore initialization location
 	LocationCurrent           = Restore the current location
 	LocationUserFolder        = Change user folder location

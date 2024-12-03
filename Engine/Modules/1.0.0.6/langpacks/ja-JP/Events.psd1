@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ja-JP
+	# Japanese (Japan)
+
 	OnDemandPlanTask                = 既知のイベントのカスタム割り当て
 	Group_Class_System              = システムクラス
 	Group_Class_Opt                 = 最適化クラス

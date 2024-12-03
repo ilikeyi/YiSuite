@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-TW
+	# Chinese (Traditional, Taiwan)
+
 	ChkUpdate                 = 檢查更新
 	UpdateServerSelect        = 自動選擇服務器或自定義選擇
 	UpdateServerNoSelect      = 請選擇可用的服務器

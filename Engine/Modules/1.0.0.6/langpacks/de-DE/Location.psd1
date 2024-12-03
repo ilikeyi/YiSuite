@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# de-DE
+	# German (Germany)
+
 	LocationInitial           = Wiederherstellen des ursprünglichen Standorts
 	LocationCurrent           = Aktuellen Standort wiederherstellen
 	LocationUserFolder        = Speicherort des Benutzerordners ändern

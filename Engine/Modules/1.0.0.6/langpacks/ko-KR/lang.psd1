@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ko-KR
+	# Korean (Korea)
+
 	FontsUI                   = Malgun Gothic
 	Mainname                  = 배포 엔진: Yi 의 제품군
 	Learn                     = 공부하다

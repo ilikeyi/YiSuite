@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# de-DE
+	# German (Germany)
+
 	DesktopMenu               = Personalisiertes "Desktop Rechtsklickmenü" hinzufügen
 	DesktopMenuShift          = Halten Sie die Umschalttaste gedrückt und klicken Sie dann mit der rechten Maustaste
 	ExcludeDefenders          = Heimatverzeichnis zum Ausschlussverzeichnis von Defenders hinzufügen

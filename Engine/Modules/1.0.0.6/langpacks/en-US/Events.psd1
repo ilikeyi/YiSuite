@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# en-US
+	# English (United States)
+
 	OnDemandPlanTask                = Custom Assign Known Events
 	Group_Class_System              = System class
 	Group_Class_Opt                 = Optimization class

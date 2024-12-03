@@ -75,6 +75,7 @@ $Script:ServerListSelect = @()
 $Update_Server = @(
 	@{
 		Region = "en-US"
+		Name   = "English (United States)"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/en-US/latest.json",
 			"https://github.com/ilikeyi/Instl/raw/main/update/en-US/latest.json"
@@ -82,6 +83,7 @@ $Update_Server = @(
 	}
 	@{
 		Region = "zh-CN"
+		Name   = "Chinese (Simplified, China)"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/zh-CN/latest.json"
 			"https://github.com/ilikeyi/Instl/raw/main/update/zh-CN/latest.json"
@@ -89,6 +91,7 @@ $Update_Server = @(
 	}
 	@{
 		Region = "zh-TW"
+		Name   = "Chinese (Traditional, Taiwan)"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/zh-TW/latest.json"
 			"https://github.com/ilikeyi/Instl/raw/main/update/zh-TW/latest.json"
@@ -96,6 +99,7 @@ $Update_Server = @(
 	}
 	@{
 		Region = "ja-JP"
+		Name   = "Japanese (Japan)"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/ja-JP/latest.json"
 			"https://github.com/ilikeyi/Instl/raw/main/update/ja-JP/latest.json"
@@ -103,6 +107,7 @@ $Update_Server = @(
 	}
 	@{
 		Region = "ko-KR"
+		Name   = "Korean (Korea)"
 		Link   = @(
 			"https://fengyi.tel/download/solutions/update/Instl/ko-KR/latest.json"
 			"https://github.com/ilikeyi/Instl/raw/main/update/ko-KR/latest.json"

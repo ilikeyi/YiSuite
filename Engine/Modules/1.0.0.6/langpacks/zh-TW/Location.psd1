@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-TW
+	# Chinese (Traditional, Taiwan)
+
 	LocationInitial           = 恢復初始化位置
 	LocationCurrent           = 恢復當前位置
 	LocationUserFolder        = 更改用戶文件夾位置

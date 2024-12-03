@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# en-US
+	# English (United States)
+
 	UpdateCreate              = Create upgrade package
 	UpdateLow                 = Minimum requirement: \
 	UpCreateRear              = What needs to be done after creation

@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-TW
+	# Chinese (Traditional, Taiwan)
+
 	UninstallUWP              = UWP 應用
 	UninstallUWPRely          = 依賴項，不建議刪除
 	DeleteAllUser             = 卸載所有用戶

@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# en-US
+	# English (United States)
+
 	UninstallUWP              = UWP application
 	UninstallUWPRely          = Dependency, it is not recommended to delete
 	DeleteAllUser             = Uninstall all users

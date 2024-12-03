@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# en-US
+	# English (United States)
+
 	FontsUI                   = Segoe UI
 	Mainname                  = Deployment Engine: Yi's Suite
 	Learn                     = Learn

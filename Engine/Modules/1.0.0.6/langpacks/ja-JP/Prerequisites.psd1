@@ -1,5 +1,6 @@
 ﻿ConvertFrom-StringData -StringData @'
-	# Translator                    = Yi
+	# ja-JP
+	# Japanese (Japan)
 
 	Prerequisites                   = 前提条件
 	Check_PSVersion                 = PS バージョン 5.1 以降を確認してください

@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# en-US
+	# English (United States)
+
 	DesktopAllUsers           = Add to the desktop of all users
 	DesktopCurrentUsers       = Add to the current user's desktop only
 	ThisPC                    = Computer

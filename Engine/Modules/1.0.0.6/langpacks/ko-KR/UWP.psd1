@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ko-KR
+	# Korean (Korea)
+
 	UninstallUWP              = UWP 앱
 	UninstallUWPRely          = 종속성, 삭제하지 않는 것이 좋습니다
 	DeleteAllUser             = 모든 사용자 삭제

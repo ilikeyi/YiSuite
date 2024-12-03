@@ -1,5 +1,6 @@
 ﻿ConvertFrom-StringData -StringData @'
-	# Translator                    = Yi
+	# zh-TW
+	# Chinese (Traditional, Taiwan)
 
 	Prerequisites                   = 先決條件
 	Check_PSVersion                 = 檢查 PS 版本 5.1 以上

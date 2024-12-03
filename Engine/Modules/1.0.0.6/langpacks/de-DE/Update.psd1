@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# de-DE
+	# German (Germany)
+
 	ChkUpdate                 = Nach Updates suchen
 	UpdateServerSelect        = automatische Serverauswahl oder benutzerdefinierte Auswahl
 	UpdateServerNoSelect      = Bitte wählen Sie einen verfügbaren Server

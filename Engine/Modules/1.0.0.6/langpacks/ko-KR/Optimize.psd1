@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ko-KR
+	# Korean (Korea)
+
 	DesktopMenu               = 개인화된 "바탕 화면 오른쪽 클릭 메뉴" 추가
 	DesktopMenuShift          = Shift 키를 누른 상태에서 마우스 오른쪽 버튼을 클릭해야 합니다
 	ExcludeDefenders          = Defenders 제외 디렉토리에 홈 디렉토리 추가

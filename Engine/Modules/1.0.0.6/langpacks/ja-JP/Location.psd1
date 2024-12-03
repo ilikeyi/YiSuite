@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ja-JP
+	# Japanese (Japan)
+
 	LocationInitial           = 初期の場所を復元します
 	LocationCurrent           = 現在の場所を復元する
 	LocationUserFolder        = ユーザーフォルダの場所を変更する

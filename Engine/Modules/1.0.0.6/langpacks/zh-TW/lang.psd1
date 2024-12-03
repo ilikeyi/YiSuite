@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-TW
+	# Chinese (Traditional, Taiwan)
+
 	FontsUI                   = Microsoft JhengHei UI
 	Mainname                  = 部署引擎：Yi's 套件
 	Learn                     = 學習

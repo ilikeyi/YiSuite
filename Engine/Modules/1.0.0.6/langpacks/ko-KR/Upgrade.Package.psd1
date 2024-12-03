@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ko-KR
+	# Korean (Korea)
+
 	UpdateCreate              = 업그레이드 패키지 생성
 	UpdateLow                 = 최소 요구 사항: \
 	UpCreateRear              = 생성 후 해야 할 일

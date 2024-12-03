@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# de-DE
+	# German (Germany)
+
 	UninstallUWP              = UWP App
 	UninstallUWPRely          = Abhängigkeit, es wird nicht empfohlen, zu löschen
 	DeleteAllUser             = Alle Benutzer löschen

@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ja-JP
+	# Japanese (Japan)
+
 	DesktopMenu               = パーソナライズされた "デスクトップ右クリックメニュー" を追加
 	DesktopMenuShift          = Shift キーを押しながら右クリックする必要があります
 	ExcludeDefenders          = ホームディレクトリを Defenders 除外ディレクトリに追加します

@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ko-KR
+	# Korean (Korea)
+
 	DesktopAllUsers           = 모든 사용자의 데스크탑에 추가
 	DesktopCurrentUsers       = 현재 사용자의 데스크탑에만 추가됨
 	ThisPC                    = 컴퓨터

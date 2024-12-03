@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ja-JP
+	# Japanese (Japan)
+
 	FontsUI                   = Yu Gothic UI
 	Mainname                  = デプロイメント エンジン: Yi のスイート
 	Learn                     = 勉強

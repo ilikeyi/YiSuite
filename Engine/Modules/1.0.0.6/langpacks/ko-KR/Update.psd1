@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ko-KR
+	# Korean (Korea)
+
 	ChkUpdate                 = 업데이트 확인
 	UpdateServerSelect        = 자동 서버 선택 또는 사용자 지정 선택
 	UpdateServerNoSelect      = 사용 가능한 서버를 선택하십시오

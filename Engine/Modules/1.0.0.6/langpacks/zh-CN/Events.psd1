@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-CN
+	# Chinese (Simplified, China)
+
 	OnDemandPlanTask                = 自定义分配已知事件
 	Group_Class_System              = 系统类
 	Group_Class_Opt                 = 优化类

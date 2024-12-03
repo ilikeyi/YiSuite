@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ja-JP
+	# Japanese (Japan)
+
 	FirstDeployment           = 初めての導入
 	FirstDeploymentPopup      = メインインターフェイスをポップアップします
 	FirstExpFinishOnDemand    = 計画どおり、最初の事前体験を許可する

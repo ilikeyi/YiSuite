@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-CN
+	# Chinese (Simplified, China)
+
 	ChkUpdate                 = 检查更新
 	UpdateServerSelect        = 自动选择服务器或自定义选择
 	UpdateServerNoSelect      = 请选择可用的服务器

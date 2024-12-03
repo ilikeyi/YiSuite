@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ja-JP
+	# Japanese (Japan)
+
 	UpdateCreate              = アップグレードパッケージを作成する
 	UpdateLow                 = 最小要件: \
 	UpCreateRear              = 作成後に行う必要があること

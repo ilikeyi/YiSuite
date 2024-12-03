@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ko-KR
+	# Korean (Korea)
+
 	OnDemandPlanTask                = 사용자 지정 알려진 이벤트 할당
 	Group_Class_System              = 시스템 클래스
 	Group_Class_Opt                 = 최적화 클래스

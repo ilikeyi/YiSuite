@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-CN
+	# Chinese (Simplified, China)
+
 	FontsUI                   = Microsoft YaHei UI
 	Mainname                  = 部署引擎：Yi's 套件
 	Learn                     = 学习

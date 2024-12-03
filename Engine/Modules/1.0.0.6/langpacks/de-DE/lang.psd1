@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# de-DE
+	# German (Germany)
+
 	FontsUI                   = Segoe UI
 	Mainname                  = Bereitstellungs-Engine: Yi's Suite
 	Learn                     = Studie

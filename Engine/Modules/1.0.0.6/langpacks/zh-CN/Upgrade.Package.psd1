@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-CN
+	# Chinese (Simplified, China)
+
 	UpdateCreate              = 创建升级包
 	UpdateLow                 = 最低要求: \
 	UpCreateRear              = 创建后需要做些什么

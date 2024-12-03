@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ja-JP
+	# Japanese (Japan)
+
 	ChkUpdate                 = 更新を確認します
 	UpdateServerSelect        = 自動サーバー選択またはカスタム選択
 	UpdateServerNoSelect      = 利用可能なサーバーを選択してください

@@ -1,5 +1,6 @@
 ﻿ConvertFrom-StringData -StringData @'
-	# Translator                    = Yi
+	# ko-KR
+	# Korean (Korea)
 
 	Prerequisites                   = 전제 조건
 	Check_PSVersion                 = PS 버전 5.1 이상을 확인하세요

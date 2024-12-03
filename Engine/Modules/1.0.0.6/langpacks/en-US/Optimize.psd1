@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# en-US
+	# English (United States)
+
 	DesktopMenu               = Personalized "desktop right-click menu"
 	DesktopMenuShift          = Need to hold down the Shift key and click the right button
 	ExcludeDefenders          = Add home directory to Defenders exclude directory

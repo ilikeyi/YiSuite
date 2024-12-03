@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ja-JP
+	# Japanese (Japan)
+
 	UninstallUWP              = UWP アプリ
 	UninstallUWPRely          = 依存関係、削除することはお勧めしません
 	DeleteAllUser             = すべてのユーザーを削除します

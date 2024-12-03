@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# en-US
+	# English (United States)
+
 	FirstDeployment           = First experience deployment
 	FirstDeploymentPopup      = Pop up the main interface
 	FirstExpFinishOnDemand    = Allow the first pre-experience, as planned

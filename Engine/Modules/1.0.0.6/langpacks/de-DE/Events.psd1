@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# de-DE
+	# German (Germany)
+
 	OnDemandPlanTask                = Weisen Sie bekannte Ereignisse individuell zu
 	Group_Class_System              = Systemklasse
 	Group_Class_Opt                 = Optimierungsklasse

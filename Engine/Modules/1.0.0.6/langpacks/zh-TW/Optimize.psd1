@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-TW
+	# Chinese (Traditional, Taiwan)
+
 	DesktopMenu               = 添加個性化“桌面右鍵菜單”
 	DesktopMenuShift          = 需要按住 Shift 鍵後點擊右鍵
 	ExcludeDefenders          = 添加主目錄到 Defenders 排除目錄

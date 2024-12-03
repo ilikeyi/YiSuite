@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# ko-KR
+	# Korean (Korea)
+
 	FirstDeployment           = 첫 경험 배포
 	FirstDeploymentPopup      = 메인 인터페이스 팝업
 	FirstExpFinishOnDemand    = 계획대로 첫 번째 사전 경험 허용

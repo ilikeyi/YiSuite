@@ -1,4 +1,7 @@
 ﻿ConvertFrom-StringData -StringData @'
+	# zh-TW
+	# Chinese (Traditional, Taiwan)
+
 	DesktopAllUsers           = 添加到所有用戶的桌面
 	DesktopCurrentUsers       = 僅添加到當前用戶的桌面
 	ThisPC                    = 計算機

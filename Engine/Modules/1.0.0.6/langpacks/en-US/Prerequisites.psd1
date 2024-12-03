@@ -1,5 +1,6 @@
 ﻿ConvertFrom-StringData -StringData @'
-	# Translator                    = Yi
+	# en-US
+	# English (United States)
 
 	Prerequisites                   = Prerequisites
 	Check_PSVersion                 = Checking PS version 5.1 and above
