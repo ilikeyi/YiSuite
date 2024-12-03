@@ -74,7 +74,7 @@ $Global:lang = @()
 $Global:IsLang = ""
 $AvailableLanguages = @(
 	@{
-		Tag      = "en-US"
+		Region   = "en-US"
 		Name     = "English (United States)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -135,7 +135,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "ar-SA"
+		Region   = "ar-SA"
 		Name     = "Arabic (Saudi Arabia)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -196,7 +196,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "bg-BG"
+		Region   = "bg-BG"
 		Name     = "Bulgarian (Bulgaria)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -257,7 +257,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "hr-HR"
+		Region   = "hr-HR"
 		Name     = "Croatian (Croatia)"
 		Language = @{
 			FontsUI                 = "Segoe UI"
@@ -318,7 +318,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "cs-CZ"
+		Region   = "cs-CZ"
 		Name     = "Czech (Czech Republic)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -379,7 +379,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "da-DK"
+		Region   = "da-DK"
 		Name     = "Danish (Denmark)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -440,7 +440,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "nl-NL"
+		Region   = "nl-NL"
 		Name     = "Dutch (Netherlands)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -501,7 +501,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "et-EE"
+		Region   = "et-EE"
 		Name     = "Estonian (Estonia)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -562,7 +562,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "fi-FI"
+		Region   = "fi-FI"
 		Name     = "Finnish (Finland)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -623,7 +623,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "fr-CA"
+		Region   = "fr-CA"
 		Name     = "French (Canada)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -684,7 +684,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "el-GR"
+		Region   = "el-GR"
 		Name     = "Greek (Greece)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -745,7 +745,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "he-IL"
+		Region   = "he-IL"
 		Name     = "Hebrew (Israel)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -806,7 +806,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "hu-HU"
+		Region   = "hu-HU"
 		Name     = "Hungarian (Hungary)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -867,7 +867,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "it-IT"
+		Region   = "it-IT"
 		Name     = "Italian (Italy)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -928,7 +928,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "lv-LV"
+		Region   = "lv-LV"
 		Name     = "Latvian (Latvia)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -989,7 +989,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "lt-LT"
+		Region   = "lt-LT"
 		Name     = "Lithuanian (Lithuania)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1050,7 +1050,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "nb-NO"
+		Region   = "nb-NO"
 		Name     = "Norwegian, Bokmål (Norway)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1111,7 +1111,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "pl-PL"
+		Region   = "pl-PL"
 		Name     = "Polish (Poland)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1172,7 +1172,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "pt-BR"
+		Region   = "pt-BR"
 		Name     = "Portuguese (Brazil)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1233,7 +1233,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "ro-RO"
+		Region   = "ro-RO"
 		Name     = "Romanian (Romania)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1294,7 +1294,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "sk-SK"
+		Region   = "sk-SK"
 		Name     = "Slovak (Slovakia)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1355,7 +1355,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "sl-SI"
+		Region   = "sl-SI"
 		Name     = "Slovenian (Slovenia)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1416,7 +1416,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "es-MX"
+		Region   = "es-MX"
 		Name     = "Spanish (Mexico)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1477,7 +1477,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "th-TH"
+		Region   = "th-TH"
 		Name     = "Thai (Thailand)"
 		Language = @{
 			FontsUI                  = "Leelawadee UI"
@@ -1538,7 +1538,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "tr-TR"
+		Region   = "tr-TR"
 		Name     = "Turkish (Turkey)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1599,7 +1599,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "uk-UA"
+		Region   = "uk-UA"
 		Name     = "Ukrainian (Ukraine)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1660,7 +1660,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "eu-es"
+		Region   = "eu-es"
 		Name     = "Basque (Basque)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1721,7 +1721,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "gl-es"
+		Region   = "gl-es"
 		Name     = "Galician (Spain)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1782,7 +1782,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "id-id"
+		Region   = "id-id"
 		Name     = "Indonesian (Indonesia)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1843,7 +1843,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "vi-vn"
+		Region   = "vi-vn"
 		Name     = "Vietnamese (Vietnam)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1904,7 +1904,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "sr-latn-rs"
+		Region   = "sr-latn-rs"
 		Name     = "Serbian (Latin, Serbia)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -1965,7 +1965,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "de-DE"
+		Region   = "de-DE"
 		Name     = "German (Germany)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -2026,7 +2026,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "ru-RU"
+		Region   = "ru-RU"
 		Name     = "Russian (Russia)"
 		Language = @{
 			FontsUI                  = "Segoe UI"
@@ -2087,7 +2087,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "ja-JP"
+		Region   = "ja-JP"
 		Name     = "Japanese (Japan)"
 		Language = @{
 			FontsUI                  = "Yu Gothic UI"
@@ -2148,7 +2148,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "ko-KR"
+		Region   = "ko-KR"
 		Name     = "Korean (Korea)"
 		Language = @{
 			FontsUI                  = "Malgun Gothic"
@@ -2209,7 +2209,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "zh-CN"
+		Region   = "zh-CN"
 		Name     = "Chinese (Simplified, China)"
 		Language = @{
 			FontsUI                  = "Microsoft YaHei UI"
@@ -2270,7 +2270,7 @@ $AvailableLanguages = @(
 		}
 	}
 	@{
-		Tag      = "zh-TW"
+		Region   = "zh-TW"
 		Name     = "Chinese (Traditional, Taiwan)"
 		Language = @{
 			FontsUI                  = "Microsoft JhengHei UI"
@@ -2343,17 +2343,17 @@ Function Language
 	$Global:IsLang = ""
 
 	ForEach ($item in $AvailableLanguages) {
-		if ($item.Tag -eq $NewLang) {
+		if ($item.Region -eq $NewLang) {
 			$Global:lang = $item.Language
-			$Global:IsLang = $item.Tag
+			$Global:IsLang = $item.Region
 			return
 		}
 	}
 
 	ForEach ($item in $AvailableLanguages) {
-		if ($item.Tag -eq "en-US") {
+		if ($item.Region -eq "en-US") {
 			$Global:lang = $item.Language
-			$Global:IsLang = $item.Tag
+			$Global:IsLang = $item.Region
 			return
 		}
 	}
