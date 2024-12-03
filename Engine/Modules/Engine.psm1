@@ -1849,9 +1849,9 @@ Function Language_Select_GUI
 		Text           = "&Remember the chosen language"
 		add_Click      = {
 			if ($UI_Main_Dont_Prompt.Checked) {
-				New-ItemProperty -Path $Path -Name "LanguagePrompt" -Value "True" -PropertyType string -Force | Out-Null
+				Save_Dynamic -regkey "Suite" -name "LanguagePrompt" -value "True" -String
 			} else {
-				New-ItemProperty -Path $Path -Name "LanguagePrompt" -Value "False" -PropertyType string -Force | Out-Null
+				Save_Dynamic -regkey "Suite" -name "LanguagePrompt" -value "False" -String
 			}
 		}
 	}
@@ -1875,7 +1875,7 @@ Function Language_Select_GUI
 				if ($_ -is [System.Windows.Forms.RadioButton]) {
 					if ($_.Checked) {
 						$FlagsLanguageCheck = $True
-						New-ItemProperty -Path $Path -Name "Language" -Value $_.Tag -PropertyType string -Force | Out-Null
+						Save_Dynamic -regkey "Suite" -name "Language" -value $_.Tag -String
 						Language_Change -lang $_.Tag
 						Modules_Import -Import
 					}

@@ -42,6 +42,7 @@
 	InstallFonts              = 글꼴 설치
 	SettingTo                 = 으로 설정 {0}
 	SwitchLanguage            = 언어 전환
+	LanguageCode              = 구역 마커
 	PleaseChoose              = 선택해주세요
 	PleaseChooseMain          = 바로가기 또는 옵션
 	FailedCreateFolder        = 디렉토리 생성 실패: \

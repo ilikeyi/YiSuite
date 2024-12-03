@@ -42,6 +42,7 @@
 	InstallFonts              = Install fonts
 	SettingTo                 = Set to {0}
 	SwitchLanguage            = Switch language
+	LanguageCode              = Region tag
 	PleaseChoose              = Please select
 	PleaseChooseMain          = shortcuts or options
 	FailedCreateFolder        = Failed to create directory: \

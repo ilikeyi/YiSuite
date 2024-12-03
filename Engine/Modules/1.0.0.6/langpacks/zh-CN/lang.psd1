@@ -42,6 +42,7 @@
 	InstallFonts              = 安装字体
 	SettingTo                 = 设置为 {0}
 	SwitchLanguage            = 切换语言
+	LanguageCode              = 区域标记
 	PleaseChoose              = 请选择
 	PleaseChooseMain          = 快捷指令或选择
 	FailedCreateFolder        = 创建目录失败：

@@ -42,6 +42,7 @@
 	InstallFonts              = フォントをインストールします
 	SettingTo                 = に設定 {0}
 	SwitchLanguage            = 言語の切り替え
+	LanguageCode              = ゾーンマーカー
 	PleaseChoose              = 選択してください
 	PleaseChooseMain          = ショートカット コマンドまたは選択
 	FailedCreateFolder        = ディレクトリの作成に失敗しました：

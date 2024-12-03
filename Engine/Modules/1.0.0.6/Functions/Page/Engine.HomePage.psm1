@@ -188,6 +188,30 @@ Function Mainpage
 			Language -Reset
 			Mainpage
 		}
+		"lang" {
+			Language -Reset
+			ToMainpage -wait 2
+			Mainpage
+		}
+		"lang *" {
+			Write-Host "`n   $($lang.Short_Cmd)" -ForegroundColor Yellow
+
+			$NewLanguage = $PSItem.ToLower().replace('lang','').replace(' ', '')
+			Write-host "`n   $($lang.SwitchLanguage): " -NoNewline
+			Write-host $NewLanguage -ForegroundColor Green
+			Write-host "   $('-' * 80)"
+
+			if (Test-Path "$($PSScriptRoot)\..\..\langpacks\$($NewLanguage)\Lang.psd1" -PathType Leaf) {
+				Write-Host "   $($lang.Done)" -ForegroundColor Green
+				Save_Dynamic -regkey "Suite" -name "Language" -value $NewLanguage -String
+				Modules_Refresh -Function "Language -Auto"
+			} else {
+				Write-Host "   $($lang.UpdateUnavailable)" -ForegroundColor Red
+			}
+
+			ToMainpage -wait 2
+			Mainpage
+		}
 		"r" {
 			Modules_Refresh -Function "ToMainpage -wait 2"
 		}

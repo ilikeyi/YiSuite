@@ -42,6 +42,7 @@
 	InstallFonts              = Schriftarten installieren
 	SettingTo                 = auf {0} gesetzt
 	SwitchLanguage            = prache wechseln
+	LanguageCode              = Zonenmarkierung
 	PleaseChoose              = Bitte wählen
 	PleaseChooseMain          = Verknüpfung oder Auswahl
 	FailedCreateFolder        = Fehler beim Erstellen des Verzeichnisses: \
