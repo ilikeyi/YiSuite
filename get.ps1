@@ -3008,7 +3008,7 @@ Function Installation_interface_UI
 	}
 
 	$UI_Main_Save_To_Wrap = New-Object system.Windows.Forms.Label -Property @{
-		Height         = 20
+		Height         = 25
 		Width          = 480
 	}
 
@@ -3046,7 +3046,7 @@ Function Installation_interface_UI
 	$UI_Main_To.ValueMember = "Path"
 	$UI_Main_To.DisplayMember = "Lang"
 
-	$UI_Main_End_Wrap = New-Object system.Windows.Forms.Label -Property @{
+	$UI_Main_End_Wrap  = New-Object system.Windows.Forms.Label -Property @{
 		Height         = 20
 		Width          = 480
 	}
