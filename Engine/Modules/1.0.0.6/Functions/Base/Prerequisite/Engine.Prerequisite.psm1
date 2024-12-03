@@ -5,7 +5,7 @@
 Function Prerequisite
 {
 	Clear-Host
-	$Host.UI.RawUI.WindowTitle = "$((Get-Module -Name Engine).Author)'s Solutions | $($lang.Prerequisites)"
+	$Host.UI.RawUI.WindowTitle = "$($Global:Author)'s Solutions | $($lang.Prerequisites)"
 	Write-Host "`n   $($lang.Prerequisites)" -ForegroundColor Yellow
 	Write-host "   $('-' * 80)"
 

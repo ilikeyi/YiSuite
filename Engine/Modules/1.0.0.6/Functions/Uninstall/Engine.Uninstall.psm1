@@ -97,12 +97,12 @@ Function Uninstall
 				Remove-Item -Path "$($env:SystemDrive)\Users\Public\Desktop\ボーナスソリューション.lnk" -ErrorAction SilentlyContinue
 				Remove-Item -Path "$($env:SystemDrive)\Users\Public\Desktop\Bonuslösung.lnk" -ErrorAction SilentlyContinue
 
-				$StartMenu = "$($env:SystemDrive)\ProgramData\Microsoft\Windows\Start Menu\Programs\$((Get-Module -Name Engine).Author)'s Solutions"
+				$StartMenu = "$($env:SystemDrive)\ProgramData\Microsoft\Windows\Start Menu\Programs\$($Global:Author)'s Solutions"
 				Write-Host "   $($lang.Delete) $($StartMenu)`n"
 				Remove_Tree -Path $StartMenu
 
 				if (Test-Path $syspin -PathType Leaf) {
-					Start-Process -FilePath $syspin -ArgumentList """$($StartMenu)\$((Get-Module -Name Engine).Author)'s Solutions.lnk"" ""51394""" -Wait -WindowStyle Hidden
+					Start-Process -FilePath $syspin -ArgumentList """$($StartMenu)\$($Global:Author)'s Solutions.lnk"" ""51394""" -Wait -WindowStyle Hidden
 				}
 			}
 			if ($UI_Main_Delete_Right_Menu.Checked) {
@@ -123,7 +123,7 @@ Function Uninstall
 				#>
 				Write-Host "   $($lang.NextDelete)`n" -ForegroundColor Green
 				$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\RunOnce"
-				$regKey = "Clear $((Get-Module -Name Engine).Author) Folder"
+				$regKey = "Clear $($Global:Author) Folder"
 				$regValue = "cmd.exe /c rd /s /q ""$($Global:UniqueMainFolder)"""
 				if (Test-Path $regPath) {
 					New-ItemProperty -Path $regPath -Name $regKey -Value $regValue -PropertyType STRING -Force | Out-Null

@@ -13,7 +13,7 @@ Function Logging
 	if (Test_Available_Disk -Path $TestLogSaveFolder) {
 		$Global:LogsSaveFolder = Convert-Path -Path $TestLogSaveFolder -ErrorAction SilentlyContinue
 	} else {
-		$TestLogSaveFolder = Join-Path -Path $env:LOCALAPPDATA -ChildPath "$((Get-Module -Name Engine).Author)\Logs"
+		$TestLogSaveFolder = Join-Path -Path $env:LOCALAPPDATA -ChildPath "$($Global:Author)\Logs"
 		Check_Folder -chkpath $TestLogSaveFolder
 		$Global:LogsSaveFolder = $TestLogSaveFolder
 	}

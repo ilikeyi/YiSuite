@@ -186,7 +186,7 @@ Function FirstExperience_Setting_UI
 	$GUIFEVolumeSync   = New-Object System.Windows.Forms.RadioButton -Property @{
 		Height         = 22
 		Width          = 300
-		Text           = $((Get-Module -Name Engine).Author)
+		Text           = $($Global:Author)
 		Location       = '16,25'
 	}
 	$GUIFEDeskMenu     = New-Object System.Windows.Forms.CheckBox -Property @{
@@ -244,7 +244,7 @@ Function FirstExperience_Setting_UI
 	$GUIFEFixMainFolder = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 30
 		Width          = 490
-		Text           = "$($lang.FixMainFolder -f $((Get-Module -Name Engine).Author))"
+		Text           = "$($lang.FixMainFolder -f $($Global:Author))"
 		Checked        = $True
 	}
 	$GUIFEFDPermissions = New-Object System.Windows.Forms.CheckBox -Property @{
@@ -327,7 +327,7 @@ Function FirstExperience_Setting_UI
 					}
 
 					if ($GUIFEVolumeSync.Checked) {
-						System_Disk_Label -VolumeName (Get-Module -Name Engine).Author
+						System_Disk_Label -VolumeName $Global:Author
 					}
 				} else {
 					Write-Host "`n   $($lang.VolumeLabel -f '')"
@@ -387,7 +387,7 @@ Function FirstExperience_Setting_UI
 			if ($GUIFEFixMainFolder.Checked) {
 				Repair_Home_Directory
 			} else {
-				Write-Host "   $($lang.FixMainFolder -f $((Get-Module -Name Engine).Author))"
+				Write-Host "   $($lang.FixMainFolder -f $($Global:Author))"
 				Write-Host "   $($lang.Inoperable)" -ForegroundColor Red
 			}
 
@@ -586,7 +586,7 @@ Function FirstExperience_Process
 		.更改系统盘卷标
 	#>
 	if (Deploy_Sync -Mark "Sync_Volume_Name") {
-		System_Disk_Label -VolumeName (Get-Module -Name Engine).Author
+		System_Disk_Label -VolumeName $Global:Author
 	} else {
 		System_Disk_Label -VolumeName "OS"
 	}
@@ -678,7 +678,7 @@ Function FirstExperience_Process
 		}
 
 		$regValue = "cmd /c start /min """" powershell -Command ""Start-Process 'Powershell' -Argument '-ExecutionPolicy ByPass -File ""$((Convert-Path -Path "$($PSScriptRoot)\..\..\..\..\..\Engine.ps1" -ErrorAction SilentlyContinue))"" -Functions \""FirstExperience_Deploy -Quit\""' -WindowStyle Minimized -Verb RunAs"""
-		New-ItemProperty -Path $regPath -Name "$((Get-Module -Name Engine).Author)" -Value $regValue -PropertyType STRING -Force | Out-Null
+		New-ItemProperty -Path $regPath -Name "$($Global:Author)" -Value $regValue -PropertyType STRING -Force | Out-Null
 
 		Restart-Computer -Force
 		Write-Host "   $($lang.Done)`n" -ForegroundColor Green
@@ -1112,10 +1112,10 @@ Function FirstExperience_Deploy
 		.全盘计划，按规则搜索：Bat
 	#>
 	$SearchBatFile = @(
-		"$((Get-Module -Name Engine).Author).bat"
-		"$((Get-Module -Name Engine).Author)\$((Get-Module -Name Engine).Author).bat"
-		"$((Get-Module -Name Engine).Author)\Deploy\$((Get-Module -Name Engine).Author).bat"
-		"$((Get-Module -Name Engine).Author)\Deploy\Bat\$((Get-Module -Name Engine).Author).bat"
+		"$($Global:Author).bat"
+		"$($Global:Author)\$($Global:Author).bat"
+		"$($Global:Author)\Deploy\$($Global:Author).bat"
+		"$($Global:Author)\Deploy\Bat\$($Global:Author).bat"
 	)
 	ForEach ($item in $SearchBatFile) {
 		Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue | ForEach-Object {
@@ -1134,10 +1134,10 @@ Function FirstExperience_Deploy
 		.全盘计划，按规则搜索：ps1
 	#>
 	$SearchPSFile = @(
-		"$((Get-Module -Name Engine).Author).ps1"
-		"$((Get-Module -Name Engine).Author)\$((Get-Module -Name Engine).Author).ps1"
-		"$((Get-Module -Name Engine).Author)\Deploy\$((Get-Module -Name Engine).Author).ps1"
-		"$((Get-Module -Name Engine).Author)\Deploy\PS1\$((Get-Module -Name Engine).Author).ps1"
+		"$($Global:Author).ps1"
+		"$($Global:Author)\$($Global:Author).ps1"
+		"$($Global:Author)\Deploy\$($Global:Author).ps1"
+		"$($Global:Author)\Deploy\PS1\$($Global:Author).ps1"
 	)
 	ForEach ($item in $SearchPSFile) {
 		Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue | ForEach-Object {
@@ -1187,7 +1187,7 @@ Function FirstExperience_Deploy
 		#>
 		Write-Host "   $($lang.NextDelete)`n" -ForegroundColor Green
 		$regPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\RunOnce"
-		$regKey = "Clear $((Get-Module -Name Engine).Author) Folder"
+		$regKey = "Clear $($Global:Author) Folder"
 		$regValue = "cmd.exe /c rd /s /q ""$($UniqueMainFolder)"""
 		if (Test-Path $regPath) {
 			New-ItemProperty -Path $regPath -Name $regKey -Value $regValue -PropertyType STRING -Force | Out-Null
@@ -1385,11 +1385,11 @@ Function Firewall_Exclusion
 
 Function Repair_Home_Directory
 {
-	Write-Host "`n   $($lang.FixMainFolder -f $((Get-Module -Name Engine).Author))"
+	Write-Host "`n   $($lang.FixMainFolder -f $($Global:Author))"
 
 	$DeskEdit = "$(Get_Arch_Path -Path "$($PSScriptRoot)\..\..\..\..\..\AIO\DeskEdit")\DeskEdit.exe"
 	if (Test-Path $DeskEdit -PathType Leaf) {
-		Start-Process -FilePath $DeskEdit -ArgumentList "/F=""$($Global:UniqueMainFolder)"" /S=.ShellClassInfo /L=LocalizedResourceName=""$((Get-Module -Name Engine).Author)'s Solutions""" -wait
+		Start-Process -FilePath $DeskEdit -ArgumentList "/F=""$($Global:UniqueMainFolder)"" /S=.ShellClassInfo /L=LocalizedResourceName=""$($Global:Author)'s Solutions""" -wait
 
 		$IconPath = Convert-Path -Path "$($PSScriptRoot)\..\..\..\..\..\Assets\icons\Engine.ico" -ErrorAction SilentlyContinue
 		if (Test-Path -Path $IconPath -PathType Leaf) {

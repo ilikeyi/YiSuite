@@ -747,8 +747,8 @@
 		.Checkbox: Customize the new directory
 		.复选框：自定义新的目录
 	#>
-	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite\UserFolder" -Name "AllowCustomize" -ErrorAction SilentlyContinue) {
-		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite\UserFolder" -Name "AllowCustomize" -ErrorAction SilentlyContinue) {
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite\UserFolder" -Name "AllowCustomize" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite\UserFolder" -Name "AllowCustomize" -ErrorAction SilentlyContinue) {
 			"True" {
 				$GUILocationCustomize.Checked = $True
 				$GUILocationCustomizeShow.Enabled = $True
@@ -764,8 +764,8 @@
 		Save_Dynamic -regkey "Suite\UserFolder" -name "AllowCustomize" -value "False" -String
 	}
 
-	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite\UserFolder" -Name "Folder" -ErrorAction SilentlyContinue) {
-		$GetNewFolder = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite\UserFolder" -Name "Folder" -ErrorAction SilentlyContinue
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite\UserFolder" -Name "Folder" -ErrorAction SilentlyContinue) {
+		$GetNewFolder = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite\UserFolder" -Name "Folder" -ErrorAction SilentlyContinue
 		$GUILocationCustomizeShow.Text = $GetNewFolder
 	} else {
 		$GUILocationCustomizeShow.Text = $Global:MainImageLang

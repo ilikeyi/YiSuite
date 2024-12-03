@@ -1738,7 +1738,8 @@ Function Language
 		[switch]$Reset,
 		[switch]$Auto
 	)
-	$Host.UI.RawUI.WindowTitle = "$((Get-Module -Name Engine).Author)'s Solutions | Choose your country or region."
+
+	$Global:Author = $(Get-Module -Name Engine).Author
 
 	<#
 		.Reset
@@ -1747,11 +1748,11 @@ Function Language
 	if ($Reset) {
 		$Global:IsLang = $null
 	} else {
-		if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "LanguagePrompt" -ErrorAction SilentlyContinue) {
-			$GetLanguagePrompt = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "LanguagePrompt"
+		if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "LanguagePrompt" -ErrorAction SilentlyContinue) {
+			$GetLanguagePrompt = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "LanguagePrompt"
 			if ($GetLanguagePrompt -eq "True") {
-				if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "Language" -ErrorAction SilentlyContinue) {
-					$GetLanguage = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "Language"
+				if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "Language" -ErrorAction SilentlyContinue) {
+					$GetLanguage = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "Language"
 					Language_Change -lang $GetLanguage
 					Modules_Import -Import
 					return
@@ -1765,8 +1766,8 @@ Function Language
 		.自动
 	#>
 	if ($Auto) {
-		if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "Language" -ErrorAction SilentlyContinue) {
-			$GetLanguage = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "Language"
+		if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "Language" -ErrorAction SilentlyContinue) {
+			$GetLanguage = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "Language"
 			Language_Change -lang $GetLanguage
 		} else {
 			Language_Change -lang (Get-Culture).Name
@@ -1800,7 +1801,7 @@ Function Language
 
 Function Language_Select_GUI
 {
-	$Path = "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite"
+	$Path = "HKCU:\SOFTWARE\$($Global:Author)\Suite"
 	if (-not (Test-Path $Path)) {
 		New-Item -Path $Path -Force -ErrorAction SilentlyContinue | Out-Null
 	}
@@ -1854,8 +1855,8 @@ Function Language_Select_GUI
 			}
 		}
 	}
-	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "LanguagePrompt" -ErrorAction SilentlyContinue) {
-		$GetLanguagePrompt = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "LanguagePrompt"
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "LanguagePrompt" -ErrorAction SilentlyContinue) {
+		$GetLanguagePrompt = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "LanguagePrompt"
 		switch ($GetLanguagePrompt) {
 			"True" { $UI_Main_Dont_Prompt.Checked = $True }
 			"False" { $UI_Main_Dont_Prompt.Checked = $False }
@@ -1907,8 +1908,8 @@ Function Language_Select_GUI
 		$UI_Main_Canel
 	))
 
-	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "Language" -ErrorAction SilentlyContinue) {
-		$FlagsDefaultLanguage = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "Language"
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "Language" -ErrorAction SilentlyContinue) {
+		$FlagsDefaultLanguage = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "Language"
 	} else {
 		$FlagsDefaultLanguage = (Get-Culture).Name
 	}

@@ -42,6 +42,10 @@ Function Event_Assign_Not_Allowed_UI
 #>
 Function Image_Assign_Event_Master
 {
+	Logo -Title $lang.AssignTask
+	Write-Host "   $($lang.AssignTask)" -ForegroundColor Yellow
+	Write-host "   $('-' * 80)"
+
 	<#
 		.重置变量
 	#>

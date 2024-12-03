@@ -5,18 +5,26 @@ Function Logo
 {
 	param
 	(
-		$Title
+		$Title,
+		[switch]$ShowUpdate
 	)
 
 	Clear-Host
-	$Host.UI.RawUI.WindowTitle = "$((Get-Module -Name Engine).Author)'s Solutions | $($Title)"
+	$Host.UI.RawUI.WindowTitle = "$($Global:Author)'s Solutions | $($Title)"
 
 	Write-host
 
 	Write-host "   " -NoNewline
-	Write-Host " $((Get-Module -Name Engine).Author)'s Solutions " -NoNewline -BackgroundColor White -ForegroundColor Black
+	Write-Host " $($Global:Author)'s Solutions " -NoNewline -BackgroundColor White -ForegroundColor Black
 	
-	Write-host " v$((Get-Module -Name Engine).Version.ToString()) " -BackgroundColor DarkGreen -ForegroundColor White
+	Write-host " v$((Get-Module -Name Engine).Version.ToString()) " -NoNewline -BackgroundColor DarkGreen -ForegroundColor White
+
+	if ($ShowUpdate) {
+		Write-host " $($lang.ChkUpdate) " -NoNewline -BackgroundColor White -ForegroundColor Black
+		Write-host " Update " -BackgroundColor DarkMagenta -ForegroundColor White
+	} else {
+		Write-host
+	}
 
 	Write-host "   " -NoNewline
 	Write-host " $($lang.Learn) " -NoNewline -BackgroundColor White -ForegroundColor Black
@@ -76,7 +84,7 @@ Function Instl_Custom_Software
 #>
 Function Mainpage
 {
-	Logo -Title $lang.Mainname
+	Logo -Title $lang.Mainname -ShowUpdate
 	Write-Host "   $($lang.Mainname)" -ForegroundColor Yellow
 	Write-host "   $('-' * 80)"
 
@@ -101,7 +109,11 @@ Function Mainpage
 	{
 		"1" {
 			Update
-			Modules_Refresh -Function "ToMainpage -wait 2"
+			Modules_Refresh -Function "Language -Auto", "ToMainpage -wait 2"
+		}
+		"update" {
+			Update
+			Modules_Refresh -Function "Language -Auto", "ToMainpage -wait 2"
 		}
 		"2" {
 			FirstExperience
@@ -121,7 +133,7 @@ Function Mainpage
 			Event_Assign_Not_Allowed_UI
 			$Global:EventQueueMode = $False
 
-			ToMainpage -wait 4
+			ToMainpage -wait 2
 		}
 		"5" {
 			Change_Location
@@ -156,7 +168,7 @@ Function Mainpage
 			Mainpage
 		}
 		"r" {
-			Modules_Refresh -Function "ToMainpage -wait 2"
+			Modules_Refresh -Function "Language -Auto", "ToMainpage -wait 2"
 		}
 		"q" {
 			return

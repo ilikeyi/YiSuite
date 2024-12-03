@@ -27,7 +27,7 @@ Function Save_Dynamic
 		[switch]$String
 	)
 
-	$Path = "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\$($regkey)"
+	$Path = "HKCU:\SOFTWARE\$($Global:Author)\$($regkey)"
 
 	if (-not (Test-Path $Path)) {
 		New-Item -Path $Path -Force -ErrorAction SilentlyContinue | Out-Null

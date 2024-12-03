@@ -8,7 +8,7 @@ Function Restore_Point_Create_UI
 	Write-Host "   $($lang.RestorePoint)" -ForegroundColor Yellow
 	Write-host "   $('-' * 80)"
 
-	$Path = "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite"
+	$Path = "HKCU:\SOFTWARE\$($Global:Author)\Suite"
 	if (-not (Test-Path $Path)) {
 		New-Item -Path $Path -Force -ErrorAction SilentlyContinue | Out-Null
 	}
@@ -88,7 +88,7 @@ Function Restore_Point_Create
 {
 	Enable-ComputerRestore -drive $env:SystemDrive -ErrorAction SilentlyContinue
 	New-ItemProperty -LiteralPath "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" -Name 'SystemRestorePointCreationFrequency' -Value 0 -PropertyType DWord -force -ErrorAction SilentlyContinue | Out-Null
-	Checkpoint-Computer -description "$((Get-Module -Name Engine).Author)" -restorepointtype "Modify_Settings" -ErrorAction SilentlyContinue
+	Checkpoint-Computer -description "$($Global:Author)" -restorepointtype "Modify_Settings" -ErrorAction SilentlyContinue
 	New-ItemProperty -LiteralPath "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" -Name 'SystemRestorePointCreationFrequency' -Value 1440 -PropertyType DWord -force -ErrorAction SilentlyContinue | Out-Null
 	Disable-ComputerRestore -Drive $env:SystemDrive -ErrorAction SilentlyContinue
 	Write-Host "   $($lang.Done)`n" -ForegroundColor Green

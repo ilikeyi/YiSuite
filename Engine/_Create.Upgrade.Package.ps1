@@ -379,8 +379,8 @@ Function Update_Create_UI
 	ForEach ($item in $GpgKI) {
 		$UI_Main_Create_ASCSign.Items.Add($item) | Out-Null
 	}
-	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "PGP" -ErrorAction SilentlyContinue) {
-		$UI_Main_Create_ASCSign.Text = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "PGP" -ErrorAction SilentlyContinue
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "PGP" -ErrorAction SilentlyContinue) {
+		$UI_Main_Create_ASCSign.Text = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "PGP" -ErrorAction SilentlyContinue
 	}
 
 	<#
@@ -390,8 +390,8 @@ Function Update_Create_UI
 	if (Test-Path -Path $Verify_Install_Path -PathType leaf) {
 		$UI_Main_Create_ASC.Enabled = $True
 		
-		if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "IsPGP" -ErrorAction SilentlyContinue) {
-			switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$((Get-Module -Name Engine).Author)\Suite" -Name "IsPGP" -ErrorAction SilentlyContinue) {
+		if (Get-ItemProperty -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "IsPGP" -ErrorAction SilentlyContinue) {
+			switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\$($Global:Author)\Suite" -Name "IsPGP" -ErrorAction SilentlyContinue) {
 				"True" {
 					$UI_Main_Create_ASC.Checked = $True
 				}
@@ -599,7 +599,7 @@ Function Update_Create_Version
 @"
 {
 	"author": {
-		"name": "$((Get-Module -Name Engine).Author)",
+		"name": "$($Global:Author)",
 		"url":  "$((Get-Module -Name Engine).HelpInfoURI)"
 	},
 	"version": {
@@ -608,7 +608,7 @@ Function Update_Create_Version
 		"minau":       "$($LowVer)"
 	},
 	"changelog": {
-		"title": "$((Get-Module -Name Engine).Author)'s Solutions - Change log",
+		"title": "$($Global:Author)'s Solutions - Change log",
 		"log":   "   - Latest *Update"
 	},
 	"url": "$((Get-Module -Name Engine).HelpInfoURI)/download/solutions/update/Yi.Suite/latest.zip"

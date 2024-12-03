@@ -3,7 +3,7 @@
 	.搜索字体：目录结构
 #>
 $DirectoryStructure = @(
-	"$((Get-Module -Name Engine).Author)\Fonts"
+	"$($Global:Author)\Fonts"
 	"Fonts"
 )
 
@@ -27,7 +27,7 @@ Function Install_Fonts
 		[string]$fontFile,
 		[string]$shortname
 	)
-	$Host.UI.RawUI.WindowTitle = "$((Get-Module -Name Engine).Author)'s Solutions | $($lang.InstallFonts)"
+	$Host.UI.RawUI.WindowTitle = "$($Global:Author)'s Solutions | $($lang.InstallFonts)"
 
 	Write-Host "   $($fontFile)"
 	Write-Host "   $($lang.Instl)".PadRight(28) -NoNewline

@@ -10,7 +10,7 @@ Function Shortcut_Process
 	#>
 	$Shortcut  = "$(Get_Arch_Path -Path "$($PSScriptRoot)\..\..\..\..\AIO\Shortcut")\Shortcut.exe"
 	$syspin    = "$(Get_Arch_Path -Path "$($PSScriptRoot)\..\..\..\..\AIO\syspin")\syspin.exe"
-	$StartMenu = "$($env:SystemDrive)\ProgramData\Microsoft\Windows\Start Menu\Programs\$((Get-Module -Name Engine).Author)'s Solutions"
+	$StartMenu = "$($env:SystemDrive)\ProgramData\Microsoft\Windows\Start Menu\Programs\$($Global:Author)'s Solutions"
 
 	<#
 		.Obtain deployment conditions:
@@ -32,7 +32,7 @@ Function Shortcut_Process
 	}
 
 	if (Test-Path $syspin -PathType Leaf) {
-		Start-Process -FilePath $syspin -ArgumentList """$($StartMenu)\$((Get-Module -Name Engine).Author)'s Solutions.lnk"" ""51394""" -Wait -WindowStyle Hidden
+		Start-Process -FilePath $syspin -ArgumentList """$($StartMenu)\$($Global:Author)'s Solutions.lnk"" ""51394""" -Wait -WindowStyle Hidden
 	}
 	Remove-Item -Path "$($env:SystemDrive)\Users\Public\Desktop\Bundled Solutions.lnk" -ErrorAction SilentlyContinue
 	Remove-Item -Path "$($env:SystemDrive)\Users\Public\Desktop\附赠解决方案.lnk" -ErrorAction SilentlyContinue
@@ -77,8 +77,8 @@ Function Shortcut_Process
 		$IconFolder = Convert-Path -Path "$($PSScriptRoot)\..\..\..\.." -ErrorAction SilentlyContinue
 		Start-Process -FilePath $Shortcut -ArgumentList "/f:""$($env:SystemDrive)\Users\Public\Desktop\$($lang.MainHisName).lnk"" /a:c /t:""$($Global:UniqueMainFolder)"" /i:""$($IconFolder)\Assets\icons\Engine.Gift.ico""" -WindowStyle Hidden
 		Start-Process -FilePath $Shortcut -ArgumentList "/f:""$($StartMenu)\- $($lang.Location) -.lnk"" /a:c /t:""$($Global:UniqueMainFolder)"" /i:""$($IconFolder)\Assets\icons\Engine.Gift.ico""" -WindowStyle Hidden
-		Start-Process -FilePath $Shortcut -ArgumentList "/f:""$($StartMenu)\$((Get-Module -Name Engine).Author)'s Solutions.lnk"" /a:c /t:""powershell"" /p:""-Command \""Start-Process 'Powershell.exe' -Argument '-File \""$((Convert-Path -Path "$($PSScriptRoot)\..\..\..\..\Engine.ps1" -ErrorAction SilentlyContinue))\""' -Verb RunAs"" /i:""$($IconFolder)\Assets\icons\MainPanel.ico""" -WindowStyle Hidden -Wait
-		Start-Process -FilePath $Shortcut -ArgumentList "/f:""$($Global:UniqueMainFolder)\$((Get-Module -Name Engine).Author)'s Solutions.lnk"" /a:c /t:""powershell"" /p:""-Command \""Start-Process 'Powershell.exe' -Argument '-File \""$((Convert-Path -Path "$($PSScriptRoot)\..\..\..\..\Engine.ps1" -ErrorAction SilentlyContinue))\""' -Verb RunAs"" /i:""$($IconFolder)\Assets\icons\MainPanel.ico""" -WindowStyle Hidden
+		Start-Process -FilePath $Shortcut -ArgumentList "/f:""$($StartMenu)\$($Global:Author)'s Solutions.lnk"" /a:c /t:""powershell"" /p:""-Command \""Start-Process 'Powershell.exe' -Argument '-File \""$((Convert-Path -Path "$($PSScriptRoot)\..\..\..\..\Engine.ps1" -ErrorAction SilentlyContinue))\""' -Verb RunAs"" /i:""$($IconFolder)\Assets\icons\MainPanel.ico""" -WindowStyle Hidden -Wait
+		Start-Process -FilePath $Shortcut -ArgumentList "/f:""$($Global:UniqueMainFolder)\$($Global:Author)'s Solutions.lnk"" /a:c /t:""powershell"" /p:""-Command \""Start-Process 'Powershell.exe' -Argument '-File \""$((Convert-Path -Path "$($PSScriptRoot)\..\..\..\..\Engine.ps1" -ErrorAction SilentlyContinue))\""' -Verb RunAs"" /i:""$($IconFolder)\Assets\icons\MainPanel.ico""" -WindowStyle Hidden
 
 		Pin_To_Start
 	}
@@ -89,9 +89,9 @@ Function Shortcut_Process
 Function Pin_To_Start
 {
 	$syspin    = "$(Get_Arch_Path -Path "$($PSScriptRoot)\..\..\..\..\AIO\syspin")\syspin.exe"
-	$StartMenu = "$($env:SystemDrive)\ProgramData\Microsoft\Windows\Start Menu\Programs\$((Get-Module -Name Engine).Author)'s Solutions"
+	$StartMenu = "$($env:SystemDrive)\ProgramData\Microsoft\Windows\Start Menu\Programs\$($Global:Author)'s Solutions"
 
 	if (Test-Path $syspin -PathType Leaf) {
-		Start-Process -FilePath $syspin -ArgumentList """$($StartMenu)\$((Get-Module -Name Engine).Author)'s Solutions.lnk"" ""51201""" -Wait -WindowStyle Hidden
+		Start-Process -FilePath $syspin -ArgumentList """$($StartMenu)\$($Global:Author)'s Solutions.lnk"" ""51201""" -Wait -WindowStyle Hidden
 	}
 }
