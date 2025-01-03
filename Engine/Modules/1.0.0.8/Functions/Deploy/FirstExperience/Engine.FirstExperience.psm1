@@ -1365,9 +1365,10 @@ Function System_Disk_Label
 
 	write-host "`n  $($lang.VolumeLabel): " -NoNewline
 	Write-host $VolumeName -ForegroundColor Green
-	write-host "  $($lang.Setting)".PadRight(28) -NoNewline
+	write-host "  $($lang.Setting)" -NoNewline
 	(New-Object -ComObject "Shell.Application").NameSpace($env:SystemDrive).Self.Name = $VolumeName
-	write-host "  $($lang.Done)`n" -ForegroundColor Green
+	Write-Host " $($lang.Done) " -BackgroundColor DarkGreen -ForegroundColor White
+	write-host
 }
 
 <#
@@ -1382,9 +1383,9 @@ Function Firewall_Exclusion
 
 	ForEach ($item in $ExcludeMpPreference) {
 		write-host "  $($item)"
-		write-host "  $($lang.AddTo)".PadRight(28) -NoNewline
+		write-host "  $($lang.AddTo)" -NoNewline
 		Add-MpPreference -ExclusionPath (Convert-Path -Path $item -ErrorAction SilentlyContinue) -ErrorAction SilentlyContinue | Out-Null
-		write-host "  $($lang.Done)" -ForegroundColor Green
+		Write-Host " $($lang.Done) " -BackgroundColor DarkGreen -ForegroundColor White
 	}
 }
 
