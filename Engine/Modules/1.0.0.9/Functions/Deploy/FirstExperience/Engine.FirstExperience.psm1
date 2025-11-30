@@ -1047,7 +1047,7 @@ Function FirstExperience_Deploy
 				$arguments = @(
 					"-ExecutionPolicy",
 					"ByPass",
-					"-file",
+					"-File",
 					"""$($DynamicInstl)""",
 					"-Config",
 					"""$($NewConfig)""",
@@ -1113,7 +1113,7 @@ Function FirstExperience_Deploy
 		$arguments = @(
 			"-ExecutionPolicy",
 			"ByPass",
-			"-file",
+			"-File",
 			"""$($_.Fullname)"""
 		)
 
@@ -1165,7 +1165,7 @@ Function FirstExperience_Deploy
 				$arguments = @(
 					"-ExecutionPolicy",
 					"ByPass",
-					"-file",
+					"-File",
 					"""$($TempFilePath)"""
 				)
 

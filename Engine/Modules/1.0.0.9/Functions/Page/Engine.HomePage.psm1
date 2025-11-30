@@ -62,7 +62,7 @@ Function Instl_Custom_Software_Config
 			$arguments = @(
 				"-ExecutionPolicy",
 				"ByPass",
-				"-file",
+				"-File",
 				"""$($DynamicInstl)""",
 				"-Config",
 				"""$($NewConfig)""",
@@ -88,7 +88,7 @@ Function Instl_Custom_Software
 		$arguments = @(
 			"-ExecutionPolicy",
 			"ByPass",
-			"-file",
+			"-File",
 			"""$($DynamicInstl)""",
 			"-Lang",
 			"""$($Global:IsLang)"""
