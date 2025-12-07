@@ -588,7 +588,7 @@ Function Get_Architecture
 		.从注册表获取：用户指定系统架构
 	#>
 	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Yi\Install" -Name "Architecture" -ErrorAction SilentlyContinue) {
-		$Global:InstlArchitecture = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "Architecture"
+		$Global:InstlArchitecture = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "Architecture" -ErrorAction SilentlyContinue
 		return
 	}
 
@@ -624,7 +624,7 @@ Function Set_Architecture
 Function Install_Init_Disk_To
 {
 	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskTo" -ErrorAction SilentlyContinue) {
-		$GetDiskTo = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskTo"
+		$GetDiskTo = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskTo" -ErrorAction SilentlyContinue
 		if (Test_Available_Disk -Path $GetDiskTo) {
 			$Global:FreeDiskTo = $GetDiskTo
 			return
@@ -643,14 +643,9 @@ Function Install_Init_Disk_To
 	$drives = Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue | Where-Object { -not ([string]::IsNullOrEmpty($_) -or [string]::IsNullOrWhiteSpace($_))} | Where-Object { $ExcludeDisk -notcontains $_.Root } | Select-Object -ExpandProperty 'Root'
 
 	<#
-		.从注册表里获取是否检查磁盘可用空间
-	#>
-	$GetDiskStatus = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskStatus"
-
-	<#
 		.从注册表里获取选择的磁盘
 	#>
-	$GetDiskMinSize = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskMinSize"
+	$GetDiskMinSize = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskMinSize" -ErrorAction SilentlyContinue
 
 	<#
 		.搜索磁盘条件，排除系统盘
@@ -698,7 +693,7 @@ Function SetNewFreeDiskTo
 Function Setting_Init_Disk_Free
 {
 	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskMinSize" -ErrorAction SilentlyContinue) {
-		$GetDiskMinSize = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskMinSize"
+		$GetDiskMinSize = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskMinSize" -ErrorAction SilentlyContinue
 
 		if ([string]::IsNullOrEmpty($GetDiskMinSize)) {
 			Setting_Set_Disk_Free -Size $Script:DiskMinSize
@@ -733,7 +728,10 @@ Function Setting_Set_Disk_Free
 Function Setting_Init_Disk_Available
 {
 	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskStatus" -ErrorAction SilentlyContinue) {
-		$GetDiskStatus = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskStatus"
+		<#
+			.从注册表里获取是否检查磁盘可用空间
+		#>
+		$GetDiskStatus = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskStatus" -ErrorAction SilentlyContinue
 
 		if ([string]::IsNullOrEmpty($GetDiskStatus)) {
 			Setting_Set_Disk_Available -Status "True"
@@ -1808,7 +1806,7 @@ Function Install_UI
 
 	Function Setting_Init_Disk_To
 	{
-		$GetDiskTo = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskTo"
+		$GetDiskTo = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskTo" -ErrorAction SilentlyContinue
 
 		$FormSelectDiSKPane1.controls.Clear()
 		Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue | ForEach-Object {
@@ -2389,7 +2387,7 @@ Function Install_UI
 	}
 
 	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskMinSize" -ErrorAction SilentlyContinue) {
-		$GetDiskMinSize = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskMinSize"
+		$GetDiskMinSize = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Yi\Install" -Name "DiskMinSize" -ErrorAction SilentlyContinue
 		$SelectLowSize.Text = $GetDiskMinSize
 	} else {
 		Setting_Set_Disk_Free -Size $Script:DiskMinSize
