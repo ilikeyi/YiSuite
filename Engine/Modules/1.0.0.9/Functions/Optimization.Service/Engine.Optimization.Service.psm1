@@ -45,13 +45,11 @@ Function Optimization_Service_UI
 		Width          = 550
 		Text           = "$($lang.Optimize) $($lang.Service)"
 		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
-		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
-		MinimizeBox    = $True
-		ControlBox     = $True
+		StartPosition  = "CenterScreen"
+		MinimizeBox    = $false 
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Icon = [System.Drawing.Icon]::ExtractAssociatedIcon("$($PSScriptRoot)\..\..\Assets\icon\Yi.ico")
 	}
 	$UI_Main_Menu      = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
 		Height         = 575
@@ -74,7 +72,7 @@ Function Optimization_Service_UI
 		UseVisualStyleBackColor = $True
 		Location       = "8,635"
 		Height         = 36
-		Width          = 255
+		Width          = 168
 		Text           = $lang.Enable
 		add_Click      = {
 			$UI_Main.Hide()
@@ -97,9 +95,9 @@ Function Optimization_Service_UI
 	}
 	$UI_Main_OK        = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "268,635"
+		Location       = "181,635"
 		Height         = 36
-		Width          = 255
+		Width          = 168
 		Text           = $lang.Disable
 		add_Click      = {
 			$UI_Main.Hide()
@@ -117,6 +115,17 @@ Function Optimization_Service_UI
 					}
 				}
 			}
+			$UI_Main.Close()
+		}
+	}
+	$UI_Main_Canel     = New-Object system.Windows.Forms.Button -Property @{
+		UseVisualStyleBackColor = $True
+		Location       = "355,635"
+		Height         = 36
+		Width          = 168
+		Text           = $lang.Cancel
+		add_Click      = {
+			write-host "  $($lang.UserCancel)" -ForegroundColor Red
 			$UI_Main.Close()
 		}
 	}

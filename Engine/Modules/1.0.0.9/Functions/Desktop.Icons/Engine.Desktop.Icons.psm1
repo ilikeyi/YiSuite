@@ -18,13 +18,11 @@ Function Desktop
 		Width          = 550
 		Text           = $lang.DeskIcon
 		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
-		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
-		MinimizeBox    = $True
-		ControlBox     = $True
+		StartPosition  = "CenterScreen"
+		MinimizeBox    = $false
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Icon = [System.Drawing.Icon]::ExtractAssociatedIcon("$($PSScriptRoot)\..\..\Assets\icon\Yi.ico")
 	}
 	$GUIDesktopPanel   = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
 		Height         = 425
@@ -80,7 +78,7 @@ Function Desktop
 	#>
 	$GUIDesktopSortName = New-Object System.Windows.Forms.Label -Property @{
 		Height         = 30
-		Width          = 515
+		Width          = 512
 		Text           = $lang.AdvOption
 		Location       = '10,450'
 	}
@@ -115,7 +113,7 @@ Function Desktop
 	$GUIDesktopOK      = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
 		Height         = 36
-		Width          = 515
+		Width          = 255
 		Location       = "8,635"
 		Text           = $lang.OK
 		add_Click      = {
@@ -147,12 +145,24 @@ Function Desktop
 			$GUIDesktop.Close()
 		}
 	}
+	$GUIDesktopCanel   = New-Object system.Windows.Forms.Button -Property @{
+		UseVisualStyleBackColor = $True
+		Height         = 36
+		Width          = 255
+		Location       = "268,635"
+		Text           = $lang.Cancel
+		add_Click      = {
+			write-host "  $($lang.UserCancel)" -ForegroundColor Red
+			$GUIDesktop.Close()
+		}
+	}
 	$GUIDesktop.controls.AddRange((
 		$GUIDesktopPanel,
 		$GUIDesktopAddToDesktop,
 		$GUIDesktopSortName,
 		$GUIDesktopSortPanel,
-		$GUIDesktopOK
+		$GUIDesktopOK,
+		$GUIDesktopCanel
 	))
 	$GUIDesktopPanel.controls.AddRange((
 		$GUIDesktopThisPC,

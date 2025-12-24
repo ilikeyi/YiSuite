@@ -213,13 +213,11 @@
 		Width          = 1015
 		Text           = $lang.LocationUserFolder
 		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
-		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
-		MinimizeBox    = $True
-		ControlBox     = $True
+		StartPosition  = "CenterScreen"
+		MinimizeBox    = $false
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Icon = [System.Drawing.Icon]::ExtractAssociatedIcon("$($PSScriptRoot)\..\..\Assets\icon\Yi.ico")
 	}
 
 	<#
@@ -640,7 +638,7 @@
 		UseVisualStyleBackColor = $True
 		Location       = "492,635"
 		Height         = 36
-		Width          = 495
+		Width          = 245
 		Text           = $lang.OK
 		add_Click      = {
 			$GUILocation.Hide()
@@ -682,6 +680,17 @@
 			$GUILocation.Close()
 		}
 	}
+	$GUILocationCanel  = New-Object system.Windows.Forms.Button -Property @{
+		UseVisualStyleBackColor = $True
+		Location       = "742,635"
+		Height         = 36
+		Width          = 245
+		Text           = $lang.Cancel
+		add_Click      = {
+			write-host "  $($lang.UserCancel)" -ForegroundColor Red
+			$GUILocation.Close()
+		}
+	}
 	$GUILocation.controls.AddRange((
 		$GUILocationSize,
 		$GUILocationLowSize,
@@ -707,7 +716,8 @@
 		$UI_Main_Error,
 		$GUILocationCurrent,
 		$GUILocationInitial,
-		$GUILocationOK
+		$GUILocationOK,
+		$GUILocationCanel
 	))
 	$GUILocationItemPanel.controls.AddRange((
 		$GUILocationItemDesktop,

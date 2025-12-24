@@ -199,11 +199,10 @@ Function Image_Assign_Event_Master
 		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
 		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
-		MinimizeBox    = $True
-		ControlBox     = $True
+		MinimizeBox    = $False
+		ControlBox     = $False
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Icon = [System.Drawing.Icon]::ExtractAssociatedIcon("$($PSScriptRoot)\..\..\..\Assets\icon\Yi.ico")
 	}
 	$UI_AssignTips     = New-Object System.Windows.Forms.Label -Property @{
 		Height         = 25
@@ -236,7 +235,7 @@ Function Image_Assign_Event_Master
 	}
 	$UI_Main_Ok        = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "560,635"
+		Location       = "560,595"
 		Height         = 36
 		Width          = 240
 		Text           = $lang.OK
@@ -275,13 +274,26 @@ Function Image_Assign_Event_Master
 			}
 		}
 	}
+	$UI_Main_Canel     = New-Object system.Windows.Forms.Button -Property @{
+		UseVisualStyleBackColor = $True
+		Location       = "560,635"
+		Height         = 36
+		Width          = 240
+		Text           = $lang.Cancel
+		add_Click      = {
+			$UI_Main.Hide()
+			write-host "  $($lang.UserCancel)" -ForegroundColor Red
+			$UI_Main.Close()
+		}
+	}
 	$UI_Main.controls.AddRange((
 		$UI_AssignTips,
 		$UI_Main_Select_Assign_Multitasking,
 
 		$UI_Main_Tips,
 		$UI_Main_Error,
-		$UI_Main_Ok
+		$UI_Main_Ok,
+		$UI_Main_Canel
 	))
 
 	Refresh_Assign_Select

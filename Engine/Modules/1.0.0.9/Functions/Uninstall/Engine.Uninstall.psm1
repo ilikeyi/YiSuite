@@ -18,13 +18,11 @@ Function Uninstall
 		Width          = 550
 		Text           = "$($lang.Del) $($lang.MainHisName)"
 		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
-		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
-		MinimizeBox    = $True
-		ControlBox     = $True
+		StartPosition  = "CenterScreen"
+		MinimizeBox    = $false
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Icon = [System.Drawing.Icon]::ExtractAssociatedIcon("$($PSScriptRoot)\..\..\Assets\icon\Yi.ico")
 	}
 	$UI_Main_Menu      = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
 		Height         = 570
@@ -74,7 +72,7 @@ Function Uninstall
 	$UI_Main_OK        = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
 		Height         = 36
-		Width          = 515
+		Width          = 255
 		Location       = "8,635"
 		Text           = $lang.OK
 		add_Click      = {
@@ -158,9 +156,21 @@ Function Uninstall
 			Stop-Process $PID
 		}
 	}
+	$UI_Main_Canel     = New-Object system.Windows.Forms.Button -Property @{
+		UseVisualStyleBackColor = $True
+		Height         = 36
+		Width          = 255
+		Location       = "268,635"
+		Text           = $lang.Cancel
+		add_Click      = {
+			write-host "  $($lang.UserCancel)" -ForegroundColor Red
+			$UI_Main.Close()
+		}
+	}
 	$UI_Main.controls.AddRange((
 		$UI_Main_Menu,
-		$UI_Main_OK
+		$UI_Main_OK,
+		$UI_Main_Canel
 	))
 	$UI_Main_Menu.controls.AddRange((
 		$UI_Main_Delete_ICON,

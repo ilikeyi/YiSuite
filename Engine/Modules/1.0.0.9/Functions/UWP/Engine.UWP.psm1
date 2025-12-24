@@ -263,13 +263,11 @@ Function UWP_Uninstall
 		Width          = 1015
 		Text           = "$($lang.Del) $($lang.UninstallUWP)"
 		Font           = New-Object System.Drawing.Font($lang.FontsUI, 9, [System.Drawing.FontStyle]::Regular)
-		StartPosition  = "CenterScreen"
 		MaximizeBox    = $False
-		MinimizeBox    = $True
-		ControlBox     = $True
+		StartPosition  = "CenterScreen"
+		MinimizeBox    = $false
 		BackColor      = "#ffffff"
 		FormBorderStyle = "Fixed3D"
-		Icon = [System.Drawing.Icon]::ExtractAssociatedIcon("$($PSScriptRoot)\..\..\Assets\icon\Yi.ico")
 	}
 	$UI_Main_Is_Apps   = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 22
@@ -388,15 +386,15 @@ Function UWP_Uninstall
 		UseVisualStyleBackColor = $True
 		Location       = "472,635"
 		Height         = 36
-		Width          = 255
+		Width          = 166
 		add_Click      = { UWP_Refresh_List }
 		Text           = $lang.Refresh
 	}
 	$UI_Main_OK        = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True
-		Location       = "732,635"
+		Location       = "646,635"
 		Height         = 36
-		Width          = 255
+		Width          = 166
 		Text           = $lang.OK
 		add_Click      = {
 			$UI_Main.Hide()
@@ -497,6 +495,17 @@ Function UWP_Uninstall
 			$UI_Main.Close()
 		}
 	}
+	$UI_Main_Canel     = New-Object system.Windows.Forms.Button -Property @{
+		UseVisualStyleBackColor = $True
+		Location       = "820,635"
+		Height         = 36
+		Width          = 166
+		Text           = $lang.Cancel
+		add_Click      = {
+			write-host "  $($lang.UserCancel)" -ForegroundColor Red
+			$UI_Main.Close()
+		}
+	}
 	$UI_Main.controls.AddRange((
 		$UI_Main_Is_Apps,
 		$UI_Main_Apps_Select,
@@ -506,7 +515,8 @@ Function UWP_Uninstall
 		$UI_Main_Adv,
 		$UI_Main_Remove_Sync_To_All_User,
 		$UI_Main_Refresh_Apps,
-		$UI_Main_OK
+		$UI_Main_OK,
+		$UI_Main_Canel
 	))
 	$UI_Main_Adv.controls.AddRange((
 		$UI_Main_Suggestions_Prevents_Apps,
