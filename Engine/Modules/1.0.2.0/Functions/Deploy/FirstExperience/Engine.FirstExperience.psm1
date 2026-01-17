@@ -802,8 +802,9 @@ Function FirstExperience_Deploy
 			.Optimize the system
 		#>
 		if (IsWin11) {
-			Win11_TPM_Setup
-			Win11_TPM_Update
+			Win11_Dgreadiness -Disable  # Disable, Enabled             | $lang.Dgreadiness
+			Win11_TPM_Setup -Disable    # Disable, Restore             | $lang.TPMSetup
+			Win11_TPM_Update -Disable   # Disable, Restore             | $lang.TPMUpdate
 		}
 		Keep_Space -Disable             # Disable, Enabled             | $lang.KeepSpace
 		App_Restart_Screen -Disable     # Disable, Enabled             | $lang.AppRestartScreen
