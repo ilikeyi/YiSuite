@@ -6898,7 +6898,6 @@ Function Reset_Desktop
 	RefreshIconCache
 }
 
-
 <#
 	.Refresh icon cache
 	.刷新图标缓存
