@@ -1324,7 +1324,7 @@ Function Update_Setting_UI
 		MaximizeBox    = $False
 		MinimizeBox    = $False
 		ControlBox     = $False
-		BackColor      = "#ffffff"
+		BackColor      = "#FFFFFF"
 		FormBorderStyle = "Fixed3D"
 	}
 	$GUIUpdateAuto     = New-Object System.Windows.Forms.CheckBox -Property @{
@@ -1682,7 +1682,7 @@ Function Install_UI
 		MaximizeBox    = $False
 		StartPosition  = "CenterScreen"
 		MinimizeBox    = $false
-		BackColor      = "#ffffff"
+		BackColor      = "#FFFFFF"
 		FormBorderStyle = "Fixed3D"
 	}
 	$UI_Main_Menu      = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
@@ -1877,8 +1877,8 @@ Function Install_UI
 		Width          = 470
 		margin         = "28,25,0,0"
 		Text           = $lang.SettingDiskNewPath
-		LinkColor      = "GREEN"
-		ActiveLinkColor = "RED"
+		LinkColor      = "#008000"
+		ActiveLinkColor = "#FF0000"
 		LinkBehavior   = "NeverUnderline"
 		add_Click      = { Setting_Init_Disk_To }
 	}

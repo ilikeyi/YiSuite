@@ -217,7 +217,7 @@
 		MaximizeBox    = $False
 		MinimizeBox    = $True
 		ControlBox     = $True
-		BackColor      = "#ffffff"
+		BackColor      = "#FFFFFF"
 		FormBorderStyle = "Fixed3D"
 		Icon = [System.Drawing.Icon]::ExtractAssociatedIcon("$($PSScriptRoot)\..\..\..\Assets\icon\Yi.ico")
 	}
@@ -340,8 +340,8 @@
 		Width          = 380
 		Text           = $lang.ChangeInstallDisk
 		Location       = '24,440'
-		LinkColor      = "GREEN"
-		ActiveLinkColor = "RED"
+		LinkColor      = "#008000"
+		ActiveLinkColor = "#FF0000"
 		LinkBehavior   = "NeverUnderline"
 		add_Click      = { Change_Location_Refresh_Mount_Disk }
 	}
@@ -361,8 +361,8 @@
 		Width          = 385
 		Text           = $lang.LocationCurrent
 		Location       = '30,605'
-		LinkColor      = "GREEN"
-		ActiveLinkColor = "RED"
+		LinkColor      = "#008000"
+		ActiveLinkColor = "#FF0000"
 		LinkBehavior   = "NeverUnderline"
 		add_Click      = {
 			$GUILocationItemDesktopShow.Text = $DesktopOldpath
@@ -378,8 +378,8 @@
 		Width          = 385
 		Text           = $lang.LocationInitial
 		Location       = '30,635'
-		LinkColor      = "GREEN"
-		ActiveLinkColor = "RED"
+		LinkColor      = "#008000"
+		ActiveLinkColor = "#FF0000"
 		LinkBehavior   = "NeverUnderline"
 		add_Click      = {
 			$GUILocationItemDesktopShow.Text   = Join-Path -Path $env:USERPROFILE -ChildPath "Desktop"
