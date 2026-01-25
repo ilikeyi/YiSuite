@@ -1224,7 +1224,7 @@ Function Open_Apps
 
 				if ([string]::IsNullOrEmpty($param)) {
 					$AppRunQueue = Start-Process -FilePath $filename -passthru
-					$Script:AppQueue += @{
+					$Script:AppQueue += [pscustomobject]@{
 						ID   = $AppRunQueue.Id;
 						PATH = $filename;
 						PS   = $NewPS;
@@ -1237,7 +1237,7 @@ Function Open_Apps
 					Write-Host
 				} else {
 					$AppRunQueue = Start-Process -FilePath $filename -ArgumentList $param -passthru
-					$Script:AppQueue += @{
+					$Script:AppQueue += [pscustomobject]@{
 						ID   = $AppRunQueue.Id;
 						PATH = $filename;
 						PS   = $NewPS;
@@ -1615,7 +1615,7 @@ Function Install_UI
 					if (($Match_Wait_App -Contains $itemApp.Name) -or
 						($Match_Wait_App -Contains $itemApp.GUID))
 					{
-						$Script:Install_App += @{
+						$Script:Install_App += [pscustomobject]@{
 							GUID      = $itemApp.GUID;
 							Name      = $itemApp.name;
 							Action    = $itemApp.Action;
@@ -2351,7 +2351,7 @@ Function Refresh_Match
 				if (($MatchApp -Contains $itemApp.Name) -or
 					($MatchApp -Contains $itemApp.GUID))
 				{
-					$Script:Install_App += @{
+					$Script:Install_App += [pscustomobject]@{
 						GUID      = $itemApp.GUID;
 						Name      = $itemApp.name;
 						Action    = $itemApp.Action;
