@@ -84,7 +84,7 @@ param
 		@{
 			Region = "en-US"
 			Link   = @(
-				"https://fengyi.tel/download/solutions/update/Instl/en-US/latest.json",
+				"https://fengyi.tel/solutions/update/Instl/en-US/latest.json",
 				"https://github.com/ilikeyi/Instl/raw/main/update/en-US/latest.json"
 			)
 		}
@@ -97,7 +97,7 @@ $Update_Server = @(
 		Region = "en-US"
 		Name   = "English (United States)"
 		Link   = @(
-			"https://fengyi.tel/download/solutions/update/Instl/en-US/latest.json",
+			"https://fengyi.tel/solutions/update/Instl/en-US/latest.json",
 			"https://github.com/ilikeyi/Instl/raw/main/update/en-US/latest.json"
 		)
 	}
@@ -105,7 +105,7 @@ $Update_Server = @(
 		Region = "zh-CN"
 		Name   = "Chinese (Simplified, China)"
 		Link   = @(
-			"https://fengyi.tel/download/solutions/update/Instl/zh-CN/latest.json"
+			"https://fengyi.tel/solutions/update/Instl/zh-CN/latest.json"
 			"https://github.com/ilikeyi/Instl/raw/main/update/zh-CN/latest.json"
 		)
 	}
