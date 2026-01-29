@@ -55,7 +55,7 @@ param
 
 $Default_directory_name = "Yi.Suite"
 $Update_Server = @(
-	"https://fengyi.tel/download/solutions/update/Yi.Suite/latest.zip"
+	"https://fengyi.tel/solutions/update/Yi.Suite/latest.zip"
 	"https://github.com/ilikeyi/YiSuite/raw/main/update/latest.zip"
 )
 
@@ -3525,7 +3525,7 @@ Function Download_Process
 		if (Test_URI $item) {
 			$PreServerVersion = $item
 			$ServerTest = $true
-			Write-Host "  $($lang.UpdateAvailable)" -ForegroundColor Green
+			Write-Host "    $($lang.UpdateAvailable)" -ForegroundColor Green
 			break
 		} else {
 			write-host "    $($lang.UpdateUnavailable)`n" -ForegroundColor Red
