@@ -192,7 +192,7 @@ $AvailableLanguages = @(
 			UpdatePriority          = "Set as priority"
 			UpdateServerTestFailed  = "Failed server status test"
 			UpdateQueryingUpdate    = "Querying for updates..."
-			UpdateTimeUsed          = "Time taken: "
+			UpdateTimeUsed          = "Time taken"
 			VerifyConfig            = "Verifying correct configuration file"
 			UpdateFailedConfig      = "Download succeeded, but profile test failed, updated failed."
 			ConfigError             = "Configuration file error"
@@ -263,7 +263,7 @@ $AvailableLanguages = @(
 			UpdatePriority          = "已设置为优先级"
 			UpdateServerTestFailed  = "未通过服务器状态测试"
 			UpdateQueryingUpdate    = "正在查询更新中..."
-			UpdateTimeUsed          = "所用的时间："
+			UpdateTimeUsed          = "所用的时间"
 			VerifyConfig            = "正在验证正确的配置文件"
 			UpdateFailedConfig      = "下载成功，但配置文件测试失败，已更新失败。"
 			ConfigError             = "配置文件错误"
@@ -1518,7 +1518,7 @@ Function Update_Process
 		$start_time = Get-Date
 		remove-item -path $output -force -ErrorAction SilentlyContinue
 		Invoke-WebRequest -Uri $url -OutFile $output -TimeoutSec 30 -DisableKeepAlive -ErrorAction SilentlyContinue | Out-Null
-		write-host "`n  $($lang.UpdateTimeUsed)$((Get-Date).Subtract($start_time).Seconds) (s)`n"
+		write-host "`n  $($lang.UpdateTimeUsed): $((Get-Date).Subtract($start_time).Seconds) (s)`n"
 		
 		if (Test-Path -Path $output -PathType Leaf) {
 			write-host "  $($lang.VerifyConfig)"
