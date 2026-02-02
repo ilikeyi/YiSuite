@@ -556,7 +556,7 @@ Function Test_Available_Disk
 	try {
 		New-Item -Path $Path -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 
-		$RandomGuid = (New-Guid).Guid
+		$RandomGuid = [guid]::NewGuid()
 		$test_tmp_filename = "writetest-$($RandomGuid)"
 		$test_filename = Join-Path -Path $Path -ChildPath $test_tmp_filename -ErrorAction SilentlyContinue
 
@@ -1499,7 +1499,7 @@ Function Update_Process
 
 		write-host "`n  $($lang.UpdateQueryingUpdate)"
 
-		$RandomGuid = (New-Guid).Guid
+		$RandomGuid = [guid]::NewGuid()
 		$output = "$(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue)\$($RandomGuid).json"
 
 		New-Item -Path "$(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue)\$($Global:IsLang)" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
@@ -2270,7 +2270,7 @@ Function Set_WiFi_User_profiles
 		[string]$PSK
 	)
 
-	$guid = (New-Guid).Guid
+	$guid = [guid]::NewGuid()
 	$HexArray = $ssid.ToCharArray() | foreach-object { [System.String]::Format("{0:X}", [System.Convert]::ToUInt32($_)) }
 	$HexSSID = $HexArray -join ""
 @"
