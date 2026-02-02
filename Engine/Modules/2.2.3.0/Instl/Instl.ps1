@@ -556,7 +556,7 @@ Function Test_Available_Disk
 	try {
 		New-Item -Path $Path -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 
-		$RandomGuid = New-Guid
+		$RandomGuid = (New-Guid).Guid
 		$test_tmp_filename = "writetest-$($RandomGuid)"
 		$test_filename = Join-Path -Path $Path -ChildPath $test_tmp_filename -ErrorAction SilentlyContinue
 
@@ -1019,22 +1019,11 @@ Function Get_Arch_Path
 		[string]$Path
 	)
 
-	switch ($env:PROCESSOR_ARCHITECTURE) {
-		"arm64" {
-			if (Test-Path -Path "$($Path)\arm64" -PathType Container) {
-				return Convert-Path -Path "$($Path)\arm64" -ErrorAction SilentlyContinue
-			}
-		}
-		"AMD64" {
-			if (Test-Path -Path "$($Path)\AMD64" -PathType Container) {
-				return Convert-Path -Path "$($Path)\AMD64" -ErrorAction SilentlyContinue
-			}
-		}
-		"x86" {
-			if (Test-Path -Path "$($Path)\x86" -PathType Container) {
-				return Convert-Path -Path "$($Path)\x86" -ErrorAction SilentlyContinue
-			}
-		}
+	$CurrentArch = $env:PROCESSOR_ARCHITECTURE
+	$ArchPath = Join-Path -Path $Path -ChildPath $CurrentArch
+
+	if (Test-Path -Path $ArchPath -PathType Container) {
+		return Convert-Path -Path $ArchPath -ErrorAction SilentlyContinue
 	}
 
 	return $Path
@@ -1510,7 +1499,7 @@ Function Update_Process
 
 		write-host "`n  $($lang.UpdateQueryingUpdate)"
 
-		$RandomGuid = New-Guid
+		$RandomGuid = (New-Guid).Guid
 		$output = "$(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue)\$($RandomGuid).json"
 
 		New-Item -Path "$(Convert-Path -Path $PSScriptRoot -ErrorAction SilentlyContinue)\$($Global:IsLang)" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
@@ -2281,7 +2270,7 @@ Function Set_WiFi_User_profiles
 		[string]$PSK
 	)
 
-	$guid = New-Guid
+	$guid = (New-Guid).Guid
 	$HexArray = $ssid.ToCharArray() | foreach-object { [System.String]::Format("{0:X}", [System.Convert]::ToUInt32($_)) }
 	$HexSSID = $HexArray -join ""
 @"
