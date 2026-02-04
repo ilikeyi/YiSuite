@@ -32,7 +32,7 @@ Function Restore_Point_Create_UI
 		Icon = [System.Drawing.Icon]::ExtractAssociatedIcon("$($PSScriptRoot)\..\..\..\Assets\icon\Yi.ico")
 	}
 	$UI_Main_Menu      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 508
 		Text           = $lang.RestorePointCreate
 		Location       = "12,10"
@@ -42,7 +42,7 @@ Function Restore_Point_Create_UI
 		Height         = 100
 		Width          = 492
 		Text           = $lang.RestorePointCreateTips
-		Location       = '27,38'
+		Location       = '27,45'
 	}
 	$UI_Main_OK        = New-Object system.Windows.Forms.Button -Property @{
 		UseVisualStyleBackColor = $True

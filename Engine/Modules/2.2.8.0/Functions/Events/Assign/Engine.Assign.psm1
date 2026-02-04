@@ -230,7 +230,7 @@ Function Image_Assign_Event_Master
 	}
 	$UI_Main_Error     = New-Object system.Windows.Forms.Label -Property @{
 		Location       = "560,555"
-		Height         = 22
+		Height         = 30
 		Width          = 240
 		Text           = ""
 	}

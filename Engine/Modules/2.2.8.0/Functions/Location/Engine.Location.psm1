@@ -8,11 +8,30 @@
 		.初始化：获取当前位置
 	#>
 	$DesktopOldpath = [Environment]::GetFolderPath("Desktop")
+	if ([string]::IsNullOrEmpty($DesktopOldpath)) {
+		$DesktopOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."Desktop"
+	}
+
 	$MyDocumentsOldpath = [Environment]::GetFolderPath("MyDocuments")
+	if ([string]::IsNullOrEmpty($MyDocumentsOldpath)) {
+		$MyDocumentsOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."Personal"
+	}
+
 	$DownloadsOldpath = (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path
 	$MusicOldpath = [Environment]::GetFolderPath("MyMusic")
+	if ([string]::IsNullOrEmpty($MusicOldpath)) {
+		$MusicOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."My Music"
+	}
+
 	$PicturesOldpath = [Environment]::GetFolderPath("MyPictures")
+	if ([string]::IsNullOrEmpty($PicturesOldpath)) {
+		$PicturesOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."My Pictures"
+	}
+
 	$VideoOldpath = [Environment]::GetFolderPath("MyVideos")
+	if ([string]::IsNullOrEmpty($VideoOldpath)) {
+		$VideoOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."My Videos"
+	}
 
 	Add-Type -AssemblyName System.Windows.Forms
 	Add-Type -AssemblyName System.Drawing
@@ -785,11 +804,30 @@ Function Change_Location_Set_Path
 	)
 
 	$DesktopOldpath = [Environment]::GetFolderPath("Desktop")
+	if ([string]::IsNullOrEmpty($DesktopOldpath)) {
+		$DesktopOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."Desktop"
+	}
+
 	$MyDocumentsOldpath = [Environment]::GetFolderPath("MyDocuments")
+	if ([string]::IsNullOrEmpty($MyDocumentsOldpath)) {
+		$MyDocumentsOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."Personal"
+	}
+
 	$DownloadsOldpath = (New-Object -ComObject Shell.Application).NameSpace('shell:Downloads').Self.Path
 	$MusicOldpath = [Environment]::GetFolderPath("MyMusic")
+	if ([string]::IsNullOrEmpty($MusicOldpath)) {
+		$MusicOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."My Music"
+	}
+
 	$PicturesOldpath = [Environment]::GetFolderPath("MyPictures")
+	if ([string]::IsNullOrEmpty($PicturesOldpath)) {
+		$PicturesOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."My Pictures"
+	}
+
 	$VideoOldpath = [Environment]::GetFolderPath("MyVideos")
+	if ([string]::IsNullOrEmpty($VideoOldpath)) {
+		$VideoOldpath = (Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders")."My Videos"
+	}
 
 	# Define known folder GUIDs
 	$KnownFoldersGuids = @{

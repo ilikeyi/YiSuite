@@ -369,7 +369,7 @@ Function UWP_Uninstall
 		Icon = [System.Drawing.Icon]::ExtractAssociatedIcon("$($PSScriptRoot)\..\..\..\Assets\icon\Yi.ico")
 	}
 	$UI_Main_Is_Apps   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 290
 		Text           = $lang.UninstallUWP
 		Location       = '10,10'
@@ -389,7 +389,6 @@ Function UWP_Uninstall
 		autoSizeMode   = 0
 		autoScroll     = $true
 		Padding        = "14,0,8,0"
-		Dock           = 0
 		Location       = '10,38'
 	}
 
@@ -397,7 +396,7 @@ Function UWP_Uninstall
 		.依赖性
 	#>
 	$UI_Main_Depend    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 510
 		Text           = $lang.UninstallUWPRely
 		Location       = '472,10'
@@ -422,7 +421,7 @@ Function UWP_Uninstall
 	}
 
 	$UI_Main_Adv_Name  = New-Object System.Windows.Forms.Label -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 510
 		Text           = $lang.AdvOption
 		Location       = '472,320'
@@ -475,7 +474,7 @@ Function UWP_Uninstall
 	$UI_Main_Remove_Sync_To_All_User = New-Object System.Windows.Forms.CheckBox -Property @{
 		UseVisualStyleBackColor = $True
 		Location       = '474,598'
-		Height         = 22
+		Height         = 30
 		Width          = 510
 		Text           = $lang.DelAllUser
 		Checked        = $true

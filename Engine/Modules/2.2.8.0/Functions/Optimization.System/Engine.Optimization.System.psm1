@@ -555,7 +555,7 @@ Function Optimization_System_UI
 	}
 
 	$UI_AI_Opt         = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = $lang.AI
 		Checked        = $True
@@ -577,21 +577,21 @@ Function Optimization_System_UI
 	}
 
 	$UI_Recall_AI      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.RecallAI)"
 		ForeColor      = "#008000"
 	}
 
 	$UI_Paint_AI       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PaintAI)"
 		ForeColor      = "#008000"
 	}
 
 	$UI_Notepad_AI     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.NotepadAI)"
 		ForeColor      = "#008000"
@@ -601,7 +601,7 @@ Function Optimization_System_UI
 		.浏览器
 	#>
 	$UI_Browser        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = $lang.Browser
 		Checked        = $True
@@ -622,24 +622,24 @@ Function Optimization_System_UI
 		Padding        = "12,0,8,0"
 	}
 	$UI_Edge_Is        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Del) $($lang.Edge)"
 	}
 	$UI_Edge_PD        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.EdgePD)"
 		ForeColor      = "#008000"
 	}
 	$UI_Edge_Ads       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.EdgeAds)"
 		ForeColor      = "#008000"
 	}
 	$UI_Edge_AI        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.EdgeAI)"
 		ForeColor      = "#008000"
@@ -649,7 +649,7 @@ Function Optimization_System_UI
 		.优化类
 	#>
 	$UI_Main_Optimiz_Other_Is = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = $lang.Optimize
 		Checked        = $True
@@ -670,7 +670,7 @@ Function Optimization_System_UI
 		Padding        = "12,0,8,0"
 	}
 	$GUI_dgreadiness   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Dgreadiness)"
 		Checked        = $true
@@ -681,7 +681,7 @@ Function Optimization_System_UI
 		.Windows 聚焦 桌面背景选项
 	#>
 	$GUI_Spotlight     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Spotlight)"
 		ForeColor      = "#008000"
@@ -692,7 +692,7 @@ Function Optimization_System_UI
 	}
 
 	$GUI_ClickToDo     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.ClickToDo)"
 		Checked        = $true
@@ -700,234 +700,234 @@ Function Optimization_System_UI
 	}
 
 	$GUI_Copilot      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Copilot)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUI_DldlcTips     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.DldlcTips)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUI_MS365ADS      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.MS365ADS)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUITPMSetup       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.TPMSetup)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUITPMUpdate      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.TPMUpdate)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIKeepSpace      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.KeepSpace)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIHibernation    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.Hibernation)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPowerSupply    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.PowerSupply)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIAppRestartScreen = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.AppRestartScreen)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUINumLock        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.NumLock)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIUAC            = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.UAC)$($lang.UACNever)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUISmartScreenApps = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.SmartScreenApps)"
 		ForeColor      = "#008000"
 	}
 	$GUISmartScreenSafe = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.SmartScreenSafe)"
 		ForeColor      = "#008000"
 	}
 	$GUIEasyAccessKeyboard = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.EasyAccessKeyboard)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIMaintain       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.Maintain)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIExperience     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.Experience)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIDefragmentation = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Defragmentation)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUICompatibility  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.Compatibility)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIAnimationEffects = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Optimize) $($lang.AnimationEffects)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIErrorRecovery  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.ErrorRecovery)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIDEP            = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.DEP) ( $($lang.Restart) )"
 		ForeColor      = "#008000"
 	}
 	$GUIPowerFailure   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.PowerFailure)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPwdUnlimited   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.PwdUnlimited)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIRAM            = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.RAM)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIStorageSense   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.StorageSense)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIDelivery       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Delivery)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPhotoPreview   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Enable) $($lang.PhotoPreview)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIProtected      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Protected)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIErrorReporting = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.ErrorReporting)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIF8BootMenu     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.F8BootMenu)"
 		ForeColor      = "#008000"
 	}
 	$GUISSD            = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Optimize) $($lang.OptSSD)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIMemoryCompression = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.MemoryCompression)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPrelaunch      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Prelaunch)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUISSUpdateFirstLogonAnimation = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Hide) $($lang.UpdateFirstLogonAnimation)"
 		ForeColor      = "#008000"
@@ -939,7 +939,7 @@ Function Optimization_System_UI
 		.上下文菜单
 	#>
 	$GUIContextMenu    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = $lang.ContextMenu
 		Checked        = $True
@@ -960,27 +960,27 @@ Function Optimization_System_UI
 		Padding        = "12,0,8,0"
 	}
 	$GUIClassicModern  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Enable) $($lang.ClassicMenu)"
 		ForeColor      = "#008000"
 	}
 	$GUIOwnership      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.AddTo) $($lang.TakeOwnership)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUICopyPath       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.AddTo) $($lang.CopyPath)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIMultipleIncrease = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.MultipleIncrease
 		Checked        = $true
@@ -991,7 +991,7 @@ Function Optimization_System_UI
 		.网络优化
 	#>
 	$GUINetwork        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = $lang.NetworkOptimization
 		Checked        = $True
@@ -1012,19 +1012,19 @@ Function Optimization_System_UI
 		Padding        = "12,0,8,0"
 	}
 	$GUIIEProxy        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Restore) $($lang.IEProxy)"
 	}
 	$GUIIEAutoSet      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.IEAutoSet)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUINetworkDiscovery = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.NetworkDiscovery)"
 		ForeColor      = "#008000"
@@ -1032,36 +1032,41 @@ Function Optimization_System_UI
 	$GUINetworkDiscoveryTips = New-Object System.Windows.Forms.Label -Property @{
 		autoSize       = 1
 		Text           = $lang.NetworkDiscoveryTips
-		Padding        = "15,0,15,8"
+		Padding        = "15,0,0,0"
 	}
+	$GUINetworkDiscovery_Wrap = New-Object system.Windows.Forms.Label -Property @{
+		Height         = 25
+		Width          = 410
+	}
+
 	$GUINetworkAdaptersPM = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.NetworkAdaptersPM)"
 		ForeColor      = "#008000"
 	}
 	$GUIIPv6Component  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.IPv6Component)"
 		ForeColor      = "#008000"
 	}
 	$GUIQOS            = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.QOS)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUINetworkTuning  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Optimize) $($lang.NetworkTuning)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIECN            = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.ECN)"
 		Checked        = $true
@@ -1072,7 +1077,7 @@ Function Optimization_System_UI
 		.资源管理器
 	#>
 	$GUIExplorer       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = $lang.Explorer
 		Checked        = $True
@@ -1097,7 +1102,7 @@ Function Optimization_System_UI
 		.自动文件夹类型发现
 	#>
 	$GUIDiscoverFolderTypes = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.DiscoverFolderTypes)"
 		ForeColor      = "#008000"
@@ -1111,7 +1116,7 @@ Function Optimization_System_UI
 		.导航窗格中隐藏重复的可移动驱动器条目
 	#>
 	$GUIDrdfnpofe      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Enable) $($lang.Drdfnpofe)"
 		ForeColor      = "#008000"
@@ -1121,13 +1126,13 @@ Function Optimization_System_UI
 	}
 
 	$GUISeparateProcess = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Enable) $($lang.SeparateProcess)"
 		ForeColor      = "#008000"
 	}
 	$GUIRestartApps    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Enable) $($lang.RestartApps)"
 		ForeColor      = "#008000"
@@ -1135,140 +1140,144 @@ Function Optimization_System_UI
 	$GUIRestartAppsTips = New-Object System.Windows.Forms.Label -Property @{
 		autoSize       = 1
 		Text           = $lang.RestartAppsTips
-		Padding        = "15,0,15,8"
+		Padding        = "15,0,0,0"
+	}
+	$GUIRestartApps_Wrap = New-Object system.Windows.Forms.Label -Property @{
+		Height         = 25
+		Width          = 410
 	}
 
 	$GUICheckBoxes     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Enable) $($lang.CheckBoxes)"
 		ForeColor      = "#008000"
 	}
 	$GUIThumbnailCache = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.ThumbnailCache)"
 		ForeColor      = "#008000"
 	}
 	$GUIToThisPC       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.ExplorerTo -f $lang.ExplorerToThisPC
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIAeroShake      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.AeroShake)"
 		ForeColor      = "#008000"
 	}
 	$GUIFileExtensions = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Show) $($lang.FileExtensions)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUISafetyWarnings = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.SafetyWarnings)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIFileTransfer   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.FileTransfer)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUINavShowAll     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.NavShowAll
 		ForeColor      = "#008000"
 	}
 	$GUIAutoplay       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Autoplay)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIAutorun        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Checked        = $true
 		Text           = "$($lang.Disable) $($lang.Autorun)"
 		ForeColor      = "#008000"
 	}
 	$GUIQuickAccessFiles = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.QuickAccessFiles)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIQuickAccessFolders = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.QuickAccessFolders)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIShortcutArrow  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Del) $($lang.ShortcutArrow)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIThisPCDesktop  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.ThisPCRemove -f $lang.LocationDesktop
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIThisPCDocument = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.ThisPCRemove -f $lang.LocationDocuments
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIThisPCDownload = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.ThisPCRemove -f $lang.LocationDownloads
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIThisPCMusic    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.ThisPCRemove -f $lang.LocationMusic
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIThisPCPicture  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.ThisPCRemove -f $lang.LocationPictures
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIThisPCVideo    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.ThisPCRemove -f $lang.LocationVideos
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIThisPC3D       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.ThisPCRemove -f $lang.Location3D
 		Checked        = $true
@@ -1279,7 +1288,7 @@ Function Optimization_System_UI
 		.通知中心
 	#>
 	$GUINotification   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = $lang.Notification
 		ForeColor      = "#008000"
@@ -1316,7 +1325,7 @@ Function Optimization_System_UI
 		.系统盘分页大小
 	#>
 	$GUIPagingSize     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = "$($lang.PagingSize) ( $($lang.Restart) )"
 		ForeColor      = "#008000"
@@ -1353,7 +1362,7 @@ Function Optimization_System_UI
 		.个性化
 	#>
 	$GUIPersonalise    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 400
 		Text           = $lang.Personalise
 		Checked        = $True
@@ -1374,7 +1383,7 @@ Function Optimization_System_UI
 		Padding        = "12,0,8,0"
 	}
 	$GUIPersonaliseDark = New-Object System.Windows.Forms.Label -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 380
 		Text           = $lang.DarkMode
 	}
@@ -1390,16 +1399,21 @@ Function Optimization_System_UI
 		Width          = 380
 		Text           = $lang.DarkSystem
 		ForeColor      = "#008000"
-		Padding        = "16,0,8,0"
+		Padding        = "16,0,0,0"
 	}
+	$GUIPersonaliseDark_Wrap = New-Object system.Windows.Forms.Label -Property @{
+		Height         = 20
+		Width          = 410
+	}
+
 	$GUIPersonaliseTransparencyEffects = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.TransparencyEffects)"
 		ForeColor      = "#008000"
 	}
 	$GUIPersonaliseSnapAssistFlyout = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.SnapAssistFlyout)"
 		ForeColor      = "#008000"
@@ -1414,7 +1428,7 @@ Function Optimization_System_UI
 		.开始菜单和任务栏
 	#>
 	$GUIStart          = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 400
 		Text           = $lang.Start
 		Checked        = $True
@@ -1435,22 +1449,20 @@ Function Optimization_System_UI
 		Padding        = "12,0,8,0"
 	}
 	$GUIStartTaskbarAlignmentPanel = New-Object system.Windows.Forms.FlowLayoutPanel -Property @{
-		Height         = 85
-		Width          = 380
 		BorderStyle    = 0
 		autoSizeMode   = 1
 		autoSize       = 1
 		autoScroll     = $true
-		Padding        = "0,0,8,0"
+		Margin         = "0,0,0,25"
 	}
 	$GUITaskbarAlignment = New-Object System.Windows.Forms.Label -Property @{
-		Height         = 22
-		Width          = 380
+		Height         = 30
+		Width          = 400
 		Text           = $lang.TaskbarAlignment
 	}
 	$GUIStartTaskbarAlignmentCenter = New-Object System.Windows.Forms.RadioButton -Property @{
 		Height         = 30
-		Width          = 380
+		Width          = 400
 		Text           = $lang.TaskbarAlignmentCentered
 		Padding        = "16,0,8,0"
 		add_click      = {
@@ -1467,86 +1479,86 @@ Function Optimization_System_UI
 		}
 	}
 	$GUITaskbarEnd_Task = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.AddTo) $($lang.End_Task)"
 		checked        = $True
 		ForeColor      = "#008000"
 	}
 	$GUITaskbarWidgets = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Hide) $($lang.TaskbarWidgets)"
 		ForeColor      = "#008000"
 	}
 	$GUITaskbarWidgetsRemove = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Del) $($lang.TaskbarWidgetsRemove)"
 		ForeColor      = "#008000"
 	}
 	$GUITeamsAutostarting = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.TeamsAutostarting)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUITeamsTaskbarChat = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Hide) $($lang.TeamsTaskbarChat)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIBingSearch     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.BingSearch)"
 		ForeColor      = "#008000"
 	}
 	$GUITaskbarSuggestedContent = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Hide) $($lang.TaskbarSuggestedContent)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUISuggestionsDevice = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.SuggestionsDevice)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUISearchBox      = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.SearchBox)"
 		ForeColor      = "#008000"
 	}
 	$GUIMergeTaskbarNever = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.MergeTaskbarNever)"
 		ForeColor      = "#008000"
 	}
 	$GUINotificationAlways = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.NotificationAlways)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUICortana        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.Cortana
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUITaskView       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = $lang.TaskView
 		ForeColor      = "#008000"
@@ -1557,7 +1569,7 @@ Function Optimization_System_UI
 		.游戏
 	#>
 	$GUIXboxGame       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = $lang.Gaming
 		Checked        = $True
@@ -1578,28 +1590,28 @@ Function Optimization_System_UI
 		Padding        = "12,0,8,0"
 	}
 	$GUIXboxGameBar    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.XboxGameBar)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIXboxGameBarTips = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.XboxGameBarTips)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIXboxGameMode   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.XboxGameMode)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIXboxGameDVR    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.XboxGameDVR)"
 		Checked        = $true
@@ -1610,7 +1622,7 @@ Function Optimization_System_UI
 		.隐私类
 	#>
 	$GUIPrivate        = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 410
 		Text           = $lang.FixPrivacy
 		Checked        = $True
@@ -1637,154 +1649,154 @@ Function Optimization_System_UI
 	}
 
 	$GUIScheduledTasks = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.ScheduledTasks)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPrivacyVoiceTyping = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyVoiceTyping)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPrivacyContactsSpeech = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyContactsSpeech)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPrivacyLanguageOptOut = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyLanguageOptOut)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPrivacyAds     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyAds)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUILocatonAware   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyLocatonAware)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPrivacySetSync = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacySetSync)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIInkingTyping   = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyInkingTyping)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIShareUnpairedDevices = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyShareUnpairedDevices)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUILocationSensor = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyLocationSensor)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIBiometrics     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyBiometrics)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUICompatibleTelemetry = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyCompatibleTelemetry)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIDiagnosticData = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyDiagnosticData)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUITailoredExperiences = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.TailoredExperiences)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIFeedbackNotifications = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyFeedbackNotifications)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUILocationTracking = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyLocationTracking)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIExperiencesTelemetry = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.ExperiencesTelemetry)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIOnlineSR       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.OnlineSR)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$Start_TrackProgs  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Start_TrackProgs)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUIPrivacyBackgroundAccess = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyBackgroundAccess)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUITimelineTime = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.TimelineTime)"
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
 	$GUICollectActivity = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 35
+		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.CollectActivity)"
 		Checked        = $true
@@ -1795,7 +1807,7 @@ Function Optimization_System_UI
 		.其它类
 	#>
 	$UI_Main_Is_Other  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 460
 		Text           = $lang.Related
 		Location       = '530,15'
@@ -1837,7 +1849,7 @@ Function Optimization_System_UI
 		.清理类
 	#>
 	$UI_Main_Is_Clear  = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 460
 		Text           = $lang.Cleanup
 		Location       = '530,175'
@@ -1887,7 +1899,7 @@ Function Optimization_System_UI
 		.可用功能
 	#>
 	$UI_Main_Adv_Name  = New-Object System.Windows.Forms.Label -Property @{
-		Height         = 22
+		Height         = 30
 		Width          = 460
 		Text           = $lang.AdvOption
 		Location       = '530,410'
@@ -2042,6 +2054,7 @@ Function Optimization_System_UI
 		$GUIIEAutoSet,
 		$GUINetworkDiscovery,
 		$GUINetworkDiscoveryTips,
+		$GUINetworkDiscovery_Wrap,
 		$GUINetworkAdaptersPM,
 		$GUIIPv6Component,
 		$GUIQOS,
@@ -2106,6 +2119,7 @@ Function Optimization_System_UI
 		$GUISeparateProcess,
 		$GUIRestartApps,
 		$GUIRestartAppsTips,
+		$GUIRestartApps_Wrap,
 		$GUICheckBoxes,
 		$GUIThumbnailCache,
 		$GUIToThisPC,
@@ -2139,6 +2153,7 @@ Function Optimization_System_UI
 		$GUIPersonaliseDark,
 		$GUIPersonaliseDarkApps,
 		$GUIPersonaliseDarkSystem,
+		$GUIPersonaliseDark_Wrap,
 		$GUIPersonaliseTransparencyEffects,
 		$GUIPersonaliseSnapAssistFlyout,
 		$GUIPersonaliseSnapAssistFlyoutTips

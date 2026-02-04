@@ -56,7 +56,7 @@ Function FirstExperience_Setting_UI
 		Location       = "10,5"
 	}
 	$GUIFEPreAppxCleanup = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = $lang.PreAppxCleanup
 		Checked        = $True
@@ -87,7 +87,7 @@ Function FirstExperience_Setting_UI
 		Text           = $lang.Disable
 	}
 	$GUIFELanguageComponents = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = $lang.CleanupOndemandLP
 		Checked        = $True
@@ -119,7 +119,7 @@ Function FirstExperience_Setting_UI
 	}
 
 	$GUIFECleanupUnusedLP = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = $lang.CleanupUnusedLP
 		Checked        = $True
@@ -150,7 +150,7 @@ Function FirstExperience_Setting_UI
 		Text           = $lang.Disable
 	}
 	$GUIFEVolume       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 22
+		Height         = 40
 		Width          = 490
 		Text           = $lang.SelectVolumename
 		Checked        = $True
@@ -163,7 +163,7 @@ Function FirstExperience_Setting_UI
 		}
 	}
 	$GUIFEVolumePanel  = New-Object system.Windows.Forms.Panel -Property @{
-		Height         = 70
+		Height         = 100
 		Width          = 485
 		BorderStyle    = 0
 		autoSizeMode   = 0
@@ -171,20 +171,20 @@ Function FirstExperience_Setting_UI
 		Padding        = "8,8,8,8"
 	}
 	$GUIFEVolumeDefault = New-Object System.Windows.Forms.RadioButton -Property @{
-		Height         = 22
+		Height         = 40
 		Width          = 300
 		Text           = "OS"
 		Location       = '16,0'
 		Checked        = $True
 	}
 	$GUIFEVolumeSync   = New-Object System.Windows.Forms.RadioButton -Property @{
-		Height         = 22
+		Height         = 40
 		Width          = 300
 		Text           = $Global:Author
-		Location       = '16,25'
+		Location       = '16,45'
 	}
 	$GUIFEDeskMenu     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = $lang.DesktopMenu
 		Checked        = $True
@@ -197,24 +197,24 @@ Function FirstExperience_Setting_UI
 		}
 	}
 	$GUIFEDeskMenuShift = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 380
 		Text           = $lang.DesktopMenuShift
 	}
 	$GUIFEDefenders    = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = $lang.ExcludeDefenders
 		Checked        = $True
 	}
 	$GUIFELangAndKeyboard = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = $lang.SettingLangAndKeyboard
 		Checked        = $True
 	}
 	$GUIFEUtf8         = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = $lang.SettingUTF8
 	}
@@ -222,10 +222,15 @@ Function FirstExperience_Setting_UI
 		Height         = 26
 		Width          = 370
 		Text           = $lang.SettingUTF8Tips
-		Padding        = "16,0,8,0"
+		Padding        = "16,0,0,0"
 	}
+	$GUIFEUtf8_Wrap = New-Object system.Windows.Forms.Label -Property @{
+		Height         = 25
+		Width          = 490
+	}
+
 	$GUIFELocale       = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = "$($lang.SettingLocale) ( $((Get-Culture).Name) )"
 	}
@@ -233,35 +238,40 @@ Function FirstExperience_Setting_UI
 		Height         = 26
 		Width          = 370
 		Text           = $lang.SettingLocaleTips
-		Padding        = "16,0,8,0"
+		Padding        = "16,0,0,0"
 	}
+	$GUIFELocale_Wrap = New-Object system.Windows.Forms.Label -Property @{
+		Height         = 25
+		Width          = 490
+	}
+
 	$GUIFEFixMainFolder = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = "$($lang.FixMainFolder): $($Global:Author)"
 		Checked        = $True
 	}
 	$GUIFEFDPermissions = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = $lang.FDPermissions
 		Checked        = $True
 	}
 	$GUIFEShortcut     = New-Object System.Windows.Forms.CheckBox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 490
 		Text           = $lang.Shortcuts
 		Checked        = $True
 	}
 	$GUIFEDeployCleanup = New-Object System.Windows.Forms.Checkbox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 505
 		Text           = $lang.DeployCleanup
 		Location       = "12,550"
 		Checked        = $True
 	}
 	$GUIFEReboot       = New-Object System.Windows.Forms.Checkbox -Property @{
-		Height         = 30
+		Height         = 40
 		Width          = 505
 		Text           = $lang.Reboot
 		Location       = "12,585"
@@ -440,8 +450,10 @@ Function FirstExperience_Setting_UI
 		$GUIFELangAndKeyboard,
 		$GUIFEUtf8,
 		$GUIFEUtf8Tips,
+		$GUIFEUtf8_Wrap,
 		$GUIFELocale,
 		$GUIFELocaleTips,
+		$GUIFELocale_Wrap,
 		$GUIFEFixMainFolder,
 		$GUIFEFDPermissions,
 		$GUIFEShortcut
