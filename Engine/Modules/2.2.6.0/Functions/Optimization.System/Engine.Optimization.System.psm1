@@ -676,13 +676,21 @@ Function Optimization_System_UI
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
+
+	<#
+		.Windows 聚焦 桌面背景选项
+	#>
 	$GUI_Spotlight     = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Spotlight)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\CloudContent" -Name "DisableSpotlightCollectionOnDesktop" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUI_Spotlight.Checked = $True
+	}
+
 	$GUI_ClickToDo     = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
@@ -690,6 +698,7 @@ Function Optimization_System_UI
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
+
 	$GUI_Copilot      = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
@@ -1083,18 +1092,34 @@ Function Optimization_System_UI
 		autoScroll     = $False
 		Padding        = "12,0,8,0"
 	}
+
+	<#
+		.自动文件夹类型发现
+	#>
 	$GUIDiscoverFolderTypes = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.DiscoverFolderTypes)"
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell" -Name "FolderType" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIDiscoverFolderTypes.Checked = $True
+	}
+
+	<#
+		.导航窗格中隐藏重复的可移动驱动器条目
+	#>
 	$GUIDrdfnpofe      = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
 		Text           = "$($lang.Enable) $($lang.Drdfnpofe)"
 		ForeColor      = "#008000"
 	}
+	if ((Test-Path -LiteralPath "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\DelegateFolders\{F5FB2C77-0E2F-4A16-A381-3E560C68BC83}") -ne $true) {
+		$GUIDrdfnpofe.Checked = $True
+	}
+
 	$GUISeparateProcess = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 35
 		Width          = 410
@@ -2590,9 +2615,6 @@ Function Optimization_System_UI
 	....................................
 	Modules
 	....................................
-#>
-<#
-	.AI
 #>
 <#
 	.AI
