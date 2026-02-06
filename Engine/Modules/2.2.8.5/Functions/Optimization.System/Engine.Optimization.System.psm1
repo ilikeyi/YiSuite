@@ -491,6 +491,7 @@ Function Optimization_System_UI
 			if ($GUIPagingSize.Checked) {
 				if ($GUIPagingSizeLow.Checked) { System_Disk_Page_Size -enabled -size 8 }
 				if ($GUIPagingSizeHigh.Checked) { System_Disk_Page_Size -Enabled -size 16 }
+				if ($GUIPagingSizeUltra.Checked) { System_Disk_Page_Size -Enabled -size 32 }
 			}
 		}
 
@@ -717,9 +718,20 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.MS365ADS)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableConsumerAccountStateContent" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableConsumerAccountStateContent" -ErrorAction SilentlyContinue) {
+			"0" { $GUI_MS365ADS.Checked = $True }
+			"1" { $GUI_MS365ADS.Checked = $False }
+			default {
+				$GUI_MS365ADS.Checked = $True
+			}
+		}
+	} else {
+		$GUI_MS365ADS.Checked = $True
+	}
+
 	$GUITPMSetup       = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -731,9 +743,13 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.TPMUpdate)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKLM:\SYSTEM\Setup\MoSetup" -Name "AllowUpgradesWithUnsupportedTPMOrCPU" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUITPMUpdate.Checked = $True
+	}
+
 	$GUIKeepSpace      = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -788,6 +804,11 @@ Function Optimization_System_UI
 		Text           = "$($lang.Disable) $($lang.SmartScreenSafe)"
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments" -Name "SaveZoneInformation" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUISmartScreenSafe.Checked = $True
+	}
+
 	$GUIEasyAccessKeyboard = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -799,16 +820,24 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.Maintain)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance" -Name "MaintenanceDisabled" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIMaintain.Checked = $True
+	}
+
 	$GUIExperience     = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.Experience)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\SQMClient\Windows" -Name "CEIPEnable" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIExperience.Checked = $True
+	}
+
 	$GUIDefragmentation = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -820,9 +849,13 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Close) $($lang.Compatibility)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\AppCompat" -Name "DisablePCA" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUICompatibility.Checked = $True
+	}
+
 	$GUIAnimationEffects = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -868,16 +901,24 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.StorageSense)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" -Name "01" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIStorageSense.Checked = $True
+	}
+
 	$GUIDelivery       = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Delivery)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "Registry::HKEY_USERS\S-1-5-20\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Settings" -Name "DownloadMode" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIDelivery.Checked = $True
+	}
+
 	$GUIPhotoPreview   = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -889,9 +930,13 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Protected)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments" -Name "SaveZoneInformation" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIProtected.Checked = $True
+	}
+
 	$GUIErrorReporting = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -923,15 +968,36 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Prelaunch)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" -Name "DisableAutoplay" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" -Name "DisableAutoplay" -ErrorAction SilentlyContinue) {
+			"0" { $GUIPrelaunch.Checked = $True }
+			"3" { $GUIPrelaunch.Checked = $False }
+			default {
+				$GUIPrelaunch.Checked = $True
+			}
+		}
+	} else {
+		$GUIPrelaunch.Checked = $True
+	}
+
 	$GUISSUpdateFirstLogonAnimation = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Hide) $($lang.UpdateFirstLogonAnimation)"
 		ForeColor      = "#008000"
-		Checked        = $true
+	}
+	if (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name "EnableFirstLogonAnimation" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" -Name "EnableFirstLogonAnimation" -ErrorAction SilentlyContinue) {
+			"0" { $GUISSUpdateFirstLogonAnimation.Checked = $False }
+			"1" { $GUISSUpdateFirstLogonAnimation.Checked = $True }
+			default {
+				$GUISSUpdateFirstLogonAnimation.Checked = $True
+			}
+		}
+	} else {
+		$GUISSUpdateFirstLogonAnimation.Checked = $True
 	}
 
 	<#
@@ -976,15 +1042,21 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.AddTo) $($lang.CopyPath)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if ((Test-Path -LiteralPath "HKLM:\SOFTWARE\Classes\Allfilesystemobjects\shell\windows.copyaspath") -ne $true) {
+		$GUICopyPath.Checked = $True
+	}
+
 	$GUIMultipleIncrease = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = $lang.MultipleIncrease
-		Checked        = $true
 		ForeColor      = "#008000"
+	}
+	if (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "MultipleInvokePromptMinimum" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIMultipleIncrease.Checked = $True
 	}
 
 	<#
@@ -1020,9 +1092,20 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.IEAutoSet)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings" -Name "AutoDetect" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings" -Name "AutoDetect" -ErrorAction SilentlyContinue) {
+			"0" { $GUIIEAutoSet.Checked = $True }
+			"1" { $GUIIEAutoSet.Checked = $False }
+			default {
+				$GUIIEAutoSet.Checked = $True
+			}
+		}
+	} else {
+		$GUIIEAutoSet.Checked = $True
+	}
+
 	$GUINetworkDiscovery = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1176,57 +1259,118 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Show) $($lang.FileExtensions)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -ErrorAction SilentlyContinue) {
+			"0" { $GUIFileExtensions.Checked = $False }
+			"1" { $GUIFileExtensions.Checked = $True }
+			default {
+				$GUIFileExtensions.Checked = $True
+			}
+		}
+	} else {
+		$GUIFileExtensions.Checked = $True
+	}
+
 	$GUISafetyWarnings = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.SafetyWarnings)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Associations" -Name "LowRiskFileTypes" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUISafetyWarnings.Checked = $True
+	}
+
 	$GUIFileTransfer   = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.FileTransfer)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager" -Name "EnthusiastMode" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIFileTransfer.Checked = $True
+	}
+
 	$GUINavShowAll     = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = $lang.NavShowAll
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "NavPaneExpandToCurrentFolder" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUINavShowAll.Checked = $True
+	}
+
 	$GUIAutoplay       = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Autoplay)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" -Name "DisableAutoplay" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" -Name "DisableAutoplay" -ErrorAction SilentlyContinue) {
+			"0" { $GUIAutoplay.Checked = $True }
+			"1" { $GUIAutoplay.Checked = $False }
+			default {
+				$GUIAutoplay.Checked = $True
+			}
+		}
+	} else {
+		$GUIAutoplay.Checked = $True
+	}
+
 	$GUIAutorun        = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
-		Checked        = $true
 		Text           = "$($lang.Disable) $($lang.Autorun)"
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "NoDriveTypeAutoRun" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIAutorun.Checked = $True
+	}
+
 	$GUIQuickAccessFiles = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.QuickAccessFiles)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "ShowRecent" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "ShowRecent" -ErrorAction SilentlyContinue) {
+			"0" { $GUIQuickAccessFiles.Checked = $False }
+			"1" { $GUIQuickAccessFiles.Checked = $True }
+			default {
+				$GUIQuickAccessFiles.Checked = $True
+			}
+		}
+	} else {
+		$GUIQuickAccessFiles.Checked = $True
+	}
+
 	$GUIQuickAccessFolders = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.QuickAccessFolders)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "ShowFrequent" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "ShowFrequent" -ErrorAction SilentlyContinue) {
+			"0" { $GUIQuickAccessFolders.Checked = $False }
+			"1" { $GUIQuickAccessFolders.Checked = $True }
+			default {
+				$GUIQuickAccessFolders.Checked = $True
+			}
+		}
+	} else {
+		$GUIQuickAccessFolders.Checked = $True
+	}
+
 	$GUIShortcutArrow  = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1357,6 +1501,11 @@ Function Optimization_System_UI
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.PagingSize) (16G)"
 	}
+	$GUIPagingSizeUltra = New-Object System.Windows.Forms.RadioButton -Property @{
+		Height         = 30
+		Width          = 410
+		Text           = "$($lang.Setting) $($lang.PagingSize) (32G)"
+	}
 
 	<#
 		.个性化
@@ -1482,9 +1631,20 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.AddTo) $($lang.End_Task)"
-		checked        = $True
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings" -Name "TaskbarEndTask" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\TaskbarDeveloperSettings" -Name "TaskbarEndTask" -ErrorAction SilentlyContinue) {
+			"0" { $GUITaskbarEnd_Task.Checked = $True }
+			"1" { $GUITaskbarEnd_Task.Checked = $False }
+			default {
+				$GUITaskbarEnd_Task.Checked = $True
+			}
+		}
+	} else {
+		$GUITaskbarEnd_Task.Checked = $True
+	}
+
 	$GUITaskbarWidgets = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1528,9 +1688,13 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.SuggestionsDevice)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\UserProfileEngagement" -Name "ScoobeSystemSettingEnabled" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUISuggestionsDevice.Checked = $True
+	}
+
 	$GUISearchBox      = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1543,25 +1707,56 @@ Function Optimization_System_UI
 		Text           = "$($lang.Setting) $($lang.MergeTaskbarNever)"
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarGlomLevel" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIMergeTaskbarNever.Checked = $True
+	}
+
 	$GUINotificationAlways = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Setting) $($lang.NotificationAlways)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUINotificationAlways.Checked = $True
+	}
+
 	$GUICortana        = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = $lang.Cortana
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowCortanaButton" -ErrorAction SilentlyContinue) {
+			"0" { $GUICortana.Checked = $False }
+			"1" { $GUICortana.Checked = $True }
+			default {
+				$GUICortana.Checked = $True
+			}
+		}
+	} else {
+		$GUICortana.Checked = $True
+	}
+
 	$GUITaskView       = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = $lang.TaskView
 		ForeColor      = "#008000"
+	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -ErrorAction SilentlyContinue) {
+			"0" { $GUITaskView.Checked = $False }
+			"1" { $GUITaskView.Checked = $True }
+			default {
+				$GUITaskView.Checked = $True
+			}
+		}
+	} else {
+		$GUITaskView.Checked = $True
 	}
 
 	<#
@@ -1600,9 +1795,13 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.XboxGameBarTips)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\GameBar" -Name "ShowStartupPanel" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIXboxGameBarTips.Checked = $True
+	}
+
 	$GUIXboxGameMode   = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1614,8 +1813,11 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.XboxGameDVR)"
-		Checked        = $true
 		ForeColor      = "#008000"
+	}
+	if (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\GameDVR" -Name "AllowgameDVR" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIXboxGameDVR.Checked = $True
 	}
 
 	<#
@@ -1659,37 +1861,71 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyVoiceTyping)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy" -ErrorAction SilentlyContinue) {
+			"0" { $GUIPrivacyVoiceTyping.Checked = $False }
+			"1" { $GUIPrivacyVoiceTyping.Checked = $True }
+			default {
+				$GUIPrivacyVoiceTyping.Checked = $True
+			}
+		}
+	} else {
+		$GUIPrivacyVoiceTyping.Checked = $True
+	}
+
 	$GUIPrivacyContactsSpeech = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyContactsSpeech)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -ErrorAction SilentlyContinue) {
+			"0" { $GUIPrivacyContactsSpeech.Checked = $False }
+			"1" { $GUIPrivacyContactsSpeech.Checked = $True }
+			default {
+				$GUIPrivacyContactsSpeech.Checked = $True
+			}
+		}
+	} else {
+		$GUIPrivacyContactsSpeech.Checked = $True
+	}
+
 	$GUIPrivacyLanguageOptOut = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyLanguageOptOut)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\Control Panel\International\User Profile" -Name "HttpAcceptLanguageOptOut" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIPrivacyLanguageOptOut.Checked = $True
+	}
+
 	$GUIPrivacyAds     = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyAds)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" -Name "Enabled" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIPrivacyAds.Checked = $True
+	}
+
 	$GUILocatonAware   = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyLocatonAware)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Input\TIPC" -Name "Enabled" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUILocatonAware.Checked = $True
+	}
+
 	$GUIPrivacySetSync = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1715,23 +1951,41 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyLocationSensor)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions\{BFA794E4-F964-4FDB-90F6-45056BFE4B44}" -Name "SensorPermissionState" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Sensor\Permissions\{BFA794E4-F964-4FDB-90F6-45056BFE4B44}" -Name "SensorPermissionState" -ErrorAction SilentlyContinue) {
+			"0" { $GUILocationSensor.Checked = $False }
+			"1" { $GUILocationSensor.Checked = $True }
+			default {
+				$GUILocationSensor.Checked = $True
+			}
+		}
+	} else {
+		$GUILocationSensor.Checked = $True
+	}
+
 	$GUIBiometrics     = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyBiometrics)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Biometrics" -Name "Enabled" -ErrorAction SilentlyContinue) {
+	} else {
+		$GUIBiometrics.Checked = $True
+	}
+
 	$GUICompatibleTelemetry = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyCompatibleTelemetry)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if ((Test-Path -LiteralPath "HKLM:\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\CompatTelRunner.exe") -ne $true) {
+		$GUICompatibleTelemetry.Checked = $True
+	}
+
 	$GUIDiagnosticData = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1743,9 +1997,20 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.TailoredExperiences)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Privacy" -Name "TailoredExperiencesWithDiagnosticDataEnabled" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Privacy" -Name "TailoredExperiencesWithDiagnosticDataEnabled" -ErrorAction SilentlyContinue) {
+			"2" { $GUITailoredExperiences.Checked = $True }
+			"0" { $GUITailoredExperiences.Checked = $False }
+			default {
+				$GUITailoredExperiences.Checked = $True
+			}
+		}
+	} else {
+		$GUITailoredExperiences.Checked = $True
+	}
+
 	$GUIFeedbackNotifications = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1757,9 +2022,20 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.PrivacyLocationTracking)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location" -Name "Value" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location" -Name "Value" -ErrorAction SilentlyContinue) {
+			"Allow" { $GUILocationTracking.Checked = $True }
+			"Deny" { $GUILocationTracking.Checked = $False }
+			default {
+				$GUILocationTracking.Checked = $True
+			}
+		}
+	} else {
+		$GUILocationTracking.Checked = $True
+	}
+
 	$GUIExperiencesTelemetry = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1771,16 +2047,38 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.OnlineSR)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy" -Name "HasAccepted" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Speech_OneCore\Settings\OnlineSpeechPrivacy" -Name "HasAccepted" -ErrorAction SilentlyContinue) {
+			"0" { $GUIOnlineSR.Checked = $True }
+			"1" { $GUIOnlineSR.Checked = $False }
+			default {
+				$GUIOnlineSR.Checked = $True
+			}
+		}
+	} else {
+		$GUIOnlineSR.Checked = $True
+	}
+
 	$Start_TrackProgs  = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.Start_TrackProgs)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_TrackProgs" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Start_TrackProgs" -ErrorAction SilentlyContinue) {
+			"0" { $Start_TrackProgs.Checked = $True }
+			"1" { $Start_TrackProgs.Checked = $False }
+			default {
+				$GUITimelineTime.Checked = $True
+			}
+		}
+	} else {
+		$Start_TrackProgs.Checked = $True
+	}
+
 	$GUIPrivacyBackgroundAccess = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
@@ -1792,15 +2090,36 @@ Function Optimization_System_UI
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.TimelineTime)"
-		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	if (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "EnableActivityFeed" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "EnableActivityFeed" -ErrorAction SilentlyContinue) {
+			"0" { $GUITimelineTime.Checked = $True }
+			"1" { $GUITimelineTime.Checked = $False }
+			default {
+				$GUITimelineTime.Checked = $True
+			}
+		}
+	} else {
+		$GUITimelineTime.Checked = $True
+	}
+
 	$GUICollectActivity = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
 		Text           = "$($lang.Disable) $($lang.CollectActivity)"
-		Checked        = $true
 		ForeColor      = "#008000"
+	}
+	if (Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "PublishUserActivities" -ErrorAction SilentlyContinue) {
+		switch (Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\System" -Name "PublishUserActivities" -ErrorAction SilentlyContinue) {
+			"0" { $GUICollectActivity.Checked = $True }
+			"1" { $GUICollectActivity.Checked = $False }
+			default {
+				$GUICollectActivity.Checked = $True
+			}
+		}
+	} else {
+		$GUICollectActivity.Checked = $True
 	}
 
 	<#
@@ -2110,7 +2429,8 @@ Function Optimization_System_UI
 
 	$GUIPagingSizePanel.controls.AddRange((
 		$GUIPagingSizeLow,
-		$GUIPagingSizeHigh
+		$GUIPagingSizeHigh,
+		$GUIPagingSizeUltra
 	))
 
 	$GUIExplorerPanel.controls.AddRange((
@@ -3623,8 +3943,8 @@ Function Thumbnail_Cache
 
 
 <#
-	.Show file name extensions
-	.显示文件扩展名
+	.This PC
+	.此 PC
 #>
 Function Explorer_Open_To
 {
@@ -3701,13 +4021,13 @@ Function File_Extensions
 	write-host "  $($lang.FileExtensions)"
 	if ($Show) {
 		write-host "  $($lang.Show)".PadRight(22) -NoNewline
-		New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideFileExt -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideFileExt -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
 
 	if ($Hide) {
 		write-host "  $($lang.Hide)".PadRight(22) -NoNewline
-		New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideFileExt -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideFileExt -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
 }
@@ -3805,13 +4125,13 @@ Function Snap_Assist_Flyout
 	write-host "  $($lang.SnapAssistFlyout)"
 	if ($Enabled) {
 		write-host "  $($lang.Enable)".PadRight(22) -NoNewline
-		New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name EnableSnapAssistFlyout -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name EnableSnapAssistFlyout -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
 		write-host "  $($lang.Inoperable)`n" -ForegroundColor Red
 	}
 
 	if ($Disable) {
 		write-host "  $($lang.Disable)".PadRight(22) -NoNewline
-		New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name EnableSnapAssistFlyout -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name EnableSnapAssistFlyout -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
 }
@@ -3833,13 +4153,13 @@ Function Taskbar_Alignment
 
 	if ($Left) {
 		write-host "  $($lang.TaskbarAlignment)$($lang.TaskbarAlignmentLeft)"
-		New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarAl -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAl -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
 
 	if ($Center) {
 		write-host "  $($lang.TaskbarAlignment)$($lang.TaskbarAlignmentCentered)"
-		New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarAl -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAl -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
 }
@@ -3867,7 +4187,7 @@ Function Taskbar_Widgets
 	if ($Show) {
 		write-host "  $($lang.Show)".PadRight(22) -NoNewline
 		if ($MarkHasBeenInstalled) {
-			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarDa -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
+			New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarDa -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
 			Write-Host "$($lang.Done)`n" -ForegroundColor Green
 		} else {
 			write-host "  $($lang.Inoperable)`n" -ForegroundColor Red
@@ -3878,7 +4198,7 @@ Function Taskbar_Widgets
 	if ($Hide) {
 		write-host "  $($lang.Hide)".PadRight(22) -NoNewline
 		if ($MarkHasBeenInstalled) {
-			New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarDa -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
+			New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarDa -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
 			Write-Host "$($lang.Done)`n" -ForegroundColor Green
 		} else {
 			write-host "  $($lang.Inoperable)`n" -ForegroundColor Red
@@ -3888,8 +4208,8 @@ Function Taskbar_Widgets
 }
 
 <#
-	.Taskbar widget icon
-	.任务栏小组件图标
+	.Add 'End Task' button to taskbar icon
+	.任务栏图标添加结束任务按钮
 #>
 Function End_Task
 {
@@ -4007,20 +4327,20 @@ Function Teams_Taskbar_Chat
 	if ($Show) {
 		write-host "  $($lang.Show)".PadRight(22) -NoNewline
 		# Windows 11
-		New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarMn -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarMn -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
 
 		# Windows 10
-		New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideSCAMeetNow -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideSCAMeetNow -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
 
 	if ($Hide) {
 		write-host "  $($lang.Hide)".PadRight(22) -NoNewline
 		# Windows 11
-		New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name TaskbarMn -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarMn -PropertyType DWord -Value 0 -Force -ErrorAction SilentlyContinue | Out-Null
 
 		# Windows 10
-		New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer -Name HideSCAMeetNow -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
+		New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name HideSCAMeetNow -PropertyType DWord -Value 1 -Force -ErrorAction SilentlyContinue | Out-Null
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
 }
@@ -5222,15 +5542,15 @@ Function Start_TrackProgs
 	write-host "  $($lang.Start_TrackProgs)"
 	if ($Enabled) {
 		write-host "  $($lang.Enable)".PadRight(22) -NoNewline
-		if ((Test-Path -LiteralPath "Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced") -ne $true) { New-Item "Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -force -ErrorAction SilentlyContinue | Out-Null }
+		if ((Test-Path -LiteralPath "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced") -ne $true) { New-Item "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -force -ErrorAction SilentlyContinue | Out-Null }
 		New-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'Start_TrackProgs' -Value 1 -PropertyType DWord -force -ErrorAction SilentlyContinue | Out-Null
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
 
 	if ($Disable) {
 		write-host "  $($lang.Disable)".PadRight(22) -NoNewline
-		if ((Test-Path -LiteralPath "Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced") -ne $true) { New-Item "Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -force -ErrorAction SilentlyContinue | Out-Null }
-		New-ItemProperty -LiteralPath 'Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'Start_TrackProgs' -Value 0 -PropertyType DWord -force -ErrorAction SilentlyContinue | Out-Null
+		if ((Test-Path -LiteralPath "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced") -ne $true) { New-Item "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -force -ErrorAction SilentlyContinue | Out-Null }
+		New-ItemProperty -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced' -Name 'Start_TrackProgs' -Value 0 -PropertyType DWord -force -ErrorAction SilentlyContinue | Out-Null
 		Write-Host "$($lang.Done)`n" -ForegroundColor Green
 	}
 }
@@ -5381,8 +5701,7 @@ Function Network_Discovery
 	write-host "  $($lang.NetworkDiscovery)"
 	if ($Enabled) {
 		write-host "  $($lang.Enable)".PadRight(22) -NoNewline
-		if ((Get-CimInstance -ClassName CIM_ComputerSystem).PartOfDomain -eq $false)
-		{
+		if ((Get-CimInstance -ClassName CIM_ComputerSystem).PartOfDomain -eq $false) {
 			Set-NetFirewallRule -Group $FirewallRules -Profile Private -Enabled True -ErrorAction SilentlyContinue | Out-Null
 			Set-NetFirewallRule -Profile Public, Private -Name FPS-SMB-In-TCP -Enabled True -ErrorAction SilentlyContinue | Out-Null
 			Set-NetConnectionProfile -NetworkCategory Private
@@ -5394,8 +5713,7 @@ Function Network_Discovery
 
 	if ($Disable) {
 		write-host "  $($lang.Disable)".PadRight(22) -NoNewline
-		if ((Get-CimInstance -ClassName CIM_ComputerSystem).PartOfDomain -eq $false)
-		{
+		if ((Get-CimInstance -ClassName CIM_ComputerSystem).PartOfDomain -eq $false) {
 			Set-NetFirewallRule -Group $FirewallRules -Profile Private -Enabled False -ErrorAction SilentlyContinue | Out-Null
 			Write-Host "$($lang.Done)`n" -ForegroundColor Green
 		} else {
@@ -6577,6 +6895,9 @@ Function System_Disk_Page_Size
 			}
 			16 {
 				New-ItemProperty -LiteralPath 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name 'PagingFiles' -Value @("$($env:SystemDrive)\pagefile.sys 16384 16384") -PropertyType MultiString -force -ErrorAction SilentlyContinue | Out-Null
+			}
+			32 {
+				New-ItemProperty -LiteralPath 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name 'PagingFiles' -Value @("$($env:SystemDrive)\pagefile.sys 32768 32768") -PropertyType MultiString -force -ErrorAction SilentlyContinue | Out-Null
 			}
 		}
 	}
