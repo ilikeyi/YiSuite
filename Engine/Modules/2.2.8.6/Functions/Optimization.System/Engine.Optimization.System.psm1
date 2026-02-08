@@ -1707,10 +1707,6 @@ Function Optimization_System_UI
 		Text           = "$($lang.Setting) $($lang.MergeTaskbarNever)"
 		ForeColor      = "#008000"
 	}
-	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarGlomLevel" -ErrorAction SilentlyContinue) {
-	} else {
-		$GUIMergeTaskbarNever.Checked = $True
-	}
 
 	$GUINotificationAlways = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
