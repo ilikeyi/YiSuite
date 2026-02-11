@@ -687,6 +687,12 @@ Function Optimization_System_UI
 		Checked        = $true
 		ForeColor      = "#008000"
 	}
+	$GUI_dgreadinessTips = New-Object System.Windows.Forms.Label -Property @{
+		autoSize       = 1
+		Text           = $lang.Reboot
+		Padding        = "15,0,0,0"
+		Margin         = "0,0,0,25"
+	}
 
 	<#
 		.Windows 聚焦 桌面背景选项
@@ -2387,7 +2393,10 @@ Function Optimization_System_UI
 		$GUIECN
 	))
 
-	$UI_Main_Optimiz_Other.controls.AddRange($GUI_dgreadiness)
+	$UI_Main_Optimiz_Other.controls.AddRange((
+		$GUI_dgreadiness,
+		$GUI_dgreadinessTips
+	))
 
 	if (IsWin11) {
 		$UI_Main_Optimiz_Other.controls.AddRange((

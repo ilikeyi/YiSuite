@@ -83,11 +83,12 @@ Function Optimization_Service_UI
 					if ($_.Checked) {
 						write-host "  $($_.Text)"
 						write-host "  $($lang.SettingTo -f $lang.Auto)" -ForegroundColor Green
-						Get-Service -Name $_.Tag | Set-Service -StartupType Automatic -ErrorAction SilentlyContinue | Out-Null
+						Get-Service -Name $_.Tag -ErrorAction SilentlyContinue | Set-Service -StartupType Automatic -ErrorAction SilentlyContinue | Out-Null
 						if ($GUIServerStatus.Checked) {
 							write-host "  $($lang.Enable)" -ForegroundColor Green
 							Start-Service $_.Tag -ErrorAction SilentlyContinue | Out-Null
 						}
+
 						write-host "  $($lang.Done)`n" -ForegroundColor Green
 					}
 				}
@@ -108,11 +109,12 @@ Function Optimization_Service_UI
 					if ($_.Checked) {
 						write-host "  $($_.Text)"
 						write-host "  $($lang.SettingTo -f $lang.Disable)" -ForegroundColor Green
-						Get-Service -Name $_.Tag | Set-Service -StartupType Disabled -ErrorAction SilentlyContinue | Out-Null
+						Get-Service -Name $_.Tag -ErrorAction SilentlyContinue | Set-Service -StartupType Disabled -ErrorAction SilentlyContinue | Out-Null
 						if ($GUIServerStatus.Checked) {
 							write-host "  $($lang.Close)" -ForegroundColor Green
 							Stop-Service $_.Tag -Force -NoWait -ErrorAction SilentlyContinue | Out-Null
 						}
+
 						write-host "  $($lang.Done)`n" -ForegroundColor Green
 					}
 				}
@@ -134,6 +136,14 @@ Function Optimization_Service_UI
 		"WlanSvc"
 		"WSearch"
 	)
+
+	Get-Service -ErrorAction SilentlyContinue | ForEach-Object {
+		if ($Services -Contains $_.Name) {
+			if ($_.Status -eq "Stopped") {
+			 	$ServiceUncheck += $_.Name
+			}
+		}
+	}
 
 	for ($i=0; $i -lt $Services.Count; $i++) {
 		$CheckBox   = New-Object System.Windows.Forms.CheckBox -Property @{
