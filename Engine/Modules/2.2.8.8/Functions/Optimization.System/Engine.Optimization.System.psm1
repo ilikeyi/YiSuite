@@ -1317,10 +1317,6 @@ Function Optimization_System_UI
 		Text           = $lang.NavShowAll
 		ForeColor      = "#008000"
 	}
-	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "NavPaneExpandToCurrentFolder" -ErrorAction SilentlyContinue) {
-	} else {
-		$GUINavShowAll.Checked = $True
-	}
 
 	$GUIAutoplay       = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
@@ -1756,19 +1752,8 @@ Function Optimization_System_UI
 	$GUITaskView       = New-Object System.Windows.Forms.CheckBox -Property @{
 		Height         = 40
 		Width          = 410
-		Text           = $lang.TaskView
+		Text           = "$($lang.Hide) $($lang.TaskView)"
 		ForeColor      = "#008000"
-	}
-	if (Get-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -ErrorAction SilentlyContinue) {
-		switch (Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -ErrorAction SilentlyContinue) {
-			"0" { $GUITaskView.Checked = $False }
-			"1" { $GUITaskView.Checked = $True }
-			default {
-				$GUITaskView.Checked = $True
-			}
-		}
-	} else {
-		$GUITaskView.Checked = $True
 	}
 
 	<#
